@@ -195,7 +195,8 @@ export async function getDocBySlug(slug: string, isHome = false) {
         .use(remarkWrapHeadings)
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeShiki, {
-          theme: 'aurora-x'
+          theme: 'aurora-x',
+          addLanguageClass: true
         })
         .use(rehypeKatex)
         .use(rehypeStringify, { allowDangerousHtml: true })
