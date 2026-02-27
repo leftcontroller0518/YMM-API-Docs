@@ -10,6 +10,29 @@ type Target = {
   element: HTMLElement
   pre: HTMLElement
   wrapper: HTMLElement
+  language: string
+}
+
+function normalizeLanguage(value: string) {
+  return value.replace(/[_-]+/g, " ").trim()
+}
+
+function resolveLanguage(preElement: HTMLElement) {
+  const code = preElement.querySelector("code")
+  const candidates = [
+    preElement.dataset.language,
+    preElement.dataset.lang,
+    code?.getAttribute("data-language") || undefined,
+    code?.getAttribute("data-lang") || undefined,
+    preElement.className.match(/language-([\w-]+)/)?.[1],
+    code?.className.match(/language-([\w-]+)/)?.[1],
+  ]
+
+  for (const candidate of candidates) {
+    if (candidate && candidate.trim()) return normalizeLanguage(candidate)
+  }
+
+  return "text"
 }
 
 export function CodeCopyButtons() {
@@ -29,7 +52,6 @@ export function CodeCopyButtons() {
     const mapped: Target[] = []
 
     for (const [index, preElement] of preElements.entries()) {
-      if (preElement.offsetParent === null) continue
       const parent = preElement.parentElement
       if (!parent) continue
 
@@ -42,10 +64,12 @@ export function CodeCopyButtons() {
 
       const host = document.createElement("div")
       host.dataset.codeCopyHost = "true"
-      host.className = "pointer-events-none sticky top-16 z-10 mb-[-2.5rem] flex h-10 justify-end pr-2 pt-2 lg:top-2"
+      host.className = "code-copy-header"
       wrapper.prepend(host)
 
-      mapped.push({ id: `code-copy-${index}`, element: host, pre: preElement, wrapper })
+      const language = resolveLanguage(preElement)
+
+      mapped.push({ id: `code-copy-${index}`, element: host, pre: preElement, wrapper, language })
     }
 
     setTargets(mapped)
@@ -72,15 +96,17 @@ export function CodeCopyButtons() {
     <>
       {targets.map((target) =>
         createPortal(
-          <button
-            key={target.id}
-            type="button"
-            onClick={() => void handleCopy(target)}
-            className="pointer-events-auto rounded-md bg-black/80 p-1.5 text-white backdrop-blur hover:bg-black"
-            aria-label="Copy code"
-          >
-            {copiedId === target.id ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          </button>,
+          <div key={target.id} className="flex h-10 items-center justify-between border-b border-[#2a3140] bg-[#0b0f17] px-3 text-sm text-[#e5e7eb]">
+            <span className="font-mono text-xs uppercase tracking-wide">{target.language}</span>
+            <button
+              type="button"
+              onClick={() => void handleCopy(target)}
+              className="pointer-events-auto inline-flex h-7 w-7 items-center justify-center bg-transparent text-[#e5e7eb]"
+              aria-label="Copy code"
+            >
+              {copiedId === target.id ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+            </button>
+          </div>,
           target.element,
         ),
       )}
