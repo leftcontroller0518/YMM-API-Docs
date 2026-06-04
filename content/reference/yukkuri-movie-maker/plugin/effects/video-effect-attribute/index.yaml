@@ -22,17 +22,17 @@ constructors:
     description: "映像エフェクトの詳細を設定します。"
 
 properties:
-  - name: "[Name](property/name.yaml)"
+  - name: "[Name](property/name)"
     description: "エフェクトの名前を取得または設定します。"
-  - name: "[Categories](property/categories.yaml)"
+  - name: "[Categories](property/categories)"
     description: "エフェクトが所属するカテゴリを取得または設定します。"
-  - name: "[Keywords](property/keywords.yaml)"
+  - name: "[Keywords](property/keywords)"
     description: "検索用キーワードを取得または設定します。"
-  - name: "[IsEffectItemSupported](property/is-effect-item-supported.yaml)"
+  - name: "[IsEffectItemSupported](property/is-effect-item-supported)"
     description: "エフェクトアイテムがこのエフェクトに対応しているかを取得または設定します。"
-  - name: "[IsAviUtlSupported](property/is-aviutl-supported.yaml)"
+  - name: "[IsAviUtlSupported](property/is-aviutl-supported)"
     description: "AviUtlがこのエフェクトに対応しているかを取得または設定します。"
-  - name: "[ResourceType](property/resource-type.yaml)"
+  - name: "[ResourceType](property/resource-type)"
     description: "カスタムリソースの型を取得または設定します。エフェクトのパラメータや名前、カテゴリーの多言語化に使用されます。"
 
 methods:
