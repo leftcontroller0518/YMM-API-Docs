@@ -1,0 +1,7 @@
+id: "T:YukkuriMovieMaker.Plugin.DisplacementMode"
+type: enum
+name: YukkuriMovieMaker.Plugin.DisplacementMode
+namespace: YukkuriMovieMaker.Plugin
+summary: 変位マップエフェクトのモードを表す列挙型。
+accessibility: public
+since: 4.40

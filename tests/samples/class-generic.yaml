@@ -1,0 +1,12 @@
+id: "T:YukkuriMovieMaker.Plugin.Repository`1"
+type: class
+name: YukkuriMovieMaker.Plugin.Repository`1
+namespace: YukkuriMovieMaker.Plugin
+summary: エンティティを管理するジェネリックリポジトリ。
+accessibility: public
+genericParameters:
+  - T
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object

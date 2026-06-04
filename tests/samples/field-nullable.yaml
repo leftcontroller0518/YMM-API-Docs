@@ -1,0 +1,13 @@
+id: "F:YukkuriMovieMaker.Plugin.VideoNode._cachedBuffer"
+type: field
+name: _cachedBuffer
+namespace: YukkuriMovieMaker.Plugin
+summary: キャッシュされたフレームバッファ。未初期化時は null。
+accessibility: private
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+fieldType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FrameBuffer
+  nullable: true

@@ -1,0 +1,18 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.Process(YukkuriMovieMaker.Plugin.FrameBuffer)"
+type: method
+name: Process
+namespace: YukkuriMovieMaker.Plugin
+summary: 指定バッファでフレームを処理する。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+parameters:
+  - name: buffer
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+returns:
+  type:
+    kind: named
+    name: System.Void

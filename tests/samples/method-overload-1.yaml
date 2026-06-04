@@ -1,0 +1,12 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.Process"
+type: method
+name: Process
+namespace: YukkuriMovieMaker.Plugin
+summary: フレームを処理する（引数なし）。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: named
+    name: System.Void

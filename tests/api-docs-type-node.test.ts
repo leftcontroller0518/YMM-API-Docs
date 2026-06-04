@@ -1,6 +1,6 @@
 import assert from "node:assert/strict"
 import { describe, it } from "node:test"
-import { TypeNodeSchema } from "../lib/api-docs/type-node"
+import { TypeNodeSchema } from "@/lib/api-docs/type-node"
 
 describe("TypeNodeSchema", () => {
   it("accepts named type nodes", () => {
@@ -19,6 +19,29 @@ describe("TypeNodeSchema", () => {
       type: {
         kind: "named",
         name: "System.String",
+      },
+      nullable: true,
+    })
+
+    assert.equal(result.success, true)
+  })
+
+  it("accepts generic parameter type nodes", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "genericParameter",
+        name: "T",
+      },
+    })
+
+    assert.equal(result.success, true)
+  })
+
+  it("accepts nullable generic parameter type nodes", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "genericParameter",
+        name: "T",
       },
       nullable: true,
     })
@@ -78,6 +101,26 @@ describe("TypeNodeSchema", () => {
     assert.equal(result.success, true)
   })
 
+  it("accepts List<T?>", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "named",
+        name: "System.Collections.Generic.List",
+      },
+      genericArguments: [
+        {
+          type: {
+            kind: "genericParameter",
+            name: "T",
+          },
+          nullable: true,
+        },
+      ],
+    })
+
+    assert.equal(result.success, true)
+  })
+
   it("accepts array type nodes", () => {
     const result = TypeNodeSchema.safeParse({
       type: {
@@ -86,6 +129,27 @@ describe("TypeNodeSchema", () => {
           type: {
             kind: "named",
             name: "YukkuriMovieMaker.FrameBuffer",
+          },
+        },
+      },
+    })
+
+    assert.equal(result.success, true)
+  })
+
+  it("accepts jagged arrays", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "array",
+        elementType: {
+          type: {
+            kind: "array",
+            elementType: {
+              type: {
+                kind: "named",
+                name: "System.Int32",
+              },
+            },
           },
         },
       },
@@ -120,6 +184,38 @@ describe("TypeNodeSchema", () => {
     assert.equal(result.success, true)
   })
 
+  it("accepts nested tuple type nodes", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "tuple",
+        elements: [
+          {
+            name: "value",
+            type: {
+              kind: "tuple",
+              elements: [
+                {
+                  type: {
+                    kind: "named",
+                    name: "System.Int32",
+                  },
+                },
+                {
+                  type: {
+                    kind: "named",
+                    name: "System.Int32",
+                  },
+                },
+              ],
+            },
+          },
+        ],
+      },
+    })
+
+    assert.equal(result.success, true)
+  })
+
   it("rejects empty named type names", () => {
     const result = TypeNodeSchema.safeParse({
       type: {
@@ -137,6 +233,87 @@ describe("TypeNodeSchema", () => {
         kind: "tuple",
         elements: [],
       },
+    })
+
+    assert.equal(result.success, false)
+  })
+
+  it("rejects empty generic arguments", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "named",
+        name: "System.Collections.Generic.List",
+      },
+      genericArguments: [],
+    })
+
+    assert.equal(result.success, false)
+  })
+
+  it("rejects generic arguments on array", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "array",
+        elementType: {
+          type: {
+            kind: "named",
+            name: "System.String",
+          },
+        },
+      },
+      genericArguments: [
+        {
+          type: {
+            kind: "named",
+            name: "System.Int32",
+          },
+        },
+      ],
+    })
+
+    assert.equal(result.success, false)
+  })
+
+  it("rejects generic arguments on tuple", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "tuple",
+        elements: [
+          {
+            type: {
+              kind: "named",
+              name: "System.String",
+            },
+          },
+        ],
+      },
+      genericArguments: [
+        {
+          type: {
+            kind: "named",
+            name: "System.Int32",
+          },
+        },
+      ],
+    })
+
+    assert.equal(result.success, false)
+  })
+
+  it("rejects generic arguments on generic parameter", () => {
+    const result = TypeNodeSchema.safeParse({
+      type: {
+        kind: "genericParameter",
+        name: "T",
+      },
+      genericArguments: [
+        {
+          type: {
+            kind: "named",
+            name: "System.String",
+          },
+        },
+      ],
     })
 
     assert.equal(result.success, false)

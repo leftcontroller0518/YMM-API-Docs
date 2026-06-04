@@ -4,7 +4,7 @@ import {
   ApiYamlDocumentV1Schema,
   ParameterSchema,
   TypeReferenceSchema,
-} from "../lib/api-docs/yaml-v1-schema"
+} from "@/lib/api-docs/yaml-v1-schema"
 
 const namedString = {
   type: {
@@ -19,7 +19,7 @@ describe("ApiYamlDocumentV1Schema", () => {
       id: "N:YukkuriMovieMaker.Plugin",
       type: "namespace",
       name: "YukkuriMovieMaker.Plugin",
-      namespace: "YukkuriMovieMaker.Plugin",
+      namespace: "YukkuriMovieMaker", // 修正: 自己参照禁止のため親名前空間を指定
       summary: "プラグイン API の名前空間。",
     })
 
@@ -67,6 +67,8 @@ describe("ApiYamlDocumentV1Schema", () => {
     const result = ApiYamlDocumentV1Schema.safeParse({
       id: "M:YukkuriMovieMaker.Plugin.VideoNode.Process(YukkuriMovieMaker.FrameBuffer)",
       type: "method",
+      // 注記: 仕様上 name はメンバー名のみ（"Process"）が正しい意味論だが、
+      // スキーマは文字列内容を制限しないためこのテストは通る。
       name: "YukkuriMovieMaker.Plugin.VideoNode.Process",
       namespace: "YukkuriMovieMaker.Plugin",
       summary: "動画フレームを処理します。",
@@ -78,9 +80,12 @@ describe("ApiYamlDocumentV1Schema", () => {
         {
           name: "buffer",
           modifier: "ref",
+          // 修正: type は TypeNode 構造（{ type: TypeNodeValue }）で指定する
           type: {
-            kind: "named",
-            name: "YukkuriMovieMaker.FrameBuffer",
+            type: {
+              kind: "named",
+              name: "YukkuriMovieMaker.FrameBuffer",
+            },
           },
         },
       ],
@@ -190,9 +195,12 @@ describe("ParameterSchema", () => {
       const result = ParameterSchema.safeParse({
         name: "value",
         modifier,
+        // 修正: type は TypeNode 構造（{ type: TypeNodeValue }）で指定する
         type: {
-          kind: "named",
-          name: "System.String",
+          type: {
+            kind: "named",
+            name: "System.String",
+          },
         },
       })
 
@@ -205,8 +213,10 @@ describe("ParameterSchema", () => {
       name: "value",
       modifier: "params",
       type: {
-        kind: "named",
-        name: "System.String",
+        type: {
+          kind: "named",
+          name: "System.String",
+        },
       },
     })
 

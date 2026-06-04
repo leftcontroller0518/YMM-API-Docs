@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.TryGetSize"
+type: method
+name: TryGetSize
+namespace: YukkuriMovieMaker.Plugin
+summary: サイズ取得を試みる。失敗時は null を返す。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: tuple
+    elements:
+      - name: width
+        type:
+          kind: named
+          name: System.Int32
+      - name: height
+        type:
+          kind: named
+          name: System.Int32
+  nullable: true

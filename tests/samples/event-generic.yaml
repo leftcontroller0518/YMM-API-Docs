@@ -1,0 +1,16 @@
+id: "E:YukkuriMovieMaker.Plugin.VideoNode.ErrorOccurred"
+type: event
+name: ErrorOccurred
+namespace: YukkuriMovieMaker.Plugin
+summary: 処理中にエラーが発生したときに発生するイベント。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+eventType:
+  type:
+    kind: named
+    name: System.EventHandler`1
+  genericArguments:
+    - type:
+        kind: named
+        name: System.Exception

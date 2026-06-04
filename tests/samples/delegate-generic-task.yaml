@@ -1,0 +1,27 @@
+id: "D:YukkuriMovieMaker.Plugin.AsyncProcessor`1"
+type: delegate
+name: YukkuriMovieMaker.Plugin.AsyncProcessor`1
+namespace: YukkuriMovieMaker.Plugin
+summary: 非同期処理を行うジェネリックデリゲート。
+accessibility: public
+genericParameters:
+  - TResult
+parameters:
+  - name: buffer
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+  - name: cancellationToken
+    type:
+      type:
+        kind: named
+        name: System.Threading.CancellationToken
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+  genericArguments:
+    - type:
+        kind: genericParameter
+        name: TResult

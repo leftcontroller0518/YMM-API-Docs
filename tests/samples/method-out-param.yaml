@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.TryGetFrame(System.Int32,YukkuriMovieMaker.Plugin.FrameBuffer@)"
+type: method
+name: TryGetFrame
+namespace: YukkuriMovieMaker.Plugin
+summary: 指定フレームインデックスのバッファ取得を試みる。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+parameters:
+  - name: frameIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: buffer
+    modifier: out
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+      nullable: true
+returns:
+  type:
+    kind: named
+    name: System.Boolean

@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin"
+type: namespace
+name: YukkuriMovieMaker.Plugin
+namespace: YukkuriMovieMaker
+summary: YukkuriMovieMaker プラグイン API の名前空間。

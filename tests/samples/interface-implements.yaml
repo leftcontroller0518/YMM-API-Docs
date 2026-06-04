@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.IVideoNode"
+type: interface
+name: YukkuriMovieMaker.Plugin.IVideoNode
+namespace: YukkuriMovieMaker.Plugin
+summary: 動画ノードのインターフェース。
+accessibility: public
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+  - type:
+      kind: named
+      name: System.IAsyncDisposable

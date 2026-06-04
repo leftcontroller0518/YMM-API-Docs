@@ -1,0 +1,18 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.ProcessAsync(YukkuriMovieMaker.Plugin.FrameBuffer)"
+type: method
+name: ProcessAsync
+namespace: YukkuriMovieMaker.Plugin
+summary: フレームバッファを非同期で処理する。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+parameters:
+  - name: buffer
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task

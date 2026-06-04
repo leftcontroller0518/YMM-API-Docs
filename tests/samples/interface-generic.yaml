@@ -1,0 +1,8 @@
+id: "T:YukkuriMovieMaker.Plugin.IProcessor`1"
+type: interface
+name: YukkuriMovieMaker.Plugin.IProcessor`1
+namespace: YukkuriMovieMaker.Plugin
+summary: 入力を処理して結果を返すプロセッサのインターフェース。
+accessibility: public
+genericParameters:
+  - TResult

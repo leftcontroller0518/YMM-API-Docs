@@ -1,0 +1,24 @@
+id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+type: class
+name: YukkuriMovieMaker.Plugin.VideoNode
+namespace: YukkuriMovieMaker.Plugin
+summary: 動画フレームを処理するノードの基底クラス。
+accessibility: public
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.NodeBase
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.VideoNodeBase
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IVideoNode

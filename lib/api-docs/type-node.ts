@@ -8,11 +8,17 @@ export type TypeNode = {
 
 export type TypeNodeValue =
   | NamedTypeNode
+  | GenericParameterTypeNode
   | ArrayTypeNode
   | TupleTypeNode
 
 export type NamedTypeNode = {
   kind: "named"
+  name: string
+}
+
+export type GenericParameterTypeNode = {
+  kind: "genericParameter"
   name: string
 }
 
@@ -35,9 +41,15 @@ export const TypeNodeSchema: z.ZodType<TypeNode> = z.lazy(() =>
     .object({
       type: TypeNodeValueSchema,
       nullable: z.boolean().optional(),
-      genericArguments: z.array(TypeNodeSchema).optional(),
+      genericArguments: z.array(TypeNodeSchema).min(1).optional(),
     })
-    .strict(),
+    .strict()
+    .refine(node => {
+      if (node.type.kind === "named")
+        return true
+
+      return node.genericArguments === undefined
+    }),
 )
 
 export const TupleElementSchema: z.ZodType<TupleElement> = z.lazy(() =>
@@ -58,6 +70,12 @@ export const TypeNodeValueSchema: z.ZodType<TypeNodeValue> = z.lazy(() =>
         kind: z.literal("named"),
         name: z.string().min(1),
       })
+      .strict(),
+    z.
+    object({
+      kind: z.literal("genericParameter"),
+      name: z.string().min(1)
+    })
       .strict(),
     z
       .object({

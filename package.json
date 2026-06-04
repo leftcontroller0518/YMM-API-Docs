@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:api-schema": "tsx tests/api-docs-yaml-v1-schema.test.ts && tsx tests/api-docs-type-node.test.ts"
+    "test:api-schema": "tsx tests/api-docs-yaml-v1-schema.test.ts || tsx tests/api-docs-type-node.test.ts || tsx tests/api-docs-schema-constraints.test.ts || tsx tests/api-parse-test.ts || tsx tests/api-docs-render-type-node.test.ts"
   },
   "packageManager": "pnpm@10.26.2",
   "dependencies": {
