@@ -57,7 +57,7 @@ export const ApiDocumentBaseSchema = z
   })
   .strict()
 
-const NamespaceDocumentSchema = ApiDocumentBaseSchema
+export const NamespaceDocumentSchema = ApiDocumentBaseSchema
   .omit({ accessibility: true })
   .extend({
     id: z.string().regex(/^N:\S[\s\S]*$/),
