@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:api-schema": "tsx tests/api-docs-yaml-v1-schema.test.ts && tsx tests/api-docs-type-node.test.ts"
   },
   "packageManager": "pnpm@10.26.2",
   "dependencies": {
@@ -91,6 +92,7 @@
     "eslint-config-next": "^15.5.19",
     "postcss": "^8.5.15",
     "shiki": "^3.23.0",
+    "tsx": "^4.22.4",
     "typescript": "^5.9.3"
   }
 }
