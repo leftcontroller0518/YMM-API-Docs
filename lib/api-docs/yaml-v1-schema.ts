@@ -57,12 +57,31 @@ export const ApiDocumentBaseSchema = z
   })
   .strict()
 
-export const NamespaceDocumentSchema = ApiDocumentBaseSchema
+const NamespaceDocumentSchemaBase = ApiDocumentBaseSchema
   .omit({ accessibility: true })
   .extend({
     id: z.string().regex(/^N:\S[\s\S]*$/),
     type: z.literal("namespace"),
     namespace: z.string().min(1).optional(),
+  })
+
+export const NamespaceDocumentSchema = NamespaceDocumentSchemaBase
+  .superRefine((doc, ctx) => {
+    if (doc.name !== doc.id.slice(2)) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message:
+          "namespace の name は id から 'N:' を除いた文字列と一致しなければならない",
+      })
+    }
+
+    if (doc.namespace === doc.name) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message:
+          "namespace の namespace フィールドに自己参照は禁止",
+      })
+    }
   })
 
 const TypeDocumentBaseSchema = ApiDocumentBaseSchema.extend({
@@ -125,7 +144,7 @@ export const EventDocumentSchema = MemberDocumentBaseSchema.extend({
 
 export const ApiYamlDocumentV1Schema = z
   .discriminatedUnion("type", [
-    NamespaceDocumentSchema,
+    NamespaceDocumentSchemaBase,  // ZodObject のまま渡す
     ClassDocumentSchema,
     InterfaceDocumentSchema,
     StructDocumentSchema,
@@ -137,8 +156,7 @@ export const ApiYamlDocumentV1Schema = z
     EventDocumentSchema,
   ])
   .superRefine((doc, ctx) => {
-    if (doc.type !== "namespace")
-      return
+    if (doc.type !== "namespace") return
 
     if (doc.name !== doc.id.slice(2)) {
       ctx.addIssue({

@@ -7,7 +7,21 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test:api-schema": "tsx tests/api-docs-yaml-v1-schema.test.ts || tsx tests/api-docs-type-node.test.ts || tsx tests/api-docs-schema-constraints.test.ts || tsx tests/api-parse-test.ts || tsx tests/api-docs-render-type-node.test.ts"
+    "test:all": "pnpm run --parallel \"/^test:.*/\"",
+    "test:api-docs-reference-url": "tsx tests/api-docs-reference-url.ts",
+    "test:api-docs-render-type-node.test": "tsx tests/api-docs-render-type-node.test.ts",
+    "test:api-docs-schema-constraints.test": "tsx tests/api-docs-schema-constraints.test.ts",
+    "test:api-docs-symbol-index": "tsx tests/api-docs-symbol-index.ts",
+    "test:api-docs-type-node.test": "tsx tests/api-docs-type-node.test.ts",
+    "test:api-docs-yaml-v1-schema.test": "tsx tests/api-docs-yaml-v1-schema.test.ts",
+    "test:api-parse-test": "tsx tests/api-parse-test.ts",
+    "test:build-viwmodel-test": "tsx tests/build-viwmodel-test.ts",
+    "test:create-overload-group-test": "tsx tests/create-overload-group-test.ts",
+    "test:inheritance-index.test": "tsx tests/inheritance-index.test.ts",
+    "test:inheritance-test.test": "tsx tests/inheritance-test.ts",
+    "test:integration.test": "tsx tests/integration.test.ts",
+    "test:resolve-type-link.test": "tsx tests/resolve-type-link.test.ts",
+    "test:type-page-model.test": "tsx tests/type-page-model.test.ts"
   },
   "packageManager": "pnpm@10.26.2",
   "dependencies": {
