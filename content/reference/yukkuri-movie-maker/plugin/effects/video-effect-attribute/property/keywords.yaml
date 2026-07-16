@@ -1,13 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.Keywords"
 type: property
-title: "Keywords プロパティー"
-description: "エフェクトの検索キーワード"
+name: "Keywords"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "エフェクトの検索キーワードを取得または設定します。コンパイル時に評価される必要があります。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+propertyType:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
 code: |
   public string[] Keywords { get; }
-
-propertyType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)[]"
-propertyValue: "エフェクトの検索キーワードの配列。"

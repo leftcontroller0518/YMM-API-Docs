@@ -1,25 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.Effects"
 type: namespace
-title: "YukkuriMovieMaker.Plugin.Effects 名前空間"
-description: "映像エフェクトプラグインの名前空間"
-namespace: "YukkuriMovieMaker.Plugin.Effects"
+name: "YukkuriMovieMaker.Plugin.Effects"
+namespace: "YukkuriMovieMaker.Plugin"
 summary: "エフェクトプラグインを作成に必要な型を提供します。"
-
-classes:
-  - name: "VideoEffectAttribute"
-    description: "音声エフェクトの属性クラス。"
-  - name: "VideoEffectBase"
-    description: "音声エフェクトの基底クラス。"
-  - name: "VideoEffectCategories"
-    description: "音声エフェクトのカテゴリーキーを定義するクラス。"
-  - name: "[VideoEffectAttribute](video-effect-attribute)"
-    description: "映像エフェクトの属性クラス。"
-  - name: "[VideoEffectBase](video-effect-base)"
-    description: "映像エフェクトの基底クラス。"
-  - name: "[VideoEffectCategories](video-effect-categories)"
-    description: "映像エフェクトのカテゴリーキーを定義するクラス。"
-
-interfaces:
-  - name: "[IVideoEffect](i-video-effect)"
-    description: "映像エフェクトのインターフェイス。"
-  - name: "[IAudioEffect](i-audio-effect)"
-    description: "音声エフェクトのインターフェイス。"

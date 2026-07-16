@@ -1,13 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.IVideoEffect.Remark"
 type: property
-title: "Remark プロパティー"
-description: "エフェクトの備考"
+name: "Remark"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "エフェクトについて備考を取得または設定します。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
+propertyType:
+  type:
+    kind: named
+    name: System.String
 code: |
   public string Remark { get; set; }
-
-propertyType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-propertyValue: "備考。"

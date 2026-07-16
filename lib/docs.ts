@@ -19,6 +19,7 @@ import remarkWrapHeadings from "./remarkWrapHeadings"
 import remarkRemoveFirstH1 from "./remarkRemoveFirstH1"
 import { GITHUB_REPO_BRANCH, GITHUB_REPO_NAME, GITHUB_REPO_USERNAME, IS_GITHUB_REPO_EDITABLE } from "./siteSetting"
 import { yamlToMarkdown } from "./yaml-docs"
+import {isApiDocument, renderApiDocToMarkdown} from "@/lib/api-docs/render-api-doc";
 
 const DOCS_DIRECTORY = path.join(process.cwd(), "content")
 
@@ -177,9 +178,12 @@ export async function getDocBySlug(slug: string, isHome = false) {
 
   try {
     const isYAML = fullPath.endsWith(".yaml") || fullPath.endsWith(".yml")
+    const rawFile = fs.readFileSync(fullPath, "utf8")
     const fileContents = isYAML
-        ? yamlToMarkdown(fs.readFileSync(fullPath, "utf8"))
-        : fs.readFileSync(fullPath, "utf8")
+      ? (isApiDocument(rawFile)
+        ? renderApiDocToMarkdown(rawFile)
+        : yamlToMarkdown(rawFile))
+      : rawFile
     if (!fileContents) return null
     const { data, content } = matter(fileContents)
 
@@ -254,7 +258,7 @@ export async function getDocBySlug(slug: string, isHome = false) {
         .replace(/^#\s+.+$/gm, "")
         .replace(/```[\s\S]*?```/g, "")
         .replace(/`([^`]+)`/g, "$1")
-        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, "$1")
+        .replace(/\[([^\]]+)]\(([^)]+)\)/g, "$1")
         .replace(/[*_>#-]/g, " ")
         .replace(/\s+/g, " ")
         .trim()
@@ -334,9 +338,12 @@ export async function getDocBySlug(slug: string, isHome = false) {
         if (fullPath && !fullPath.endsWith(".name")) {
           try {
             const isYAML = fullPath.endsWith(".yaml") || fullPath.endsWith(".yml")
+            const rawFile = fs.readFileSync(fullPath, "utf8")
             const fileContents = isYAML
-                ? yamlToMarkdown(fs.readFileSync(fullPath, "utf8"))
-                : fs.readFileSync(fullPath, "utf8")
+              ? (isApiDocument(rawFile)
+                ? renderApiDocToMarkdown(rawFile)
+                : yamlToMarkdown(rawFile))
+              : rawFile
 
             if (fileContents) {
               const { data, content } = matter(fileContents)
@@ -404,9 +411,12 @@ export async function getDocTree() {
     if (fileName === ".md" || fileName === ".yaml" || fileName === ".yml") continue
 
     const isYAML = file.endsWith(".yaml") || file.endsWith(".yml")
+    const rawFile = fs.readFileSync(file, "utf8")
     const fileContents = isYAML
-        ? yamlToMarkdown(fs.readFileSync(file, "utf8"))
-        : fs.readFileSync(file, "utf8")
+      ? (isApiDocument(rawFile)
+        ? renderApiDocToMarkdown(rawFile)
+        : yamlToMarkdown(rawFile))
+      : rawFile
     if (!fileContents) return null
     const { data, content } = matter(fileContents)
 

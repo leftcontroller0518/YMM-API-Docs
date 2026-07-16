@@ -1,20 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.IVideoEffect.CreateVideoEffect(YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext)"
 type: method
-title: "CreateVideoEffect メソッド"
-description: "映像エフェクトプロセッサーを生成するメソッド"
+name: "CreateVideoEffect"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "入力画像に対し効果を適用し出力する機能を持つ映像エフェクトオブジェクトを生成します。"
-
-overloads:
-  - name: "CreateVideoEffect(IGraphicsDevicesAndContext)"
-    description: ""
-    code: |
-      public abstract IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);
-    parameters:
-      - name: devices
-        type: IGraphicsDevicesAndContext
-        description: "デバイス。デバイスコンテキストを含む。"
-    returns:
-      type: IVideoEffectProcessor
-      description: "生成された映像エフェクト。"
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.IVideoEffectProcessor
+code: |
+  public abstract IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);

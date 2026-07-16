@@ -1,12 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories.Animation"
 type: field
-title: "Animation フィールド"
-description: "アニメーションカテゴリーのキー"
+name: "Animation"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "アニメーションカテゴリーのキーの名前を返します。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
 code: |
   public const string Animation = "YMM4Key_EffectCategoryAnimationName";
-
-fieldType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"

@@ -1,23 +1,16 @@
-type: class
-title: "IVedeoEffect インターフェース"
-description: "映像エフェクトのインターフェース"
+id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "映像エフェクトの表示名などを保持し、IVideoEffectProcessorなどを返すインターフェースです。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyDataErrorInfo
 code: |
   public interface IVideoEffect : INotifyPropertyChanged, INotifyDataErrorInfo, IUndoRedoable, IEditable, IAnimatable, IFileItem, IResourceItem
-
-properties:
-  - name: "[Label](property/label.yaml)"
-    description: "エフェクトの表示名を取得します。"
-  - name: "[IsEnabled](property/is-enabled.yaml)"
-    description: "エフェクトが有効かどうかを取得または設定します。"
-  - name: "[Remark](property/remark.yaml)"
-    description: "備考を取得または設定します。"
-
-methods:
-  - name: "CreateVideoEffect(IGraphicsDevicesAndContext)"
-    description: "IVideoEffectProcessorを作成し返します。"
-  - name: "CreateExoVideoFilters(int, ExoOutputDescription)"
-    description: "エフェクトのexo文字列を作成し返します。"

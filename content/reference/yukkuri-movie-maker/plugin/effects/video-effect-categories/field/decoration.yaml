@@ -1,13 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories.Decoration"
 type: field
-title: "Decoration フィールド"
-description: "装飾カテゴリーのキー"
+name: "Decoration"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "装飾カテゴリーのキーの名前を返します。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
 code: |
   public const string Decoration = "YMM4Key_EffectCategoryDecorationName";
-
-fieldType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-

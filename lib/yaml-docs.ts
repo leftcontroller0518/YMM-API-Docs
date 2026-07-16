@@ -360,12 +360,13 @@ function generateMethodMarkdown(data: MethodDocument): string {
     let markdown = generateCommonHeader(data)
 
     // オーバーロード一覧
-    if (data.overloads.length > 1) {
+    if (data.overloads && data.overloads.length > 1) {
         markdown += `## オーバーロード\n\n`
         markdown += generateTable(["名前", "説明"], data.overloads)
     }
 
     // 各オーバーロードの詳細
+    if (data.overloads)
     for (const overload of data.overloads) {
         if (data.overloads.length > 1) {
             markdown += `## ${overload.name}\n\n`

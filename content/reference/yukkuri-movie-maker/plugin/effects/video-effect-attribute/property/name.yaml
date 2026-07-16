@@ -1,13 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.Name"
 type: property
-title: "Name プロパティー"
-description: "エフェクトの名前"
+name: "Name"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
+accessibility: public
+summary: "エフェクトの名前を取得または設定します。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
-summary: "エフェクトの名前を取得または設定します。コンパイル時に評価される必要があります。[ResourceType](../resource-type) プロパティを設定すると、それが示すクラスのプロパティ名を使って設定できます。"
-
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.String
 code: |
   public string Name { get; set; }
-
-propertyType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-propertyValue: "名前。"

@@ -8,9 +8,12 @@ export interface ResolvedTypeLink {
   readonly url?: string
 }
 
+export type ExternalTypeLinks = ReadonlyMap<string, string>
+
 export function resolveTypeLink(
   node: TypeNode,
   index: SymbolIndex,
+  externalLinks?: ExternalTypeLinks,
 ): ResolvedTypeLink {
 
   const text = renderTypeNode(node)
@@ -21,12 +24,22 @@ export function resolveTypeLink(
 
   const symbolId = `T:${node.type.name}`
 
-  if (!index.byId.has(symbolId)) {
-    return { text }
+  if (index.byId.has(symbolId)) {
+    return {
+      text,
+      url: getReferenceUrl(symbolId),
+    }
   }
 
-  return {
-    text,
-    url: getReferenceUrl(symbolId),
+  if (externalLinks !== undefined) {
+    const externalUrl = externalLinks.get(node.type.name)
+    if (externalUrl !== undefined) {
+      return {
+        text,
+        url: externalUrl,
+      }
+    }
   }
+
+  return { text }
 }

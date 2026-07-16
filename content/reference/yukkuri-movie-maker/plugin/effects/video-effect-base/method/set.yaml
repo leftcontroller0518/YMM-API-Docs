@@ -1,54 +1,42 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.Set``1(``0@,``0,System.String,System.String[])"
 type: method
-title: "Set メソッド"
-description: "プロパティーに値を設定し、変更を通知するメソッド"
+name: "Set"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: protected
 summary: "参照、または式で与えられるプロパティーに値を設定し、変更があった場合YMMはそれを検知します。"
-
-overloads:
-  - name: "Set<T>(ref T, T, string, params string[])"
-    description: "参照渡しされたストレージに値を設定し、変更を通知します。"
-    code: |
-      protected override bool Set<T>(ref T storage, T value, [CallerMemberName] string name = "", params string[] etcChangedPropertyNames);
-    typeParameters:
-      - name: T
-        description: "設定するプロパティーの型。"
-    parameters:
-      - name: storage
-        type: T
-        description: "変更するプロパティーへの参照。"
-      - name: value
-        type: T
-        description: "`storage`に設定する新しい値。"
-      - name: name
-        type: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-        description: "変更されるプロパティー名。指定がない場合、呼び出し元の名前が自動で設定されます。"
-        attributes:
-          - "[CallerMemberName](https://learn.microsoft.com/ja-jp/dotnet/api/system.runtime.compilerservices.callermembernameattribute)"
-      - name: etcChangedPropertyNames
-        type: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)[]"
-        description: "値の変更通知が必要な他のプロパティー名を可変長引数として指定します。"
-
-  - name: "Set<T>(Expression<Func<T>>, T, string, params string[])"
-    description: "プロパティーセレクターを使用してプロパティーに値を設定し、変更を通知します。"
-    code: |
-      protected override bool Set<T>(Expression<Func<T>> propertySelector, T value, [CallerMemberName] string name = "", params string[] etcChangedPropertyNames);
-    typeParameters:
-      - name: T
-        description: "設定するプロパティーの型。"
-    parameters:
-      - name: propertySelector
-        type: "[Expression](https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.expressions.expression-1)<[Func](https://learn.microsoft.com/ja-jp/dotnet/api/system.func-1)<T>>"
-        description: "値を格納するプロパティーを選択する式。"
-      - name: value
-        type: T
-        description: "`propertySelector`で指定したプロパティーに設定する新しい値。"
-      - name: name
-        type: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-        description: "変更されるプロパティー名。指定がない場合、呼び出し元の名前が自動で設定されます。"
-        attributes:
-          - "[CallerMemberName](https://learn.microsoft.com/ja-jp/dotnet/api/system.runtime.compilerservices.callermembernameattribute)"
-      - name: etcChangedPropertyNames
-        type: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)[]"
-        description: "値の変更通知が必要な他のプロパティー名を可変長引数として指定します。"
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+genericParameters:
+  - T
+parameters:
+  - name: storage
+    modifier: ref
+    type:
+      type:
+        kind: genericParameter
+        name: T
+  - name: value
+    type:
+      type:
+        kind: genericParameter
+        name: T
+  - name: name
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: etcChangedPropertyNames
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  protected override bool Set<T>(ref T storage, T value, [CallerMemberName] string name = "", params string[] etcChangedPropertyNames);

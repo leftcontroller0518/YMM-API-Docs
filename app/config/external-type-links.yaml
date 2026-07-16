@@ -1,0 +1,30 @@
+# .NET BCL
+System.Object: https://learn.microsoft.com/ja-jp/dotnet/api/system.object
+System.String: https://learn.microsoft.com/ja-jp/dotnet/api/system.string
+System.Boolean: https://learn.microsoft.com/ja-jp/dotnet/api/system.boolean
+System.Int32: https://learn.microsoft.com/ja-jp/dotnet/api/system.int32
+System.Double: https://learn.microsoft.com/ja-jp/dotnet/api/system.double
+System.Single: https://learn.microsoft.com/ja-jp/dotnet/api/system.single
+System.Void: https://learn.microsoft.com/ja-jp/dotnet/api/system.void
+System.Type: https://learn.microsoft.com/ja-jp/dotnet/api/system.type
+System.Attribute: https://learn.microsoft.com/ja-jp/dotnet/api/system.attribute
+System.Enum: https://learn.microsoft.com/ja-jp/dotnet/api/system.enum
+System.Exception: https://learn.microsoft.com/ja-jp/dotnet/api/system.exception
+
+# Generics
+System.Collections.Generic.IEnumerable: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.ienumerable-1
+System.Collections.Generic.IList: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.ilist-1
+System.Collections.Generic.List: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.list-1
+System.Collections.Generic.Dictionary: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.dictionary-2
+
+# Task
+System.Threading.Tasks.Task: https://learn.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task
+System.Threading.Tasks.ValueTask: https://learn.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.valuetask
+
+# ComponentModel
+System.ComponentModel.INotifyPropertyChanged: https://learn.microsoft.com/ja-jp/dotnet/api/system.componentmodel.inotifypropertychanged
+System.ComponentModel.INotifyDataErrorInfo: https://learn.microsoft.com/ja-jp/dotnet/api/system.componentmodel.inotifydataerrorinfo
+
+# Expressions
+System.Linq.Expressions.Expression: https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.expressions.expression-1
+System.Func: https://learn.microsoft.com/ja-jp/dotnet/api/system.func-1

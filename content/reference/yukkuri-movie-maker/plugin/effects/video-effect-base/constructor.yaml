@@ -1,11 +1,15 @@
-type: constructor
-title: "コンストラクター"
-description: "VideoEffectBase クラスのコンストラクター"
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.#ctor"
+type: method
+name: "#ctor"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../.."
+accessibility: public
+summary: "VideoEffectBase クラスの新しいインスタンスを初期化します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
-summary: "[VideoEffectBase](.) クラスの新しいインスタンスを初期化します。"
-
-overloads:
-  - code: |
-      public VideoEffectBase()
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public VideoEffectBase()

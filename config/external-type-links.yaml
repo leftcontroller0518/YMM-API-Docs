@@ -1,0 +1,41 @@
+# .NET BCL - 基本型
+System.Object: https://learn.microsoft.com/ja-jp/dotnet/api/system.object
+System.String: https://learn.microsoft.com/ja-jp/dotnet/api/system.string
+System.Boolean: https://learn.microsoft.com/ja-jp/dotnet/api/system.boolean
+System.Int32: https://learn.microsoft.com/ja-jp/dotnet/api/system.int32
+System.Double: https://learn.microsoft.com/ja-jp/dotnet/api/system.double
+System.Single: https://learn.microsoft.com/ja-jp/dotnet/api/system.single
+System.Void: https://learn.microsoft.com/ja-jp/dotnet/api/system.void
+System.Type: https://learn.microsoft.com/ja-jp/dotnet/api/system.type
+System.Attribute: https://learn.microsoft.com/ja-jp/dotnet/api/system.attribute
+System.Enum: https://learn.microsoft.com/ja-jp/dotnet/api/system.enum
+System.Exception: https://learn.microsoft.com/ja-jp/dotnet/api/system.exception
+
+# .NET BCL - ジェネリックコレクション
+System.Collections.Generic.IEnumerable: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.ienumerable-1
+System.Collections.Generic.IList: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.ilist-1
+System.Collections.Generic.IReadOnlyList: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.ireadonlylist-1
+System.Collections.Generic.ICollection: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.icollection-1
+System.Collections.Generic.List: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.list-1
+System.Collections.Generic.Dictionary: https://learn.microsoft.com/ja-jp/dotnet/api/system.collections.generic.dictionary-2
+
+# .NET BCL - 非同期
+System.Threading.Tasks.Task: https://learn.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.task
+System.Threading.Tasks.ValueTask: https://learn.microsoft.com/ja-jp/dotnet/api/system.threading.tasks.valuetask
+
+# .NET BCL - デリゲート
+System.Func: https://learn.microsoft.com/ja-jp/dotnet/api/system.func-2
+System.Action: https://learn.microsoft.com/ja-jp/dotnet/api/system.action-1
+
+# .NET BCL - ComponentModel
+System.ComponentModel.INotifyPropertyChanged: https://learn.microsoft.com/ja-jp/dotnet/api/system.componentmodel.inotifypropertychanged
+System.ComponentModel.INotifyDataErrorInfo: https://learn.microsoft.com/ja-jp/dotnet/api/system.componentmodel.inotifydataerrorinfo
+
+# .NET BCL - Expressions
+System.Linq.Expressions.Expression: https://learn.microsoft.com/ja-jp/dotnet/api/system.linq.expressions.expression-1
+
+# YukkuriMovieMaker - 内部型（SymbolIndexに存在しないが参照される型）
+YukkuriMovieMaker.Commons.Animatable: https://github.com/p-rer/YMM-API-Docs
+YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext: https://github.com/p-rer/YMM-API-Docs
+YukkuriMovieMaker.Player.Video.IVideoEffectProcessor: https://github.com/p-rer/YMM-API-Docs
+YukkuriMovieMaker.Exo.ExoOutputDescription: https://github.com/p-rer/YMM-API-Docs

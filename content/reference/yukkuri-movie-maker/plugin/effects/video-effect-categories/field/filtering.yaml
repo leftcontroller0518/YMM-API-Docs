@@ -1,13 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories.Filtering"
 type: field
-title: "Filtering フィールド"
-description: "加工カテゴリーのキー"
+name: "Filtering"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
-assembly: "YukkuriMovieMaker.Plugin.dll"
+accessibility: public
 summary: "加工カテゴリーのキーの名前を返します。"
-
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
 code: |
   public const string Filtering = "YMM4Key_EffectCategoryFilteringName";
-
-fieldType: "[String](https://learn.microsoft.com/ja-jp/dotnet/api/system.string)"
-

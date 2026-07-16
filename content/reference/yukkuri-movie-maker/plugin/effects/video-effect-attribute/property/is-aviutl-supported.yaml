@@ -1,13 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.IsAviUtlSupported"
 type: property
-title: "IsAviUtlSupported プロパティー"
-description: "エフェクトがAviUtlに対応しているか"
+name: "IsAviUtlSupported"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
-namespaceUrl: "../../.."
+accessibility: public
+summary: "エフェクトがAviUtlに対応しているかを取得または設定します。falseの場合、エフェクト名の隣にYMMアイコンが表示されます。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
-summary: "エフェクトがAviUtlに対応しているかを取得または設定します。この値が`false`の場合、子のエフェクトはYMM4限定対応となり、エフェクト名の隣にYMMアイコンが表示されます。コンパイル時に評価される必要があります。"
-
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
 code: |
   public bool IsAviUtlSupported { get; set; }
-
-propertyType: "[Boolean](https://learn.microsoft.com/ja-jp/dotnet/api/system.boolean)"
-propertyValue: "AviUtl対応の是非。"
