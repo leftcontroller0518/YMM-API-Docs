@@ -80,7 +80,7 @@ const remarkLinkModifier: Plugin = () => {
             node.data.hProperties = {};
           }
           node.data.hProperties.target = '_blank';
-          node.data.hProperties.rel = 'noopener noreferrer';
+          node.data.hProperties.rel = ["noopener", "noreferrer"];
         } else {
           // For internal links, convert the URL to lowercase.
           node.url = node.url.toLowerCase();
