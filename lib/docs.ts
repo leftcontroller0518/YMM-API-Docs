@@ -20,6 +20,7 @@ import remarkRemoveFirstH1 from "./remarkRemoveFirstH1"
 import { GITHUB_REPO_BRANCH, GITHUB_REPO_NAME, GITHUB_REPO_USERNAME, IS_GITHUB_REPO_EDITABLE } from "./siteSetting"
 import { yamlToMarkdown } from "./yaml-docs"
 import {isApiDocument, renderApiDocToMarkdown} from "@/lib/api-docs/render-api-doc";
+import remarkResolveContentImages from "./remarkResolveContentImages"
 
 const DOCS_DIRECTORY = path.join(process.cwd(), "content")
 
@@ -194,6 +195,7 @@ export async function getDocBySlug(slug: string, isHome = false) {
         .use(remarkParse)
         .use(remarkRemoveFirstH1)
         .use(remarkLinkModifier)
+        .use(remarkResolveContentImages(fullPath))
         .use(remarkMath)
         .use(remarkGfm)
         .use(remarkWrapHeadings)
