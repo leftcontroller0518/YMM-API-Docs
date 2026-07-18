@@ -16,7 +16,7 @@ export const metadata : Metadata = {
   },
   description: SITE_DESCRIPTION,
   verification: {
-    google: "aDwWKkJuoJbqULPjl_5adzrTrf_UzVDSzKfSKOyB9RQ",
+    google: "NU1F_MTEtDd_A12q0jSn2wKfLiYI7w8Gev8LATqw8f8",
   },
 }
 
