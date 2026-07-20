@@ -36,7 +36,7 @@ async function generateSummary(text: string): Promise<string> {
     // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する。
     // gemini-2.5-flash は新規ユーザー向けに提供終了したため、
     // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
-    model: google("gemini-3.1-flash-lite-preview"),
+    model: google("gemini-3.1-flash-lite"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
     // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
@@ -58,27 +58,34 @@ async function generateSummary(text: string): Promise<string> {
   return trimmed
 }
 
-/**
- * articleId をキャッシュキーとして AI 要約結果をサーバー側（Data Cache）に保存する。
- *
- * - 本文はサーバー側で articleId から取得し、クライアントからは受け取らない。
- * - `tags: ['summary']` を付与し、記事更新時に
- *   `revalidateTag('summary')` でオンデマンド再検証（強制クリア）できるようにする。
- */
-function getCachedSummary(articleId: string, markdown: string): Promise<string> {
-  const cachedFn = unstable_cache(
-    async () => generateSummary(markdown),
-    // キャッシュキーの一部。articleId ごとに独立したキャッシュになる。
-    ["article-summary", articleId],
-    {
-      tags: ["summary"],
-      // 明示的に revalidateTag するまで保持（時間による自動失効なし）
-      revalidate: false,
-    },
-  )
+class ArticleNotFoundError extends Error {}
+class ArticleTooLongError extends Error {}
+class MissingApiKeyError extends Error {}
 
-  return cachedFn()
-}
+const getCachedSummary = unstable_cache(
+  async (articleId: string): Promise<string> => {
+    const doc = await getDocBySlug(articleId === "home" ? "" : articleId, articleId === "home")
+
+    if (!doc) {
+      throw new ArticleNotFoundError("指定された記事が見つかりません")
+    }
+
+    if (doc.markdown.length > MAX_SUMMARY_TEXT_LENGTH) {
+      throw new ArticleTooLongError("記事本文が要約可能な長さを超えています")
+    }
+
+    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+      throw new MissingApiKeyError("サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です")
+    }
+
+    return generateSummary(doc.markdown)
+  },
+  ["article-summary"],
+  {
+    tags: ["summary"],
+    revalidate: false,
+  },
+)
 
 // ---- POST ハンドラ --------------------------------------------------------
 
@@ -101,31 +108,23 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
   }
 
   const { articleId } = parsed.data
-  const doc = await getDocBySlug(articleId === "home" ? "" : articleId, articleId === "home")
-
-  if (!doc) {
-    return NextResponse.json({ error: "指定された記事が見つかりません" }, { status: 404 })
-  }
-
-  if (doc.markdown.length > MAX_SUMMARY_TEXT_LENGTH) {
-    return NextResponse.json(
-      { error: "記事本文が要約可能な長さを超えています" },
-      { status: 413 },
-    )
-  }
-
-  // API キー未設定を早期に検知
-  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-    return NextResponse.json(
-      { error: "サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です" },
-      { status: 500 },
-    )
-  }
 
   try {
-    const summary = await getCachedSummary(articleId, doc.markdown)
+    const summary = await getCachedSummary(articleId)
     return NextResponse.json({ summary, cached: true })
   } catch (error) {
+    if (error instanceof ArticleNotFoundError) {
+      return NextResponse.json({ error: error.message }, { status: 404 })
+    }
+
+    if (error instanceof ArticleTooLongError) {
+      return NextResponse.json({ error: error.message }, { status: 413 })
+    }
+
+    if (error instanceof MissingApiKeyError) {
+      return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+
     const detail = error instanceof Error ? error.message : String(error)
     console.log("[v0] summarize error:", detail)
     return NextResponse.json(
