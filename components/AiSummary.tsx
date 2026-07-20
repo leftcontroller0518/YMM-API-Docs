@@ -67,9 +67,11 @@ export function AiSummary({ articleId, text, className }: AiSummaryProps) {
           </Button>
         )}
 
-        {(status === "done" || status === "error") && (
+        {/* 成功後はボタンを出さない（キャッシュを活かすため再生成させない）。
+            失敗時のみ、まだキャッシュされていないので再試行を許可する。 */}
+        {status === "error" && (
           <Button size="sm" variant="ghost" onClick={handleGenerate}>
-            再生成
+            再試行
           </Button>
         )}
       </div>
