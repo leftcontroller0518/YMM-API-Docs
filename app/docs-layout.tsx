@@ -190,7 +190,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
               </div>
               <LastUpdated lastUpdated={lastUpdated} />
             </div>
-            {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} text={summaryText} />}
+            {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} />}
             <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
             <CodeCopyButtons />
             <PrevNextNav prevNext={prevNext} />
@@ -221,7 +221,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         <div className="container py-6">
           <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
           <LastUpdated lastUpdated={lastUpdated} />
-          {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} text={summaryText} className="mt-4" />}
+          {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} className="mt-4" />}
           <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
           <CodeCopyButtons />
           <PrevNextNav prevNext={prevNext} />

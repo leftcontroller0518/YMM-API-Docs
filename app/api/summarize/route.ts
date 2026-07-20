@@ -3,6 +3,7 @@ import { generateText } from "ai"
 import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
+import { getDocBySlug } from "@/lib/docs"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
@@ -17,8 +18,7 @@ export const runtime = "nodejs"
 
 const RequestSchema = z.object({
   articleId: z.string().min(1, "articleId は必須です"),
-  text: z.string().min(1, "text は必須です"),
-})
+}).strict()
 
 type SummarizeResponse =
   | { summary: string; cached: boolean }
@@ -60,14 +60,13 @@ async function generateSummary(text: string): Promise<string> {
 /**
  * articleId をキャッシュキーとして AI 要約結果をサーバー側（Data Cache）に保存する。
  *
- * - `text` はクロージャで渡すことで **キャッシュキーには含めず**、articleId だけで識別する。
- *   → 同じ記事に対しては本文が多少変わっても API を叩かず、キャッシュを返す。
+ * - 本文はサーバー側で articleId から取得し、クライアントからは受け取らない。
  * - `tags: ['summary']` を付与し、記事更新時に
  *   `revalidateTag('summary')` でオンデマンド再検証（強制クリア）できるようにする。
  */
-function getCachedSummary(articleId: string, text: string): Promise<string> {
+function getCachedSummary(articleId: string, markdown: string): Promise<string> {
   const cachedFn = unstable_cache(
-    async () => generateSummary(text),
+    async () => generateSummary(markdown),
     // キャッシュキーの一部。articleId ごとに独立したキャッシュになる。
     ["article-summary", articleId],
     {
@@ -83,14 +82,6 @@ function getCachedSummary(articleId: string, text: string): Promise<string> {
 // ---- POST ハンドラ --------------------------------------------------------
 
 export async function POST(request: Request): Promise<NextResponse<SummarizeResponse>> {
-  // API キー未設定を早期に検知
-  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-    return NextResponse.json(
-      { error: "サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です" },
-      { status: 500 },
-    )
-  }
-
   // JSON パース
   let body: unknown
   try {
@@ -108,10 +99,23 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
     )
   }
 
-  const { articleId, text } = parsed.data
+  const { articleId } = parsed.data
+  const doc = await getDocBySlug(articleId === "home" ? "" : articleId, articleId === "home")
+
+  if (!doc) {
+    return NextResponse.json({ error: "指定された記事が見つかりません" }, { status: 404 })
+  }
+
+  // API キー未設定を早期に検知
+  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+    return NextResponse.json(
+      { error: "サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です" },
+      { status: 500 },
+    )
+  }
 
   try {
-    const summary = await getCachedSummary(articleId, text)
+    const summary = await getCachedSummary(articleId, doc.markdown)
     return NextResponse.json({ summary, cached: true })
   } catch (error) {
     const detail = error instanceof Error ? error.message : String(error)
