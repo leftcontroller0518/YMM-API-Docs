@@ -18,6 +18,7 @@ import { SearchBox } from "../components/SearchBox"
 import { DocTree } from "../components/DocTree"
 import { TableOfContents } from "../components/TableOfContents"
 import { CodeCopyButtons } from "../components/CodeCopyButtons"
+import { AiSummary } from "../components/AiSummary"
 
 import { useFilteredTree } from "../hooks/useFilteredTree"
 import { useVisibleHeadings } from "../hooks/useVisibleHeadings"
@@ -53,9 +54,13 @@ interface DocsLayoutProps {
     prev?: { slug: string; title: string }
     next?: { slug: string; title: string }
   }
+  /** AI 要約用: 記事の識別子（キャッシュキー） */
+  articleId: string
+  /** AI 要約用: 要約対象の本文（Markdown） */
+  summaryText: string
 }
 
-export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcrumbs, githubRepoEditUrl, prevNext }: DocsLayoutProps) {
+export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcrumbs, githubRepoEditUrl, prevNext, articleId, summaryText }: DocsLayoutProps) {
   const pathname = usePathname()
   const [searchQuery, setSearchQuery] = useState("")
   const [isTreeHovered, setIsTreeHovered] = useState(false)
@@ -180,6 +185,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
               </div>
               <LastUpdated lastUpdated={lastUpdated} />
             </div>
+            {summaryText && <AiSummary articleId={articleId} text={summaryText} />}
             <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
             <CodeCopyButtons />
             <PrevNextNav prevNext={prevNext} />
@@ -210,6 +216,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         <div className="container py-6">
           <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
           <LastUpdated lastUpdated={lastUpdated} />
+          {summaryText && <AiSummary articleId={articleId} text={summaryText} className="mt-4" />}
           <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
           <CodeCopyButtons />
           <PrevNextNav prevNext={prevNext} />

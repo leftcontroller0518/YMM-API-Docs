@@ -384,6 +384,7 @@ export async function getDocBySlug(slug: string, isHome = false) {
       title,
       description,
       content: contentHtml,
+      markdown: content,
       toc,
       lastUpdated,
       breadcrumbs,

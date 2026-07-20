@@ -103,6 +103,8 @@ export default async function DocPage({ params }: Props) {
         breadcrumbs={doc.breadcrumbs}
         githubRepoEditUrl={doc.githubEditUrl}
         prevNext={prevNext}
+        articleId={slug || "home"}
+        summaryText={doc.markdown}
       >
         <div dangerouslySetInnerHTML={{ __html: doc.content }} />
       </DocsLayout>
