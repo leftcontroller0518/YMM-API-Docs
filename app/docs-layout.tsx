@@ -26,7 +26,7 @@ import { useIsTocItemActive } from "../hooks/useIsTocItemActive"
 import { useTocIndicatorStyle } from "../hooks/useTocIndicatorStyle"
 import { SITE_TITLE } from "@/lib/siteSetting"
 import { cn } from "@/lib/utils"
-import { isSummaryTextWithinLimit, shouldExecuteSummary } from "@/lib/summary"
+import { shouldExecuteSummary } from "@/lib/summary"
 
 interface DocTreeNode {
   name: string
@@ -184,7 +184,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
               </div>
               <LastUpdated lastUpdated={lastUpdated} />
             </div>
-            {summaryText && shouldExecuteSummary(summaryText) && isSummaryTextWithinLimit(summaryText) && articleId && <AiSummary articleId={articleId} />}
+            {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} />}
             <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
             <CodeCopyButtons />
             <PrevNextNav prevNext={prevNext} />
@@ -215,7 +215,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         <div className="container py-6">
           <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
           <LastUpdated lastUpdated={lastUpdated} />
-          {summaryText && shouldExecuteSummary(summaryText) && isSummaryTextWithinLimit(summaryText) && articleId && <AiSummary articleId={articleId} className="mt-4" />}
+          {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} className="mt-4" />}
           <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
           <CodeCopyButtons />
           <PrevNextNav prevNext={prevNext} />

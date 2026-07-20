@@ -4,7 +4,6 @@ import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getDocBySlug } from "@/lib/docs"
-import { MAX_SUMMARY_TEXT_LENGTH } from "@/lib/summary"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
@@ -59,7 +58,6 @@ async function generateSummary(text: string): Promise<string> {
 }
 
 class ArticleNotFoundError extends Error {}
-class ArticleTooLongError extends Error {}
 class MissingApiKeyError extends Error {}
 
 const getCachedSummary = unstable_cache(
@@ -68,10 +66,6 @@ const getCachedSummary = unstable_cache(
 
     if (!doc) {
       throw new ArticleNotFoundError("指定された記事が見つかりません")
-    }
-
-    if (doc.markdown.length > MAX_SUMMARY_TEXT_LENGTH) {
-      throw new ArticleTooLongError("記事本文が要約可能な長さを超えています")
     }
 
     if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
@@ -115,10 +109,6 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
   } catch (error) {
     if (error instanceof ArticleNotFoundError) {
       return NextResponse.json({ error: error.message }, { status: 404 })
-    }
-
-    if (error instanceof ArticleTooLongError) {
-      return NextResponse.json({ error: error.message }, { status: 413 })
     }
 
     if (error instanceof MissingApiKeyError) {
