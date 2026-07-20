@@ -29,9 +29,9 @@ import { cn } from "@/lib/utils"
 
 function shouldExecuteSummary(summaryText: string): boolean {
   if (!summaryText) return false;
-  const headingCount = (summaryText.match(/^#{1,3}\s/gm) || []).length;
+  const headingCount = (summaryText.match(/^#{2,3}\s/gm) || []).length;
   const textLength = summaryText.length;
-  return textLength >= 1000 || headingCount >= 5;
+  return textLength >= 1000 || headingCount >= 6;
 }
 
 interface DocTreeNode {
