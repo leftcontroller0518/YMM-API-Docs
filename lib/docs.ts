@@ -130,23 +130,15 @@ function getAllFiles(dir: string): string[] {
   return files
 }
 
-// Get doc content by slug (with YAML support)
-export async function getDocBySlug(slug: string, isHome = false) {
-  // Convert slug to file path
+function resolveDocPath(slug: string, isHome = false): string | null {
   let filePath = slug
 
-  // Handle root path
-  if (filePath === "") {
-    if (!isHome) {
-      filePath = "index"
-    }
+  if (filePath === "" && !isHome) {
+    filePath = "index"
   }
 
-  // Convert hyphens back to spaces for file lookup
   const filePathParts = filePath.split("/").map((part) => part.replace(/-/g, " "))
   const filePathWithSpaces = filePathParts.join("/")
-
-  // Check for both formats (with spaces and with hyphens) and both file types (md, yaml, yml)
   const possiblePaths = [
     path.join(DOCS_DIRECTORY, `${filePathWithSpaces}.md`),
     path.join(DOCS_DIRECTORY, filePathWithSpaces, "index.md"),
@@ -164,13 +156,23 @@ export async function getDocBySlug(slug: string, isHome = false) {
     path.join(DOCS_DIRECTORY, filePath, "index.yml"),
   ]
 
-  let fullPath = ""
-  for (const p of possiblePaths) {
-    if (fs.existsSync(p)) {
-      fullPath = p
-      break
-    }
-  }
+  return possiblePaths.find((p) => fs.existsSync(p)) ?? null
+}
+
+function readDocFileAsMarkdown(fullPath: string): string | null {
+  const isYAML = fullPath.endsWith(".yaml") || fullPath.endsWith(".yml")
+  const rawFile = fs.readFileSync(fullPath, "utf8")
+  const fileContents = isYAML
+    ? (isApiDocument(rawFile)
+      ? renderApiDocToMarkdown(rawFile)
+      : yamlToMarkdown(rawFile))
+    : rawFile
+
+  return fileContents || null
+}
+
+export function getDocMarkdownBySlug(slug: string, isHome = false): string | null {
+  const fullPath = resolveDocPath(slug, isHome)
 
   if (!fullPath) {
     console.warn(`No file found for ${slug}`)
@@ -178,13 +180,26 @@ export async function getDocBySlug(slug: string, isHome = false) {
   }
 
   try {
-    const isYAML = fullPath.endsWith(".yaml") || fullPath.endsWith(".yml")
-    const rawFile = fs.readFileSync(fullPath, "utf8")
-    const fileContents = isYAML
-      ? (isApiDocument(rawFile)
-        ? renderApiDocToMarkdown(rawFile)
-        : yamlToMarkdown(rawFile))
-      : rawFile
+    const fileContents = readDocFileAsMarkdown(fullPath)
+    if (!fileContents) return null
+    return matter(fileContents).content
+  } catch (error) {
+    console.error(`Error reading markdown for ${slug}:`, error)
+    return null
+  }
+}
+
+// Get doc content by slug (with YAML support)
+export async function getDocBySlug(slug: string, isHome = false) {
+  const fullPath = resolveDocPath(slug, isHome)
+
+  if (!fullPath) {
+    console.warn(`No file found for ${slug}`)
+    return null
+  }
+
+  try {
+    const fileContents = readDocFileAsMarkdown(fullPath)
     if (!fileContents) return null
     const { data, content } = matter(fileContents)
 

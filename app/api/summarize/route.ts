@@ -3,7 +3,7 @@ import { generateText } from "ai"
 import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
-import { getDocBySlug } from "@/lib/docs"
+import { getDocMarkdownBySlug } from "@/lib/docs"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
@@ -37,6 +37,8 @@ async function generateSummary(text: string): Promise<string> {
     // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
     model: google("gemini-3.1-flash-lite"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
+    maxRetries: 0,
+    abortSignal: AbortSignal.timeout(8000),
     // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
     providerOptions: {
@@ -62,9 +64,9 @@ class MissingApiKeyError extends Error {}
 
 const getCachedSummary = unstable_cache(
   async (articleId: string): Promise<string> => {
-    const doc = await getDocBySlug(articleId === "home" ? "" : articleId, articleId === "home")
+    const markdown = getDocMarkdownBySlug(articleId === "home" ? "" : articleId, articleId === "home")
 
-    if (!doc) {
+    if (!markdown) {
       throw new ArticleNotFoundError("指定された記事が見つかりません")
     }
 
@@ -72,7 +74,7 @@ const getCachedSummary = unstable_cache(
       throw new MissingApiKeyError("サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です")
     }
 
-    return generateSummary(doc.markdown)
+    return generateSummary(markdown)
   },
   ["article-summary"],
   {
