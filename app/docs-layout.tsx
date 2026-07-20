@@ -26,13 +26,7 @@ import { useIsTocItemActive } from "../hooks/useIsTocItemActive"
 import { useTocIndicatorStyle } from "../hooks/useTocIndicatorStyle"
 import { SITE_TITLE } from "@/lib/siteSetting"
 import { cn } from "@/lib/utils"
-
-function shouldExecuteSummary(summaryText: string): boolean {
-  if (!summaryText) return false;
-  const headingCount = (summaryText.match(/^#{2,3}\s/gm) || []).length;
-  const textLength = summaryText.length;
-  return textLength >= 1000 || headingCount >= 6;
-}
+import { shouldExecuteSummary } from "@/lib/summary"
 
 interface DocTreeNode {
   name: string

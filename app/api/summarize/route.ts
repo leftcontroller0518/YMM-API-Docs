@@ -4,6 +4,7 @@ import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getDocBySlug } from "@/lib/docs"
+import { MAX_SUMMARY_TEXT_LENGTH } from "@/lib/summary"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
@@ -104,6 +105,13 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
 
   if (!doc) {
     return NextResponse.json({ error: "指定された記事が見つかりません" }, { status: 404 })
+  }
+
+  if (doc.markdown.length > MAX_SUMMARY_TEXT_LENGTH) {
+    return NextResponse.json(
+      { error: "記事本文が要約可能な長さを超えています" },
+      { status: 413 },
+    )
   }
 
   // API キー未設定を早期に検知
