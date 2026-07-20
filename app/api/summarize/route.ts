@@ -36,7 +36,7 @@ async function generateSummary(text: string): Promise<string> {
     // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する。
     // gemini-2.5-flash は新規ユーザー向けに提供終了したため、
     // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
-    model: google("gemini-3.1-flash-lite"),
+    model: google("gemini-3.1-flash-lite-preview"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
     // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
