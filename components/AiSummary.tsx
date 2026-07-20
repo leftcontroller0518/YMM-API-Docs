@@ -7,14 +7,12 @@ import { cn } from "@/lib/utils"
 interface AiSummaryProps {
   /** キャッシュ識別子（記事のスラッグ） */
   articleId: string
-  /** 要約対象の本文（Markdown） */
-  text: string
   className?: string
 }
 
 type Status = "idle" | "loading" | "done" | "error"
 
-export function AiSummary({ articleId, text, className }: AiSummaryProps) {
+export function AiSummary({ articleId, className }: AiSummaryProps) {
   const [status, setStatus] = useState<Status>("idle")
   const [summary, setSummary] = useState("")
   const [error, setError] = useState("")
@@ -27,7 +25,7 @@ export function AiSummary({ articleId, text, className }: AiSummaryProps) {
       const res = await fetch("/api/summarize", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ articleId, text }),
+        body: JSON.stringify({ articleId }),
       })
 
       const data = (await res.json()) as { summary?: string; error?: string }

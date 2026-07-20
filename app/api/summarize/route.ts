@@ -3,6 +3,7 @@ import { generateText } from "ai"
 import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
+import { getDocMarkdownBySlug } from "@/lib/doc-markdown"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
@@ -17,8 +18,7 @@ export const runtime = "nodejs"
 
 const RequestSchema = z.object({
   articleId: z.string().min(1, "articleId は必須です"),
-  text: z.string().min(1, "text は必須です"),
-})
+}).strict()
 
 type SummarizeResponse =
   | { summary: string; cached: boolean }
@@ -37,6 +37,8 @@ async function generateSummary(text: string): Promise<string> {
     // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
     model: google("gemini-3.1-flash-lite"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
+    maxRetries: 0,
+    abortSignal: AbortSignal.timeout(8000),
     // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
     providerOptions: {
@@ -57,40 +59,33 @@ async function generateSummary(text: string): Promise<string> {
   return trimmed
 }
 
-/**
- * articleId をキャッシュキーとして AI 要約結果をサーバー側（Data Cache）に保存する。
- *
- * - `text` はクロージャで渡すことで **キャッシュキーには含めず**、articleId だけで識別する。
- *   → 同じ記事に対しては本文が多少変わっても API を叩かず、キャッシュを返す。
- * - `tags: ['summary']` を付与し、記事更新時に
- *   `revalidateTag('summary')` でオンデマンド再検証（強制クリア）できるようにする。
- */
-function getCachedSummary(articleId: string, text: string): Promise<string> {
-  const cachedFn = unstable_cache(
-    async () => generateSummary(text),
-    // キャッシュキーの一部。articleId ごとに独立したキャッシュになる。
-    ["article-summary", articleId],
-    {
-      tags: ["summary"],
-      // 明示的に revalidateTag するまで保持（時間による自動失効なし）
-      revalidate: false,
-    },
-  )
+class ArticleNotFoundError extends Error {}
+class MissingApiKeyError extends Error {}
 
-  return cachedFn()
-}
+const getCachedSummary = unstable_cache(
+  async (articleId: string): Promise<string> => {
+    const markdown = getDocMarkdownBySlug(articleId === "home" ? "" : articleId, articleId === "home")
+
+    if (!markdown) {
+      throw new ArticleNotFoundError("指定された記事が見つかりません")
+    }
+
+    if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
+      throw new MissingApiKeyError("サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です")
+    }
+
+    return generateSummary(markdown)
+  },
+  ["article-summary"],
+  {
+    tags: ["summary"],
+    revalidate: false,
+  },
+)
 
 // ---- POST ハンドラ --------------------------------------------------------
 
 export async function POST(request: Request): Promise<NextResponse<SummarizeResponse>> {
-  // API キー未設定を早期に検知
-  if (!process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
-    return NextResponse.json(
-      { error: "サーバー設定エラー: GOOGLE_GENERATIVE_AI_API_KEY が未設定です" },
-      { status: 500 },
-    )
-  }
-
   // JSON パース
   let body: unknown
   try {
@@ -108,12 +103,20 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
     )
   }
 
-  const { articleId, text } = parsed.data
+  const { articleId } = parsed.data
 
   try {
-    const summary = await getCachedSummary(articleId, text)
+    const summary = await getCachedSummary(articleId)
     return NextResponse.json({ summary, cached: true })
   } catch (error) {
+    if (error instanceof ArticleNotFoundError) {
+      return NextResponse.json({ error: error.message }, { status: 404 })
+    }
+
+    if (error instanceof MissingApiKeyError) {
+      return NextResponse.json({ error: error.message }, { status: 500 })
+    }
+
     const detail = error instanceof Error ? error.message : String(error)
     console.log("[v0] summarize error:", detail)
     return NextResponse.json(
