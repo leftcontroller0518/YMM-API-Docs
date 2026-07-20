@@ -27,23 +27,24 @@ type SummarizeResponse =
 // ---- AI 要約ロジック ------------------------------------------------------
 
 /**
- * Gemini 2.5 Flash で本文を要約する。
+ * Gemini で本文を要約する。
  * 本文は Markdown として扱う想定。
  */
 async function generateSummary(text: string): Promise<string> {
   const { text: summary } = await generateText({
-    // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する
-    model: google("gemini-2.5-flash"),
+    // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する。
+    // gemini-2.5-flash は新規ユーザー向けに提供終了したため、
+    // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
+    model: google("gemini-3.1-flash-lite"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
     // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
     providerOptions: {
       google: {
-        // gemini-2.5-flash は「思考」モデル。要約には思考が不要なうえ、
-        // デフォルトだと思考にトークン・時間を使い切り、
-        // 「出力テキストが空」「10秒タイムアウト」を招く。
-        // thinkingBudget: 0 で思考を無効化し、高速かつ確実に本文を出力させる。
-        thinkingConfig: { thinkingBudget: 0 },
+        // Gemini 3 系は「思考レベル」で制御する（thinkingBudget は 2.5 系専用）。
+        // 要約に深い思考は不要なので 'low' にして高速化し、
+        // 10 秒のタイムアウトと思考トークンの浪費を避ける。
+        thinkingConfig: { thinkingLevel: "low" },
       } satisfies GoogleLanguageModelOptions,
     },
   })
