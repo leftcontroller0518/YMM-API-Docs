@@ -27,6 +27,13 @@ import { useTocIndicatorStyle } from "../hooks/useTocIndicatorStyle"
 import { SITE_TITLE } from "@/lib/siteSetting"
 import { cn } from "@/lib/utils"
 
+function shouldExecuteSummary(summaryText: string): boolean {
+  if (!summaryText) return false;
+  const headingCount = (summaryText.match(/^#{1,3}\s/gm) || []).length;
+  const textLength = summaryText.length;
+  return textLength >= 1000 || headingCount >= 5;
+}
+
 interface DocTreeNode {
   name: string
   isExtended: boolean
@@ -54,10 +61,8 @@ interface DocsLayoutProps {
     prev?: { slug: string; title: string }
     next?: { slug: string; title: string }
   }
-  /** AI 要約用: 記事の識別子（キャッシュキー） */
-  articleId: string
-  /** AI 要約用: 要約対象の本文（Markdown） */
-  summaryText: string
+  articleId: string | null
+  summaryText: string | null
 }
 
 export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcrumbs, githubRepoEditUrl, prevNext, articleId, summaryText }: DocsLayoutProps) {
@@ -185,7 +190,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
               </div>
               <LastUpdated lastUpdated={lastUpdated} />
             </div>
-            {summaryText && <AiSummary articleId={articleId} text={summaryText} />}
+            {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} text={summaryText} />}
             <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
             <CodeCopyButtons />
             <PrevNextNav prevNext={prevNext} />
@@ -216,7 +221,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         <div className="container py-6">
           <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
           <LastUpdated lastUpdated={lastUpdated} />
-          {summaryText && <AiSummary articleId={articleId} text={summaryText} className="mt-4" />}
+          {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} text={summaryText} className="mt-4" />}
           <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
           <CodeCopyButtons />
           <PrevNextNav prevNext={prevNext} />
