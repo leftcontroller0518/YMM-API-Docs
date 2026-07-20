@@ -3,7 +3,7 @@ import { generateText } from "ai"
 import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
 import { z } from "zod"
-import { getDocMarkdownBySlug } from "@/lib/docs"
+import { getDocMarkdownBySlug } from "@/lib/doc-markdown"
 
 /**
  * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
