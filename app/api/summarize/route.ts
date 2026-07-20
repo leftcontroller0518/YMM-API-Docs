@@ -1,4 +1,4 @@
-import { google } from "@ai-sdk/google"
+import { google, type GoogleLanguageModelOptions } from "@ai-sdk/google"
 import { generateText } from "ai"
 import { unstable_cache } from "next/cache"
 import { NextResponse } from "next/server"
@@ -35,9 +35,25 @@ async function generateSummary(text: string): Promise<string> {
     // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する
     model: google("gemini-2.5-flash"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
+    // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
+    maxOutputTokens: 512,
+    providerOptions: {
+      google: {
+        // gemini-2.5-flash は「思考」モデル。要約には思考が不要なうえ、
+        // デフォルトだと思考にトークン・時間を使い切り、
+        // 「出力テキストが空」「10秒タイムアウト」を招く。
+        // thinkingBudget: 0 で思考を無効化し、高速かつ確実に本文を出力させる。
+        thinkingConfig: { thinkingBudget: 0 },
+      } satisfies GoogleLanguageModelOptions,
+    },
   })
 
-  return summary.trim()
+  const trimmed = summary.trim()
+  if (!trimmed) {
+    // 空出力を握りつぶさず、明示的にエラーにする（原因の切り分けを容易に）
+    throw new Error("モデルが空の応答を返しました")
+  }
+  return trimmed
 }
 
 /**
@@ -97,7 +113,11 @@ export async function POST(request: Request): Promise<NextResponse<SummarizeResp
     const summary = await getCachedSummary(articleId, text)
     return NextResponse.json({ summary, cached: true })
   } catch (error) {
-    console.log("[v0] summarize error:", error instanceof Error ? error.message : error)
-    return NextResponse.json({ error: "要約の生成に失敗しました" }, { status: 502 })
+    const detail = error instanceof Error ? error.message : String(error)
+    console.log("[v0] summarize error:", detail)
+    return NextResponse.json(
+      { error: `要約の生成に失敗しました: ${detail}` },
+      { status: 502 },
+    )
   }
 }
