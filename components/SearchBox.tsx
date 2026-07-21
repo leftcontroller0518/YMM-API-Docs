@@ -21,7 +21,7 @@ export function SearchBox({
       <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
       <Input
         placeholder="Search documentation..."
-        className={cn("pl-8", inputClassName)}
+        className={cn("pl-8 rounded-none", inputClassName)}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
       />

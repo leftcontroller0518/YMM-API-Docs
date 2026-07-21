@@ -7,7 +7,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ChevronRight, Menu, GithubIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ScrollArea } from "@/components/ui/scroll-area"
+import {ScrollArea, ScrollBar} from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -90,6 +90,11 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
           </SheetTrigger>
           {/* FULL WIDTH FOR MOBILE */}
           <SheetContent side="left" className="w-full max-w-full sm:w-full sm:max-w-xl pr-0">
+            <div className="flex h-14 items-center px-4">
+              <Link href="/" className="flex items-center space-x-2">
+                <span className="font-bold">{SITE_TITLE}</span>
+              </Link>
+            </div>
             <div className="px-4 py-2">
               <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
             </div>
@@ -164,6 +169,8 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
             <div className="px-4 py-2">
               <DocTree nodes={filteredTree} pathname={pathname} />
             </div>
+            <ScrollBar orientation="horizontal" />
+            <ScrollBar orientation="vertical" />
           </ScrollArea>
         </div>
 

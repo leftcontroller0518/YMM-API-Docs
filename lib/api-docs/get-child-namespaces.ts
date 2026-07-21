@@ -9,8 +9,15 @@ export function getChildNamespaces(
   return [...index.byId.values()]
     .filter(
       document =>
-        document.type === "namespace"
-        && document.namespace === namespaceName,
-    )
+      {
+      if (document.type !== "namespace") return false
+      if (document.namespace !== undefined) {
+        return document.namespace === namespaceName
+      }
+
+      const lastDot = document.name.lastIndexOf(".")
+      if (lastDot === -1) return false
+      return document.name.slice(0, lastDot) === namespaceName
+    })
     .sort((a, b) => a.name.localeCompare(b.name))
 }

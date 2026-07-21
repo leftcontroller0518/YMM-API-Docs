@@ -62,7 +62,7 @@ export function DocTree({ nodes, pathname, level = 0, openPath }: DocTreeProps) 
           <div
             key={node.name}
             className={cn(
-              "group pl-4 transition-colors",
+              "group pl-1 transition-colors",
               level > 0 && "border-l border-muted"
             )}
           >
