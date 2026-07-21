@@ -134,6 +134,9 @@ importers:
       gray-matter:
         specifier: latest
         version: 4.0.3
+      hastscript:
+        specifier: ^9.0.1
+        version: 9.0.1
       input-otp:
         specifier: 1.4.1
         version: 1.4.1(react-dom@19.2.7(react@19.2.7))(react@19.2.7)

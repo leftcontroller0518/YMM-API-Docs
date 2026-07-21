@@ -22,6 +22,7 @@ import { yamlToMarkdown } from "./yaml-docs"
 import {isApiDocument, renderApiDocToMarkdown} from "@/lib/api-docs/render-api-doc";
 import remarkResolveContentImages from "./remarkResolveContentImages"
 import { readDocFileAsMarkdown, resolveDocPath } from "./doc-markdown"
+import {rehypeCustomizeFootnotes} from "@/lib/reshypeCustomizeFootnotes";
 
 const DOCS_DIRECTORY = path.join(process.cwd(), "content")
 
@@ -162,6 +163,7 @@ export async function getDocBySlug(slug: string, isHome = false) {
           addLanguageClass: true
         })
         .use(rehypeKatex)
+        .use(rehypeCustomizeFootnotes)
         .use(rehypeStringify, { allowDangerousHtml: true })
 
       const processedContent = await processor.process(content)

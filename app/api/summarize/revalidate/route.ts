@@ -21,6 +21,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "認証に失敗しました" }, { status: 401 })
     }
   }
+  else
+    return NextResponse.json({ error: "認証に失敗しました" }, { status: 401 })
 
   revalidateTag("summary")
   return NextResponse.json({ revalidated: true, tag: "summary" })
