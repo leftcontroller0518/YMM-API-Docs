@@ -1,11 +1,15 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { remark } from "remark"
+import remarkParse from "remark-parse"
+import remarkGfm from "remark-gfm"
+import remarkRehype from "remark-rehype"
+import rehypeStringify from "rehype-stringify"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 interface AiSummaryProps {
-  /** キャッシュ識別子（記事のスラッグ） */
   articleId: string
   className?: string
 }
@@ -16,6 +20,7 @@ export function AiSummary({ articleId, className }: AiSummaryProps) {
   const [status, setStatus] = useState<Status>("idle")
   const [summary, setSummary] = useState("")
   const [error, setError] = useState("")
+  const [summaryHtml, setSummaryHtml] = useState("")
 
   async function handleGenerate() {
     setStatus("loading")
@@ -42,6 +47,26 @@ export function AiSummary({ articleId, className }: AiSummaryProps) {
     }
   }
 
+  useEffect(() => {
+    async function renderMarkdown() {
+      if (!summary) {
+        setSummaryHtml("")
+        return
+      }
+
+      const file = await remark()
+        .use(remarkParse)
+        .use(remarkGfm)
+        .use(remarkRehype)
+        .use(rehypeStringify)
+        .process(summary)
+
+      setSummaryHtml(String(file))
+    }
+
+    void renderMarkdown()
+  }, [summary])
+
   return (
     <section
       aria-label="AI による要約"
@@ -65,8 +90,6 @@ export function AiSummary({ articleId, className }: AiSummaryProps) {
           </Button>
         )}
 
-        {/* 成功後はボタンを出さない（キャッシュを活かすため再生成させない）。
-            失敗時のみ、まだキャッシュされていないので再試行を許可する。 */}
         {status === "error" && (
           <Button size="sm" variant="ghost" onClick={handleGenerate}>
             再試行
@@ -74,7 +97,6 @@ export function AiSummary({ articleId, className }: AiSummaryProps) {
         )}
       </div>
 
-      {/* 本文エリア（生成後に結果を表示） */}
       {status !== "idle" && (
         <div aria-live="polite" className="mt-3 text-sm">
           {status === "loading" && (
@@ -86,14 +108,16 @@ export function AiSummary({ articleId, className }: AiSummaryProps) {
           )}
 
           {status === "done" && (
-            <p className="whitespace-pre-wrap leading-relaxed text-foreground">{summary}</p>
+            <div
+              className="prose prose-sm max-w-none dark:prose-invert whitespace-pre-wrap leading-relaxed text-foreground"
+              dangerouslySetInnerHTML={{ __html: summaryHtml }}
+            />
           )}
 
           {status === "error" && <p className="text-destructive">{error}</p>}
         </div>
       )}
 
-      {/* AI 生成であることの注記 */}
       {status === "done" && (
         <p className="mt-3 border-t pt-2 text-xs text-muted-foreground">
           この要約は生成 AI（Gemini）によって作成されています。内容が正確でない場合があります。
