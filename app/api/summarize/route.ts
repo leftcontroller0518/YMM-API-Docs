@@ -5,16 +5,9 @@ import { NextResponse } from "next/server"
 import { z } from "zod"
 import { getDocMarkdownBySlug } from "@/lib/doc-markdown"
 
-/**
- * Vercel の無料枠（Hobby）は Serverless Function の実行時間が最大 10 秒です。
- * AI 生成が長引いても 10 秒で打ち切られるように上限を明示します。
- */
 export const maxDuration = 10
 
-// Node.js ランタイムで動かす（unstable_cache / AI SDK ともに Node 前提）
 export const runtime = "nodejs"
-
-// ---- リクエストボディのバリデーション（型安全） --------------------------
 
 const RequestSchema = z.object({
   articleId: z.string().min(1, "articleId は必須です"),
@@ -24,28 +17,15 @@ type SummarizeResponse =
   | { summary: string; cached: boolean }
   | { error: string }
 
-// ---- AI 要約ロジック ------------------------------------------------------
-
-/**
- * Gemini で本文を要約する。
- * 本文は Markdown として扱う想定。
- */
 async function generateSummary(text: string): Promise<string> {
   const { text: summary } = await generateText({
-    // GOOGLE_GENERATIVE_AI_API_KEY を自動的に参照する。
-    // gemini-2.5-flash は新規ユーザー向けに提供終了したため、
-    // 高速・低コストで無料枠に適した現行の安定モデルを使用する。
     model: google("gemini-3.1-flash-lite"),
     prompt: `以下の文章を5行以内で簡潔に要約してください：\n\n${text}`,
     maxRetries: 0,
     abortSignal: AbortSignal.timeout(8000),
-    // 出力トークンの上限（5行の要約には十分）。暴走を防ぎ、10秒枠に収める。
     maxOutputTokens: 512,
     providerOptions: {
       google: {
-        // Gemini 3 系は「思考レベル」で制御する（thinkingBudget は 2.5 系専用）。
-        // 要約に深い思考は不要なので 'low' にして高速化し、
-        // 10 秒のタイムアウトと思考トークンの浪費を避ける。
         thinkingConfig: { thinkingLevel: "low" },
       } satisfies GoogleLanguageModelOptions,
     },
@@ -53,7 +33,6 @@ async function generateSummary(text: string): Promise<string> {
 
   const trimmed = summary.trim()
   if (!trimmed) {
-    // 空出力を握りつぶさず、明示的にエラーにする（原因の切り分けを容易に）
     throw new Error("モデルが空の応答を返しました")
   }
   return trimmed

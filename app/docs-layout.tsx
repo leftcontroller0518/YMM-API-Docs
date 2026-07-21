@@ -5,25 +5,25 @@ import type React from "react"
 import { useState, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ChevronRight, ChevronLeft, Menu, GithubIcon } from "lucide-react"
+import { ChevronRight, Menu, GithubIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-import { DocsBreadcrumbs } from "../components/DocsBreadcrumbs"
-import { LastUpdated } from "../components/LastUpdated"
-import { PrevNextNav } from "../components/PrevNextNav"
-import { SearchBox } from "../components/SearchBox"
-import { DocTree } from "../components/DocTree"
-import { TableOfContents } from "../components/TableOfContents"
-import { CodeCopyButtons } from "../components/CodeCopyButtons"
-import { AiSummary } from "../components/AiSummary"
+import { DocsBreadcrumbs } from "@/components/DocsBreadcrumbs"
+import { LastUpdated } from "@/components/LastUpdated"
+import { PrevNextNav } from "@/components/PrevNextNav"
+import { SearchBox } from "@/components/SearchBox"
+import { DocTree } from "@/components/DocTree"
+import { TableOfContents } from "@/components/TableOfContents"
+import { CodeCopyButtons } from "@/components/CodeCopyButtons"
+import { AiSummary } from "@/components/AiSummary"
 
-import { useFilteredTree } from "../hooks/useFilteredTree"
-import { useVisibleHeadings } from "../hooks/useVisibleHeadings"
-import { useIsTocItemActive } from "../hooks/useIsTocItemActive"
-import { useTocIndicatorStyle } from "../hooks/useTocIndicatorStyle"
+import { useFilteredTree } from "@/hooks/useFilteredTree"
+import { useVisibleHeadings } from "@/hooks/useVisibleHeadings"
+import { useIsTocItemActive } from "@/hooks/useIsTocItemActive"
+import { useTocIndicatorStyle } from "@/hooks/useTocIndicatorStyle"
 import { SITE_TITLE } from "@/lib/siteSetting"
 import { cn } from "@/lib/utils"
 import { shouldExecuteSummary } from "@/lib/summary"
@@ -76,7 +76,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
   }
 
   return (
-    <div className="flex min-h-[100dvh] flex-col">
+    <div className="flex min-h-dvh flex-col">
       {/* Mobile Header */}
       <header className="sticky top-0 z-50 flex h-14 items-center gap-4 border-b bg-background px-4 sm:px-6 lg:hidden">
         {/* Mobile DocTree (Sheet) */}
@@ -142,7 +142,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
       <div className="hidden lg:flex">
         {/* Left Sidebar: DocTree */}
         <div
-          className="fixed top-0 left-0 h-[100dvh] border-r bg-background overflow-x-auto"
+          className="fixed top-0 left-0 h-dvh border-r bg-background overflow-x-auto"
           style={{
             width: isTreeHovered ? "calc(33.33vw)" : "16rem",
             maxWidth: "calc(33.33vw)",
@@ -192,7 +192,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         </div>
 
         {/* Right Sidebar: TOC */}
-        <div className="fixed top-0 right-0 h-[100dvh] w-64 border-l bg-background">
+        <div className="fixed top-0 right-0 h-dvh w-64 border-l bg-background">
           <div className="h-14 px-4 py-4 font-medium">On This Page</div>
           <ScrollArea className="h-[calc(100dvh-6.5rem)]">
             <div className="px-4 py-4">
