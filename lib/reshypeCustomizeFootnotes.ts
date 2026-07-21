@@ -19,9 +19,6 @@ export function rehypeCustomizeFootnotes() {
         node.children.unshift(
           h("p", { className: ["text-xl font-semibold mt-8 mb-4"] }, "注釈")
         )
-        node.children.unshift(
-          h("hr")
-        )
       }
     })
   }

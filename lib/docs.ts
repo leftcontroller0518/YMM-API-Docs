@@ -23,6 +23,7 @@ import {isApiDocument, renderApiDocToMarkdown} from "@/lib/api-docs/render-api-d
 import remarkResolveContentImages from "./remarkResolveContentImages"
 import { readDocFileAsMarkdown, resolveDocPath } from "./doc-markdown"
 import {rehypeCustomizeFootnotes} from "@/lib/reshypeCustomizeFootnotes";
+import {remarkEnsureFootnoteSeparator} from "@/lib/remarkEnsureFootnoteSeparator";
 
 const DOCS_DIRECTORY = path.join(process.cwd(), "content")
 
@@ -156,6 +157,7 @@ export async function getDocBySlug(slug: string, isHome = false) {
         .use(remarkResolveContentImages(fullPath))
         .use(remarkMath)
         .use(remarkGfm)
+        .use(remarkEnsureFootnoteSeparator)
         .use(remarkWrapHeadings)
         .use(remarkRehype, { allowDangerousHtml: true })
         .use(rehypeShiki, {
