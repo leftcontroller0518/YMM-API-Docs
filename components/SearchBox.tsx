@@ -6,16 +6,18 @@ import { cn } from "@/lib/utils"
 interface SearchBoxProps {
   searchQuery: string
   setSearchQuery: (v: string) => void
+  onFocus?: () => void
   className?: string
   inputClassName?: string
 }
 
 export function SearchBox({
-  searchQuery,
-  setSearchQuery,
-  className,
-  inputClassName,
-}: SearchBoxProps) {
+                            searchQuery,
+                            setSearchQuery,
+                            onFocus,
+                            className,
+                            inputClassName,
+                          }: SearchBoxProps) {
   return (
     <div className={cn("relative", className)}>
       <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -24,6 +26,7 @@ export function SearchBox({
         className={cn("pl-8 rounded-none", inputClassName)}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onFocus={onFocus}
       />
       {searchQuery && (
         <Button

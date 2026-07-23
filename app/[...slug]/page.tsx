@@ -71,6 +71,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata | un
 }
 
 import { DocsLayout } from "../docs-layout"
+import {Suspense} from "react";
 
 export default async function DocPage({ params }: Props) {
   try {
@@ -95,19 +96,21 @@ export default async function DocPage({ params }: Props) {
     }
 
     return (
-      <DocsLayout
-        docTree={docTree}
-        toc={Array.isArray(doc.toc) ? doc.toc : []}
-        title={doc.title}
-        lastUpdated={doc.lastUpdated}
-        breadcrumbs={doc.breadcrumbs}
-        githubRepoEditUrl={doc.githubEditUrl}
-        prevNext={prevNext}
-        articleId={slug || "home"}
-        summaryText={doc.markdown}
-      >
-        <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-      </DocsLayout>
+      <Suspense>
+        <DocsLayout
+          docTree={docTree}
+          toc={Array.isArray(doc.toc) ? doc.toc : []}
+          title={doc.title}
+          lastUpdated={doc.lastUpdated}
+          breadcrumbs={doc.breadcrumbs}
+          githubRepoEditUrl={doc.githubEditUrl}
+          prevNext={prevNext}
+          articleId={slug || "home"}
+          summaryText={doc.markdown}
+        >
+          <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+        </DocsLayout>
+      </Suspense>
     )
   } catch (error) {
     console.error("Error rendering page:", error)

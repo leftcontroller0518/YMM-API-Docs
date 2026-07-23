@@ -3,6 +3,7 @@ import { DocsLayout } from "./docs-layout"
 import { generateOgImageFile } from "@/lib/og";
 import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/siteSetting";
 import {Metadata} from "next";
+import {Suspense} from "react";
 
 // Add dynamic metadata generation
 export async function generateMetadata() : Promise<Metadata | undefined> {
@@ -50,7 +51,7 @@ export default async function HomePage() {
 
     if (!doc) {
       return (
-        <div className="flex min-h-[100dvh] flex-col items-center justify-center">
+        <div className="flex min-h-dvh flex-col items-center justify-center">
           <h1 className="text-3xl font-bold">Welcome to Documentation</h1>
           <p className="mt-4">Please create an index.md file in your content directory.</p>
         </div>
@@ -61,24 +62,26 @@ export default async function HomePage() {
     const prevNext = await getNextAndPrevDocs("")
 
     return (
-      <DocsLayout
-        docTree={docTree}
-        toc={Array.isArray(doc.toc) ? doc.toc : []}
-        title={doc.title}
-        lastUpdated={doc.lastUpdated}
-        breadcrumbs={doc.breadcrumbs}
-        githubRepoEditUrl={doc.githubEditUrl}
-        prevNext={prevNext}
-        articleId=""
-        summaryText={null}
-      >
-        <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-      </DocsLayout>
+      <Suspense>
+        <DocsLayout
+          docTree={docTree}
+          toc={Array.isArray(doc.toc) ? doc.toc : []}
+          title={doc.title}
+          lastUpdated={doc.lastUpdated}
+          breadcrumbs={doc.breadcrumbs}
+          githubRepoEditUrl={doc.githubEditUrl}
+          prevNext={prevNext}
+          articleId=""
+          summaryText={null}
+        >
+          <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+        </DocsLayout>
+      </Suspense>
     )
   } catch (error) {
     console.error("Error rendering homepage:", error)
     return (
-      <div className="flex min-h-[100dvh] flex-col items-center justify-center">
+      <div className="flex min-h-dvh flex-col items-center justify-center">
         <h1 className="text-3xl font-bold">Error Loading Documentation</h1>
         <p className="mt-4">There was an error loading the documentation. Please check your content files.</p>
       </div>

@@ -138,7 +138,6 @@ export async function getDocBySlug(slug: string, isHome = false) {
   const fullPath = resolveDocPath(slug, isHome)
 
   if (!fullPath) {
-    console.warn(`No file found for ${slug}`)
     return null
   }
 
