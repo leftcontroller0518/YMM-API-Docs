@@ -1,0 +1,21 @@
+id: "T:YukkuriMovieMaker.Plugin.PluginDetailsAttribute"
+type: class
+name: "YukkuriMovieMaker.Plugin.PluginDetailsAttribute"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "プラグインクラスに付与して著者情報などを提供する属性です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: System.Attribute
+base:
+  type:
+    kind: named
+    name: System.Attribute
+code: |
+  [AttributeUsage(AttributeTargets.Class)]
+  public class PluginDetailsAttribute : Attribute

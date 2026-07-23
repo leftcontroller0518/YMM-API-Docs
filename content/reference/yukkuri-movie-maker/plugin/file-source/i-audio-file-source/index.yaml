@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource"
+type: interface
+name: "YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声ファイルからPCMデータを読み取るインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IAudioFileSource : IDisposable

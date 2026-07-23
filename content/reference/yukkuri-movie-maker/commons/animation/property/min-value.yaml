@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Commons.Animation.MinValue"
+type: property
+name: "MinValue"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "パラメーターの最小値を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  [JsonIgnore]
+  public double MinValue { get; }

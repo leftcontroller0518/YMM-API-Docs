@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.IToolPlugin.ViewType"
+type: property
+name: "ViewType"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ツールのViewの型を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IToolPlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Type
+code: |
+  Type ViewType { get; }
+remarks: |
+  WPFの `UserControl` を継承した型を返してください。

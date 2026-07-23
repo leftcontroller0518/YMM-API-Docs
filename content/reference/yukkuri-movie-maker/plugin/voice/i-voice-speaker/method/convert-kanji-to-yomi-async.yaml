@@ -1,0 +1,33 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.ConvertKanjiToYomiAsync(System.String,YukkuriMovieMaker.Plugin.Voice.IVoiceParameter)"
+type: method
+name: "ConvertKanjiToYomiAsync"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "テキストを読みに変換して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+parameters:
+  - name: text
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: voiceParameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoiceParameter
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  Task<string> ConvertKanjiToYomiAsync(string text, IVoiceParameter voiceParameter);
+remarks: |
+  `Format` が `SupportedTextFormat.Yukkuri` または `SupportedTextFormat.YukkuriLite` の場合に読みUI表示で使用されます。
+  読み変換に対応しない場合は `text` をそのまま返してください。

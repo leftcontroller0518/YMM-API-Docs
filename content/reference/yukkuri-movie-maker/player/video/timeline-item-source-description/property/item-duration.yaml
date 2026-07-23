@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription.ItemDuration"
+type: property
+name: "ItemDuration"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アイテムの長さをフレーム時間で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.FrameTime
+code: |
+  public FrameTime ItemDuration { get; init; }

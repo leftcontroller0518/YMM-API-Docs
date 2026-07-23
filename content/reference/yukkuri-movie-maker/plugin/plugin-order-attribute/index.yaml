@@ -1,0 +1,29 @@
+id: "T:YukkuriMovieMaker.Plugin.PluginOrderAttribute"
+type: class
+name: "YukkuriMovieMaker.Plugin.PluginOrderAttribute"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "プラグインのロード順を指定する属性です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: System.Attribute
+base:
+  type:
+    kind: named
+    name: System.Attribute
+code: |
+  [AttributeUsage(AttributeTargets.Class)]
+  public class PluginOrderAttribute(int order) : Attribute()
+remarks: |
+  `IPlugin` 実装クラスに付与して、`PluginLoader.Plugins` の並び順を制御します。
+  小さい値ほど先にロードされます。省略した場合は `int.MaxValue / 2`（`1073741823`）として扱われます。
+examples: |
+  ```csharp
+  [PluginOrder(100)]
+  public class MyPlugin : IVoicePlugin { ... }
+  ```

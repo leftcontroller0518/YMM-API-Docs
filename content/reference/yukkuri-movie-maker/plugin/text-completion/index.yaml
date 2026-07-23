@@ -1,0 +1,8 @@
+id: "N:YukkuriMovieMaker.Plugin.TextCompletion"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.TextCompletion"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "テキスト補完（LLM連携）プラグインを作成するための型を提供します。"
+remarks: |
+  テキスト補完プラグインはYMM4のテキストエディターでAI補完を提供します。
+  新規実装は `ITextCompletionPlugin` ではなく `ITextCompletionPlugin2`（画像入力対応）を実装してください。

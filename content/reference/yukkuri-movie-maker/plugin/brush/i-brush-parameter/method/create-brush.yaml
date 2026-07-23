@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Brush.IBrushParameter.CreateBrush(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext)"
+type: method
+name: "CreateBrush"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このパラメーターに基づいてブラシソースを生成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Brush.IBrushParameter"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Brush.IBrushSource
+code: |
+  IBrushSource CreateBrush(IGraphicsDevicesAndContext devices);

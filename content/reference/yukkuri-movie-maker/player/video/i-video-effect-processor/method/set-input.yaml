@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor.SetInput(Vortice.Direct2D1.ID2D1Image)"
+type: method
+name: "SetInput"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "前段の映像フレームをエフェクトへの入力として設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor"
+parameters:
+  - name: input
+    type:
+      type:
+        kind: named
+        name: Vortice.Direct2D1.ID2D1Image
+      nullable: true
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void SetInput(ID2D1Image? input);
+remarks: |
+  `input` が `null` の場合、このエフェクトが入力不要なフレームです（エフェクトアイテムなど）。
+  Direct2Dエフェクトに渡す場合は `d2dEffect.SetInput(0, input)` のように実装してください。

@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriterPlugin.OutputPathMode"
+type: property
+name: "OutputPathMode"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "出力パスの形式を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriterPlugin"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterOutputPath
+code: |
+  VideoFileWriterOutputPath OutputPathMode { get; }
+remarks: |
+  `None` の場合はパス指定なし、`Directory` はディレクトリ、`File` はファイルパスをユーザーに求めます。

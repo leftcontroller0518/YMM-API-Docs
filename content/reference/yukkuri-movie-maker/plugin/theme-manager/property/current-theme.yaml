@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.ThemeManager.CurrentTheme"
+type: property
+name: "CurrentTheme"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在適用されているテーマのURIを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ThemeManager"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+  nullable: true
+code: |
+  public string? CurrentTheme { get; private set; }
+remarks: |
+  既定値は `"pack://application:,,,/YukkuriMovieMaker;component/Themes/NormalColor.xaml"` です。

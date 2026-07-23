@@ -3,8 +3,8 @@ type: property
 name: "IsEffectItemSupported"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "このエフェクトがエフェクトアイテムに対応しているかを取得または設定します。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトアイテムへの適用をサポートするかどうかを取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 propertyType:
@@ -13,3 +13,6 @@ propertyType:
     name: System.Boolean
 code: |
   public bool IsEffectItemSupported { get; set; }
+remarks: |
+  既定値は `true` です。
+  `false` に設定した場合、このエフェクトはエフェクトアイテムのエフェクト一覧に表示されなくなります。

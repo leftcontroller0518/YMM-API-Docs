@@ -3,8 +3,8 @@ type: field
 name: "Camera"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "カメラカテゴリーのキーの名前を返します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "カメラカテゴリーのキーです。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 fieldType:

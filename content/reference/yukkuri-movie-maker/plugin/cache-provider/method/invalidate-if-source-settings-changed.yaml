@@ -1,0 +1,17 @@
+id: "M:YukkuriMovieMaker.Plugin.CacheProvider.InvalidateIfSourceSettingsChanged"
+type: method
+name: "InvalidateIfSourceSettingsChanged"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ファイルソースプラグインの優先順位設定が変わった場合にキャッシュをクリアします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.CacheProvider"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void InvalidateIfSourceSettingsChanged()
+remarks: |
+  内部で動画・音声・画像ソースプラグインの順序文字列を結合したキーを生成し、`InvalidateIfKeyChanged` に委譲します。

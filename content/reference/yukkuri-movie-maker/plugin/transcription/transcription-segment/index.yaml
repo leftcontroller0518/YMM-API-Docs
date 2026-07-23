@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment"
+type: class
+name: "YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "文字起こし結果の1セグメントを表すクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class TranscriptionSegment

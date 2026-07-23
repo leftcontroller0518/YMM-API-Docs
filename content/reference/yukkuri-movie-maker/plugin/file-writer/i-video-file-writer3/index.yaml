@@ -1,0 +1,22 @@
+id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter3"
+type: interface
+name: "YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter3"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "GPUフレーム対応の動画ファイルライターのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter2
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IVideoFileWriter3 : IVideoFileWriter2, IVideoFileWriter, IDisposable
+remarks: |
+  `IsGpuFrameSupported` が `true` の場合、YMM4はCPUへのコピーを省略してGPUメモリ上のビットマップを直接渡します。
+  GPUエンコーダー（NVENC・QSVなど）を使用する場合に効果的です。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase.Label"
+type: property
+name: "Label"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの表示名を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public abstract string Label { get; }

@@ -1,0 +1,8 @@
+id: "N:YukkuriMovieMaker.Plugin.Voice"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Voice"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "音声合成プラグインを作成するための型を提供します。"
+remarks: |
+  音声合成プラグインは `IVoicePlugin` を実装し、`IVoiceSpeaker` の一覧を返します。
+  各話者は `IVoiceParameter` を通じてパラメーターを持ち、`CreateVoiceAsync` で音声ファイルを生成します。

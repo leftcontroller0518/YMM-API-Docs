@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoicePlugin.Voices"
+type: property
+name: "Voices"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このプラグインが提供する話者の一覧を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoicePlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker
+code: |
+  IEnumerable<IVoiceSpeaker> Voices { get; }

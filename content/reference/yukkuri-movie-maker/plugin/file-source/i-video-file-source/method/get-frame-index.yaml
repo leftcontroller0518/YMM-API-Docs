@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource.GetFrameIndex(System.TimeSpan)"
+type: method
+name: "GetFrameIndex"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定した時刻に対応するフレームインデックスを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource"
+parameters:
+  - name: time
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+returns:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  int GetFrameIndex(TimeSpan time);
+remarks: |
+  YMM4はこの値をキャッシュキーとして使用します。前回と同じインデックスの場合は `Update` をスキップできます。

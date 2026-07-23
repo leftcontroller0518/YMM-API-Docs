@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Transition.ITransitionPlugin.CreateTransitionParameter"
+type: method
+name: "CreateTransitionParameter"
+namespace: "YukkuriMovieMaker.Plugin.Transition"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このトランジションのデフォルトパラメーターを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transition.ITransitionPlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Transition.ITransitionParameter
+code: |
+  ITransitionParameter CreateTransitionParameter();

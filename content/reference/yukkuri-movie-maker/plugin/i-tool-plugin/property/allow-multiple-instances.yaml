@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.IToolPlugin.AllowMultipleInstances"
+type: property
+name: "AllowMultipleInstances"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ツールパネルの複数インスタンス起動を許可するかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IToolPlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool AllowMultipleInstances => false;
+remarks: |
+  既定値は `false`（単一インスタンス）です。`true` に設定すると同じツールを複数のパネルで開けます。

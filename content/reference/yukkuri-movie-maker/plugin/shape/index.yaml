@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.Shape"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Shape"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "形状プラグインを作成するための型を提供します。"

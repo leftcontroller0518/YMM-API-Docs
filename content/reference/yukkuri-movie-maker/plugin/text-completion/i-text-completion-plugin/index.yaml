@@ -1,0 +1,15 @@
+id: "T:YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin"
+namespace: "YukkuriMovieMaker.Plugin.TextCompletion"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "テキスト補完プラグインの基本インターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface ITextCompletionPlugin : IPlugin
+remarks: |
+  新規実装では `ITextCompletionPlugin2` を使用してください。このインターフェースの `ProcessAsync` は非推奨です。

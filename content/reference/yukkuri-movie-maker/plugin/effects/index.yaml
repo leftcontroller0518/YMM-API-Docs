@@ -2,4 +2,8 @@ id: "N:YukkuriMovieMaker.Plugin.Effects"
 type: namespace
 name: "YukkuriMovieMaker.Plugin.Effects"
 namespace: "YukkuriMovieMaker.Plugin"
-summary: "エフェクトプラグインを作成に必要な型を提供します。"
+summary: "映像・音声エフェクトプラグインを作成するための型を提供します。"
+remarks: |
+  このnamespaceにはエフェクトプラグイン開発の中心となる型が含まれます。
+  映像エフェクトを実装する場合は `VideoEffectBase` を継承し、`[VideoEffect]` 属性を付与してください。
+  音声エフェクトを実装する場合は `AudioEffectBase` を継承し、`[AudioEffect]` 属性を付与してください。

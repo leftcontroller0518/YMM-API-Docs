@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSupportedAudioFormat.SampleRate"
+type: property
+name: "SampleRate"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "要求するサンプリングレート（Hz）を取得または設定します。null の場合は変換不要です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSupportedAudioFormat"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+  nullable: true
+code: |
+  public int? SampleRate { get; init; }

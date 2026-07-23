@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.FileSource.IImageFileSourcePlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.FileSource.IImageFileSourcePlugin"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "画像ファイルソースプラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface IImageFileSourcePlugin : IPlugin

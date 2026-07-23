@@ -1,0 +1,8 @@
+id: "N:YukkuriMovieMaker.Plugin.Brush"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Brush"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "ブラシプラグインを作成するための型を提供します。"
+remarks: |
+  ブラシプラグインは `IBrushPlugin` を実装し、`IBrushParameter` / `IBrushSource` を通じてDirect2Dブラシを提供します。
+  テキストや図形の塗りつぶしに使用されるブラシをカスタマイズできます。

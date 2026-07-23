@@ -1,0 +1,14 @@
+id: "T:YukkuriMovieMaker.Plugin.IPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.IPlugin"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "YMM4プラグインの基本インターフェースです。"
+code: |
+  public interface IPlugin
+remarks: |
+  映像エフェクト・音声エフェクト以外のプラグイン（ボイス、立ち絵、形状など）は
+  このインターフェースを継承した専用インターフェースを実装します。
+  YMM4起動時に `PluginLoader` がすべての `IPlugin` 実装クラスをリフレクションで列挙してインスタンス化します。
+  インスタンス化にはパラメーターなしコンストラクターが必要です。

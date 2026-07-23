@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.ISetting.Category"
+type: property
+name: "Category"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定が属するカテゴリーを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ISetting"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.SettingsCategory
+code: |
+  SettingsCategory Category { get; }

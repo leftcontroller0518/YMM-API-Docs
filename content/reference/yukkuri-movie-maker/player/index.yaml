@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Player"
+type: namespace
+name: "YukkuriMovieMaker.Player"
+namespace: "YukkuriMovieMaker"
+summary: "YMM4の動画フレームの作成に関する仕組みを提供します。"

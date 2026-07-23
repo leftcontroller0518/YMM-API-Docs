@@ -3,8 +3,8 @@ type: method
 name: "GetName"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトの名前を取得します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ローカライズ解決後のエフェクト表示名を返します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 returns:
@@ -12,4 +12,8 @@ returns:
     kind: named
     name: System.String
 code: |
-  public string GetName();
+  public string GetName()
+remarks: |
+  `ResourceType` が設定されている場合はリソースクラスのプロパティーから文字列を取得します。
+  `Name` が `"YMM4Key_"` で始まる場合はYMM4組み込みテキストリソースから解決します。
+  いずれにも該当しない場合は `Name` をそのまま返します。

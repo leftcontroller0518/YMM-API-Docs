@@ -1,0 +1,29 @@
+id: "T:YukkuriMovieMaker.Player.Video.EffectDescription"
+type: class
+name: "YukkuriMovieMaker.Player.Video.EffectDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "IVideoEffectProcessor.Update に渡されるフレームのコンテキスト情報です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.TimelineSourceDescription
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription
+code: |
+  public record EffectDescription : TimelineItemSourceDescription
+remarks: |
+  `TimelineItemSourceDescription` のすべてのプロパティーに加えて、以下の情報を持ちます。
+
+  - `DrawDescription` — 現時点の描画状態（座標・ズーム・回転・不透明度など）
+  - `InputIndex` / `InputCount` — このエフェクトが受け取る入力の番号と総数（複数入力エフェクト用）
+  - `GroupIndex` / `GroupCount` — グループ内でのエフェクトの位置と総数

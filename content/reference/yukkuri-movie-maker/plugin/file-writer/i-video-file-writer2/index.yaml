@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter2"
+type: interface
+name: "YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter2"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dビットマップによる映像書き込みをサポートする動画ファイルライターのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IVideoFileWriter2 : IVideoFileWriter, IDisposable
+remarks: |
+  新規実装では `IVideoFileWriter3` の使用を推奨します。

@@ -1,0 +1,12 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声合成話者を表すインターフェースです。"
+code: |
+  public interface IVoiceSpeaker
+remarks: |
+  `IVoicePlugin.Voices` から列挙される各話者がこのインターフェースを実装します。
+  `API` と `ID` の組み合わせで話者を一意に識別します。

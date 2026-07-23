@@ -61,10 +61,10 @@ function renderOverloadGroup(
       md += `${resolvedLink(method.returns, symbolIndex, externalLinks)}\n\n`
     }
     if (method.type === "method" && method.remarks !== undefined) {
-      md += `## 注釈\n\n${method.remarks}\n\n`
+      md += `#### 注釈\n\n${method.remarks}\n\n`
     }
     if (method.type === "method" && method.examples !== undefined) {
-      md += `## 例\n\n${method.examples}\n\n`
+      md += `#### 例\n\n${method.examples}\n\n`
     }
     return md
   }
@@ -94,10 +94,10 @@ function renderOverloadGroup(
       md += `${resolvedLink(method.returns, symbolIndex, externalLinks)}\n\n`
     }
     if (method.type === "method" && method.remarks !== undefined) {
-      md += `### 注釈\n\n${method.remarks}\n\n`
+      md += `#### 注釈\n\n${method.remarks}\n\n`
     }
     if (method.type === "method" && method.examples !== undefined) {
-      md += `### 例\n\n${method.examples}\n\n`
+      md += `#### 例\n\n${method.examples}\n\n`
     }
   }
 
@@ -230,7 +230,7 @@ export function renderTypePage(
         md += `${resolvedLink(p.propertyType, symbolIndex, externalLinks)}\n\n`
       }
       if (p.type === "property" && p.remarks !== undefined) {
-        md += `### 注釈\n\n${p.remarks}\n\n`
+        md += `#### 注釈\n\n${p.remarks}\n\n`
       }
     }
   }
@@ -259,7 +259,7 @@ export function renderTypePage(
         md += `${resolvedLink(f.fieldType, symbolIndex, externalLinks)}\n\n`
       }
       if (f.type === "field" && f.remarks !== undefined) {
-        md += `### 注釈\n\n${f.remarks}\n\n`
+        md += `#### 注釈\n\n${f.remarks}\n\n`
       }
     }
   }
@@ -288,7 +288,7 @@ export function renderTypePage(
         md += `${resolvedLink(e.eventType, symbolIndex, externalLinks)}\n\n`
       }
       if (e.type === "event" && e.remarks !== undefined) {
-        md += `### 注釈\n\n${e.remarks}\n\n`
+        md += `#### 注釈\n\n${e.remarks}\n\n`
       }
     }
   }

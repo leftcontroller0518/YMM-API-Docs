@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.IEffectInfo.IsAviUtlSupported"
+type: property
+name: "IsAviUtlSupported"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集出力をサポートするかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IEffectInfo"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  Boolean IsAviUtlSupported { get; }

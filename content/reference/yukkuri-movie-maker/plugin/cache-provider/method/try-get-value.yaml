@@ -1,0 +1,33 @@
+id: "M:YukkuriMovieMaker.Plugin.CacheProvider.TryGetValue``1(System.String,``0@)"
+type: method
+name: "TryGetValue"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定キーに一致するキャッシュされたオブジェクトを取得します。成功した場合、キャッシュからは削除されます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.CacheProvider"
+genericParameters:
+  - T
+parameters:
+  - name: filePath
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: source
+    modifier: out
+    type:
+      type:
+        kind: genericParameter
+        name: T
+      nullable: true
+returns:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public bool TryGetValue<T>(string filePath, [NotNullWhen(true)] out T? source) where T : class, IDisposable
+remarks: |
+  型パラメーター `T` でフィルタリングします。同じキーに複数の型のオブジェクトが存在する場合、`T` に一致するものだけが対象です。
+  取得に成功するとキャッシュから削除されます。取得したオブジェクトは使用後に呼び出し側が `Dispose` してください。

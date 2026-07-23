@@ -3,8 +3,8 @@ type: class
 name: "YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "映像エフェクトの名前、カテゴリーを設定し、VideoEffectBaseに付与する属性です。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトクラスに付与する属性です。"
 externalInheritance:
   - type:
       kind: named
@@ -18,4 +18,21 @@ base:
     name: System.Attribute
 code: |
   [AttributeUsage(AttributeTargets.Class)]
-  public class VideoEffectAttribute : Attribute
+  public class VideoEffectAttribute(string name, string[] categories, string[] keywords, bool isEffectItemSupported = true, bool isAviUtlSupported = true) : Attribute()
+remarks: |
+  `VideoEffectBase` を継承したクラスに必ず付与してください。
+  この属性が存在しないクラスはYMM4のエフェクト一覧に表示されません。
+
+  `name` および `categories` の各文字列として `"YMM4Key_"` で始まるキーを指定することで、
+  YMM4組み込みの多言語テキストリソースを参照できます（`VideoEffectCategories` の定数を参照）。
+  `ResourceType` を設定した場合は指定したリソースクラスのプロパティーから名前を解決します。
+examples: |
+  ```csharp
+  // 組み込みカテゴリーキーを使う場合
+  [VideoEffect("サンプルエフェクト", [VideoEffectCategories.Filtering], ["blur", "ぼかし"])]
+  public class SampleVideoEffect : VideoEffectBase { ... }
+
+  // ResourceType を使う場合（多言語対応）
+  [VideoEffect(nameof(Resources.EffectName), [nameof(Resources.CategoryName)], [], ResourceType = typeof(Resources))]
+  public class LocalizedEffect : VideoEffectBase { ... }
+  ```

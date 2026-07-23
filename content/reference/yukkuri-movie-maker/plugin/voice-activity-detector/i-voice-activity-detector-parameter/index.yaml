@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorParameter"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声区間検出のパラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface IVoiceActivityDetectorParameter : INotifyPropertyChanged

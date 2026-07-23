@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.ThemeManager.LoadTheme(System.String)"
+type: method
+name: "LoadTheme"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定したURIのテーマを読み込んで適用します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ThemeManager"
+parameters:
+  - name: uri
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void LoadTheme(string uri)
+remarks: |
+  `Application.Current.Resources.MergedDictionaries[1]` を差し替えてテーマを適用し、`ThemeChanged` イベントを発火させます。
+  このメソッドはYMM4本体が呼び出します。プラグインから直接呼ぶ必要は通常ありません。

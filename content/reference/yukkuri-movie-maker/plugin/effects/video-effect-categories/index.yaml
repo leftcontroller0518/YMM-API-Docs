@@ -3,15 +3,31 @@ type: class
 name: "YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "映像エフェクトのカテゴリーのキーの名前を返すフィールドを持ちます。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトカテゴリーの定義済みキーを提供します。"
 externalInheritance:
   - type:
       kind: named
       name: System.Object
-base:
-  type:
-    kind: named
-    name: System.Object
 code: |
   public class VideoEffectCategories
+remarks: |
+  各定数は `"YMM4Key_"` プレフィックスを持つローカライズキーです。
+  `VideoEffectAttribute` の `categories` 引数に直接使用してください。
+
+  | 定数 | カテゴリー名 |
+  | --- | --- |
+  | `Animation` | アニメーション |
+  | `Camera` | カメラ |
+  | `Filtering` | フィルタリング |
+  | `Composition` | 合成 |
+  | `Decoration` | 装飾 |
+  | `Transition` | トランジション |
+  | `Layout` | レイアウト |
+  | `Drawing` | 描画 |
+  | `Branch` | 分岐 |
+examples: |
+  ```csharp
+  [VideoEffect("ぼかし", [VideoEffectCategories.Filtering], ["blur", "ぼかし"])]
+  public class BlurVideoEffect : VideoEffectBase { ... }
+  ```

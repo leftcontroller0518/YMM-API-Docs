@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterSupportedStreams"
+type: enum
+name: "YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterSupportedStreams"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "動画ファイルライターがサポートするストリームを表すフラグ列挙型です。"
+code: |
+  [Flags]
+  public enum VideoFileWriterSupportedStreams
+remarks: |
+  `IVideoFileWriter.SupportedStreams` で使用します。
+
+  | 値 | 説明 |
+  | --- | --- |
+  | `None` | 何もサポートしない |
+  | `Audio` | 音声ストリームをサポート |
+  | `Video` | 映像ストリームをサポート |

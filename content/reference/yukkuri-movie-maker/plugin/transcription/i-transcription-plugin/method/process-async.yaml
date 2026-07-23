@@ -1,0 +1,34 @@
+id: "M:YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin.ProcessAsync(YukkuriMovieMaker.Plugin.Transcription.ITranscriptionProcessArgs,System.Threading.CancellationToken)"
+type: method
+name: "ProcessAsync"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声を文字起こしして結果セグメントを非同期ストリームで返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin"
+parameters:
+  - name: args
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Transcription.ITranscriptionProcessArgs
+  - name: token
+    type:
+      type:
+        kind: named
+        name: System.Threading.CancellationToken
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IAsyncEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment
+code: |
+  IAsyncEnumerable<TranscriptionSegment> ProcessAsync(ITranscriptionProcessArgs args, CancellationToken token);
+remarks: |
+  `args.CreateAudioStream()` で音声データを取得できます。
+  セグメントを `yield return` で逐次返すことで進捗をリアルタイムに反映できます。
+  キャンセルを要求された場合は `token.ThrowIfCancellationRequested()` を呼び出してください。

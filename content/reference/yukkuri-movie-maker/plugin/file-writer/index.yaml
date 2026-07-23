@@ -1,0 +1,9 @@
+id: "N:YukkuriMovieMaker.Plugin.FileWriter"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.FileWriter"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "動画ファイル出力プラグインを作成するための型を提供します。"
+remarks: |
+  動画出力プラグインは `IVideoFileWriterPlugin` を実装します。
+  実際の書き込み処理は `IVideoFileWriter` / `IVideoFileWriter2` / `IVideoFileWriter3` のいずれかで実装します。
+  新規実装は `IVideoFileWriter3`（GPUフレーム対応）の使用を推奨します。

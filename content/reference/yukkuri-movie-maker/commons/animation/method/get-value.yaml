@@ -1,0 +1,43 @@
+id: "M:YukkuriMovieMaker.Commons.Animation.GetValue(System.Int64,System.Int64,System.Int32)"
+type: method
+name: "GetValue"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定フレームにおける補間値を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+parameters:
+  - name: frame
+    type:
+      type:
+        kind: named
+        name: System.Int64
+  - name: totalFrame
+    type:
+      type:
+        kind: named
+        name: System.Int64
+  - name: fps
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  public double GetValue(long frame, long totalFrame, int fps)
+remarks: |
+  `frame` はアイテム先頭からの経過フレーム数（`EffectDescription.ItemPosition.Frame`）です。
+  `totalFrame` はアイテム全体のフレーム数（`EffectDescription.ItemDuration.Frame`）です。
+  `fps` はタイムラインのFPS（`EffectDescription.FPS`）です。
+  戻り値は `MinValue` 〜 `MaxValue` にクランプされます。
+examples: |
+  ```csharp
+  double value = Intensity.GetValue(
+      effectDescription.ItemPosition.Frame,
+      effectDescription.ItemDuration.Frame,
+      effectDescription.FPS);
+  ```

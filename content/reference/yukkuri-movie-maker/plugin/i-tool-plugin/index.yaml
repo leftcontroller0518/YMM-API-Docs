@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.IToolPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.IToolPlugin"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ツールパネルとして表示されるプラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface IToolPlugin : IPlugin

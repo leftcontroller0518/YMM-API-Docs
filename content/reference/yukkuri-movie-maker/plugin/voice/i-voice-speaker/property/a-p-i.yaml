@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.API"
+type: property
+name: "API"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "話者を識別するAPIキーを取得します。プラグイン内で一意の文字列です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  String API { get; }

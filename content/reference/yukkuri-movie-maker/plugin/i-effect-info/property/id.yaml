@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.IEffectInfo.Id"
+type: property
+name: "Id"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの一意IDを取得します。エフェクトクラスの完全修飾名です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IEffectInfo"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  String Id { get; }

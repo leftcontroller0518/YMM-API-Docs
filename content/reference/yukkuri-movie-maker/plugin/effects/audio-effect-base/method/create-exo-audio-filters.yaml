@@ -1,0 +1,30 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase.CreateExoAudioFilters(System.Int32,YukkuriMovieMaker.Exo.ExoOutputDescription)"
+type: method
+name: "CreateExoAudioFilters"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集（.exo）用の音声フィルター文字列を生成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase"
+parameters:
+  - name: keyFrameIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: exoOutputDescription
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Exo.ExoOutputDescription
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  public abstract IEnumerable<string> CreateExoAudioFilters(int keyFrameIndex, ExoOutputDescription exoOutputDescription);

@@ -3,8 +3,8 @@ type: field
 name: "Animation"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "アニメーションカテゴリーのキーの名前を返します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アニメーションカテゴリーのキーです。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 fieldType:

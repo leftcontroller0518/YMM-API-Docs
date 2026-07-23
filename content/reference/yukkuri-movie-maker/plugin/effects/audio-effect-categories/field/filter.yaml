@@ -1,0 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories.Filter"
+type: field
+name: "Filter"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フィルターカテゴリーのキーです。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public const string Filter = "YMM4Key_AudioFilterCategoryName";

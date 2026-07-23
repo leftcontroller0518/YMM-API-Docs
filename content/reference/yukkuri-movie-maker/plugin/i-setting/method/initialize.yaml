@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.ISetting.Initialize"
+type: method
+name: "Initialize"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定値を初期化します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ISetting"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Initialize();
+remarks: |
+  `SettingsBase<T>` のロード処理が完了した後に呼び出されます。
+  JSONからデシリアライズされた直後、または新規インスタンス作成直後に呼ばれます。
+  バージョン間の移行処理や初期値の補完に使用してください。

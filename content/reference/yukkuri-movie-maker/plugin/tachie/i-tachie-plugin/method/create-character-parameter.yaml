@@ -1,0 +1,17 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateCharacterParameter"
+type: method
+name: "CreateCharacterParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "キャラクター設定パラメーターのデフォルトインスタンスを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Tachie.ITachieCharacterParameter
+code: |
+  ITachieCharacterParameter CreateCharacterParameter();
+remarks: |
+  キャラクターエディターで表示・編集されるパラメーターです。キャラクターファイルパス等を保持します。

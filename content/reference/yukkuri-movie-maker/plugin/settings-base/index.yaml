@@ -1,0 +1,60 @@
+id: "T:YukkuriMovieMaker.Plugin.SettingsBase`1"
+type: class
+name: "YukkuriMovieMaker.Plugin.SettingsBase`1"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "プラグイン設定の基底クラスです。JSON形式での自動保存・読み込みを提供します。"
+genericParameters:
+  - T
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Commons.ValidatableBindable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.ValidatableBindable
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.ISetting
+code: |
+  public abstract class SettingsBase<T> : ValidatableBindable, ISetting where T : class, ISetting, new()
+remarks: |
+  `T` には自クラスを指定するCRTPパターンを使います（例: `class MySettings : SettingsBase<MySettings>`）。
+
+  設定ファイルの保存パスはYMM4のバージョンを含むディレクトリ（`{設定ディレクトリ}/{バージョン}/{型の完全修飾名}.json`）です。
+  古いバージョンの設定ファイルは最大10世代まで保持され、起動時に最新のものを読み込みます。
+
+  `[JsonIgnore]` を付与しないパブリックプロパティーが保存対象になります。
+  設定値の変更通知とUndo/Redo登録には `Set` メソッドを使用してください。
+
+  プロパティーの変更検知には`INotifyPropertyChanged`が使われますが、設定クラスではUndo/Redoは不要なため、
+  `Set` を呼び出すだけで十分です。
+examples: |
+  ```csharp
+  public class MyEffectSettings : SettingsBase<MyEffectSettings>
+  {
+      private int quality = 80;
+
+      public override SettingsCategory Category => SettingsCategory.VideoEffect;
+      public override string Name => "マイエフェクト設定";
+      public override bool HasSettingView => false;
+      public override object? SettingView => null;
+
+      public int Quality
+      {
+          get => quality;
+          set => Set(ref quality, value);
+      }
+
+      public override void Initialize() { }
+  }
+
+  // 使用例
+  var q = SettingsBase<MyEffectSettings>.Default.Quality;
+  ```

@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Player.Audio.Effects.IAudioEffectProcessor.Input"
+type: property
+name: "Input"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "前段の音声ストリームを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioEffectProcessor"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Audio.Effects.IAudioStream
+  nullable: true
+code: |
+  IAudioStream? Input { get; set; }
+remarks: |
+  `null` の場合、このエフェクトが先頭ストリームです。
+  `Read` メソッド内で `Input?.Read(...)` を呼び出して前段のサンプルを取得し、処理を加えて返してください。

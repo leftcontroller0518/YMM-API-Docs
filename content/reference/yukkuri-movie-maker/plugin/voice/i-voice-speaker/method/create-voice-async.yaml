@@ -1,0 +1,48 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.CreateVoiceAsync(System.String,YukkuriMovieMaker.Plugin.Voice.IVoicePronounce,YukkuriMovieMaker.Plugin.Voice.IVoiceParameter,System.String)"
+type: method
+name: "CreateVoiceAsync"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声ファイルを非同期に生成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+parameters:
+  - name: text
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: pronounce
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoicePronounce
+      nullable: true
+  - name: parameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoiceParameter
+      nullable: true
+  - name: filePath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoicePronounce
+      nullable: true
+code: |
+  Task<IVoicePronounce?> CreateVoiceAsync(string text, IVoicePronounce? pronounce, IVoiceParameter? parameter, string filePath);
+remarks: |
+  音声を合成して `filePath` にWAVファイルとして書き出してください。
+  `pronounce` は前回生成時の読み情報で、再利用できる場合はそのまま返せます。
+  戻り値の `IVoicePronounce` はリップシンクや読み調整情報を含みます。
+  失敗した場合は `null` を返してください。

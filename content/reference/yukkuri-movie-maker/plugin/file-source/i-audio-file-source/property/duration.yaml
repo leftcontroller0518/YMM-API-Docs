@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource.Duration"
+type: property
+name: "Duration"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声の総再生時間を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource"
+propertyType:
+  type:
+    kind: named
+    name: System.TimeSpan
+code: |
+  TimeSpan Duration { get; }

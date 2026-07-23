@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.Remark"
+type: property
+name: "Remark"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトに紐付けられたリマーク文字列を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string Remark { get; set; }
+remarks: |
+  `GetResources` の既定実装がこのプロパティーからコンテンツIDを解析してタイムラインリソースを生成します。
+  エフェクトが外部リソースを参照する場合、このプロパティーにコンテンツIDを格納してください。

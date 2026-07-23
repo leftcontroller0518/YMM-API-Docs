@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Player.Audio.Effects"
+type: namespace
+name: "YukkuriMovieMaker.Player.Audio.Effects"
+namespace: "YukkuriMovieMaker.Player.Audio"
+summary: "音声エフェクトプロセッサーのインターフェースを提供します。"

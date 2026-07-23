@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.EffectDescription.InputCount"
+type: property
+name: "InputCount"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このエフェクトへの入力総数を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.EffectDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public Int32 InputCount { get; init; }

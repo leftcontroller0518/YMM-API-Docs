@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.IEffectInfo.Keywords"
+type: property
+name: "Keywords"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクト検索に使用するキーワードの配列を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IEffectInfo"
+propertyType:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
+code: |
+  string[] Keywords { get; }

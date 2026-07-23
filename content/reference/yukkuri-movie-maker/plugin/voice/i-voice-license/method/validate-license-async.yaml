@@ -1,0 +1,22 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceLicense.ValidateLicenseAsync"
+type: method
+name: "ValidateLicenseAsync"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ライセンスの有効性を非同期に検証します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceLicense"
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.ValueTask
+  genericArguments:
+    - type:
+        kind: named
+        name: System.Boolean
+code: |
+  ValueTask<bool> ValidateLicenseAsync();
+remarks: |
+  有効なライセンスが確認できた場合は `true` を返します。
+  外部サーバーへの認証が不要な場合は `ValueTask.FromResult(true)` を返してください。

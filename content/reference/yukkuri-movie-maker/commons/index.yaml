@@ -1,0 +1,8 @@
+id: "N:YukkuriMovieMaker.Commons"
+type: namespace
+name: "YukkuriMovieMaker.Commons"
+namespace: "YukkuriMovieMaker"
+summary: "YMM4プラグイン開発で汎用的に使用される型を提供します。"
+remarks: |
+  プラグイン開発者が主に参照するのは `Animation` クラスと `AnimationType` 列挙型です。
+  `Animation` はアニメーション可能なパラメーターの値を保持し、フレームに応じた補間値を返します。

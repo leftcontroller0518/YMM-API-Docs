@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Commons.Animation.DefaultValue"
+type: property
+name: "DefaultValue"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "パラメーターのデフォルト値を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  [JsonIgnore]
+  public double DefaultValue { get; }

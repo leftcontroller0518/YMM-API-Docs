@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.PluginOrderAttribute.Order"
+type: property
+name: "Order"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ロード順を表す整数値を取得します。小さいほど先にロードされます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.PluginOrderAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public int Order { get; }

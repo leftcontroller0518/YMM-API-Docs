@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoiceLicense.IsTermsAgreed"
+type: property
+name: "IsTermsAgreed"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ユーザーが利用規約に同意済みかどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceLicense"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool IsTermsAgreed { get; set; }
+remarks: |
+  YMM4はこのプロパティーを読み取り、`false` の場合は規約同意UIを表示します。
+  同意後に `true` をセットして保存する責任は実装側にあります。

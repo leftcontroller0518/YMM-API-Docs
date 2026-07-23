@@ -1,0 +1,15 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "立ち絵プラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface ITachiePlugin : IPlugin
+remarks: |
+  立ち絵プラグインの実装には多くの型が関連します。`ITachieCharacterParameter`・`ITachieItemParameter`・`ITachieFaceParameter`・`ITachieSource` を実装してください。

@@ -1,0 +1,28 @@
+id: "T:YukkuriMovieMaker.Commons.AnimationType"
+type: enum
+name: "YukkuriMovieMaker.Commons.AnimationType"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Animationの補間方法を表す列挙型です。"
+code: |
+  public enum AnimationType
+remarks: |
+  `Animation.AnimationType` プロパティーで使用します。
+  ユーザーがUIで選択する値です。プラグインコードから直接指定する必要は通常ありません。
+
+  | 値 | 説明 |
+  | --- | --- |
+  | `なし` | アニメーションなし（定数値） |
+  | `直線移動` | 線形補間 |
+  | `加減速移動` | コサイン補間（サインカーブ） |
+  | `瞬間移動` | 補間なし・開始値で固定 |
+  | `移動量指定` | 開始値 + フレーム×移動量 |
+  | `ランダム移動` | ランダム補間 |
+  | `反復移動` | 往復補間 |
+  | `補間移動` | スプライン補間（キーフレーム対応） |
+  | `Quad_In` ～ `Bounce_OutIn` | 各種イージング |
+  | `Linear_Bezier` | ベジェ曲線（線形ベース） |
+  | `Interpolation_Bezier` | ベジェ曲線（補間ベース） |
+
+  `_Int` サフィックスが付く値はキーフレーム間補間タイプです。

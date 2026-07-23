@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase.CreateShapeSource(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext)"
+type: method
+name: "CreateShapeSource"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "形状描画ソースを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.IShapeSource
+code: |
+  public abstract IShapeSource CreateShapeSource(IGraphicsDevicesAndContext devices);
