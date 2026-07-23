@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.CreateVideoEffect(YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext)"
+type: method
+name: "CreateVideoEffect"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトプロセッサーを作成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.IVideoEffectProcessor
+code: |
+  public abstract IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);
+remarks: |
+  フレームのレンダリングごとに呼び出されるわけではなく、プレビューセッション開始時や設定変更時に呼ばれます。
+  `devices` からDirect2Dデバイスやコンテキストを取得できます。
+  返した `IVideoEffectProcessor` がフレームごとの描画処理を担います。

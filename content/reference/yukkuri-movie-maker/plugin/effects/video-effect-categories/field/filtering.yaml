@@ -3,8 +3,8 @@ type: field
 name: "Filtering"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "加工カテゴリーのキーの名前を返します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フィルタリングカテゴリーのキーです。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 fieldType:

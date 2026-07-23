@@ -1,0 +1,9 @@
+id: "T:YukkuriMovieMaker.Plugin.Transition.ITransitionParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Transition.ITransitionParameter"
+namespace: "YukkuriMovieMaker.Plugin.Transition"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "トランジションのパラメーターを表すインターフェースです。"
+code: |
+  public interface ITransitionParameter : IAnimatable, IUndoRedoable, IEditable

@@ -1,0 +1,34 @@
+id: "M:YukkuriMovieMaker.Plugin.Transition.ITransitionParameter.CreateTransition(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext,Vortice.Direct2D1.ID2D1Image,Vortice.Direct2D1.ID2D1Image)"
+type: method
+name: "CreateTransition"
+namespace: "YukkuriMovieMaker.Plugin.Transition"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "トランジションソースを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transition.ITransitionParameter"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+  - name: before
+    type:
+      type:
+        kind: named
+        name: Vortice.Direct2D1.ID2D1Image
+  - name: after
+    type:
+      type:
+        kind: named
+        name: Vortice.Direct2D1.ID2D1Image
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.ITransitionSource
+code: |
+  ITransitionSource CreateTransition(IGraphicsDevicesAndContext devices, ID2D1Image before, ID2D1Image after);
+remarks: |
+  `before` はトランジション前のフレーム、`after` はトランジション後のフレームのDirect2Dイメージです。
+  返した `ITransitionSource` がフレームごとのブレンド描画を担います。

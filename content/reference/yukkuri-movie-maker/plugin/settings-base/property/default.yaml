@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Plugin.SettingsBase`1.Default"
+type: property
+name: "Default"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "この設定クラスのシングルトンインスタンスを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.SettingsBase`1"
+propertyType:
+  type:
+    kind: genericParameter
+    name: T
+code: |
+  [JsonIgnore]
+  public static T Default { get; }
+remarks: |
+  静的コンストラクターでJSONファイルからロードされます。
+  ファイルが存在しない場合は新規インスタンスが生成され、`Initialize()` が呼ばれます。

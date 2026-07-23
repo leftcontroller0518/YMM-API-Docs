@@ -1,0 +1,27 @@
+id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase"
+type: class
+name: "YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "形状パラメータークラスの基底クラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Project.SharedParameterBase
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Project.SharedParameterBase
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Shape.IShapeParameter
+code: |
+  public abstract class ShapeParameterBase : SharedParameterBase, IShapeParameter
+remarks: |
+  形状パラメーターを実装する場合はこのクラスを継承してください。
+  `CreateShapeSource`・`CreateShapeItemExoFilter`・`CreateMaskExoFilter` の3つのメソッドを実装する必要があります。

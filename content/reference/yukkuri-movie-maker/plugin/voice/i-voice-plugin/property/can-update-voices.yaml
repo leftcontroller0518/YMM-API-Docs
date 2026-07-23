@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoicePlugin.CanUpdateVoices"
+type: property
+name: "CanUpdateVoices"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "話者一覧を動的に更新できるかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoicePlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool CanUpdateVoices { get; }
+remarks: |
+  外部アプリケーションの話者一覧を動的に取得できる場合は `true` を返してください。
+  `true` の場合、YMM4のUIに「話者を更新」ボタンが表示され、`UpdateVoicesAsync` が呼ばれます。

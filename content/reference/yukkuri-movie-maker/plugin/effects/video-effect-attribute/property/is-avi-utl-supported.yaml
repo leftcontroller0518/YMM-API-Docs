@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.IsAviUtlSupported"
+type: property
+name: "IsAviUtlSupported"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集（.exo）出力をサポートするかどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public bool IsAviUtlSupported { get; set; }
+remarks: |
+  既定値は `true` です。
+  `false` に設定した場合、`CreateExoVideoFilters` の戻り値は出力に使用されません。

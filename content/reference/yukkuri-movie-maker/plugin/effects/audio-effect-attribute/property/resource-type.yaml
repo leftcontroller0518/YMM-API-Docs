@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute.ResourceType"
+type: property
+name: "ResourceType"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "名前解決に使用するリソースクラスの型を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.Type
+  nullable: true
+code: |
+  public Type? ResourceType { get; set; }

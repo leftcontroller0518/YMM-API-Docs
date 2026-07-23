@@ -3,8 +3,8 @@ type: property
 name: "Label"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトの名前を設定します。読み取り専用です。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの表示名を取得します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 propertyType:
@@ -12,5 +12,4 @@ propertyType:
     kind: named
     name: System.String
 code: |
-  [Newtonsoft.Json.JsonIgnore]
-  public abstract string Label { get; }
+  string Label { get; }

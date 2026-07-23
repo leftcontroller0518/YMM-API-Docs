@@ -1,0 +1,18 @@
+id: "M:YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin.GetSupportedAudioFormat"
+type: method
+name: "GetSupportedAudioFormat"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このプラグインが要求する音声フォーマットを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Transcription.TranscriptionSupportedAudioFormat
+code: |
+  TranscriptionSupportedAudioFormat GetSupportedAudioFormat();
+remarks: |
+  `SampleRate` と `Channels` を指定することで、YMM4がリサンプリングして渡します。
+  `null` を指定した場合は元の形式のままのデータが渡されます。

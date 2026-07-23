@@ -3,8 +3,8 @@ type: field
 name: "Transition"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "登場退場カテゴリーのキーの名前を返します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "トランジションカテゴリーのキーです。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 fieldType:

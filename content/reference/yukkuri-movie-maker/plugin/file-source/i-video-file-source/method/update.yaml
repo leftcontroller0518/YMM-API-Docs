@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource.Update(System.TimeSpan)"
+type: method
+name: "Update"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定した時刻のフレームをデコードして Output に反映します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource"
+parameters:
+  - name: time
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Update(TimeSpan time);

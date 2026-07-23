@@ -1,0 +1,30 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSourcePlugin.CreateVideoFileSource(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext,System.String)"
+type: method
+name: "CreateVideoFileSource"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定パスの動画ファイルソースを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSourcePlugin"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+  - name: filePath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource
+  nullable: true
+code: |
+  IVideoFileSource? CreateVideoFileSource(IGraphicsDevicesAndContext devices, string filePath);
+remarks: |
+  このプラグインが対応していないファイル形式の場合は `null` を返してください。
+  `null` を返した場合、YMM4は次の優先順位のプラグインを試みます。

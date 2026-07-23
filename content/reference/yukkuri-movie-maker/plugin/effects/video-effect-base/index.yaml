@@ -3,8 +3,8 @@ type: class
 name: "YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "映像エフェクトの名前、パラメータの保持、変更の通知、プロセッサーの提供などを行うクラスはこれを継承します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトの基底クラスです。"
 externalInheritance:
   - type:
       kind: named
@@ -20,11 +20,33 @@ implements:
   - type:
       kind: named
       name: YukkuriMovieMaker.Plugin.Effects.IVideoEffect
-  - type:
-      kind: named
-      name: System.ComponentModel.INotifyPropertyChanged
-  - type:
-      kind: named
-      name: System.ComponentModel.INotifyDataErrorInfo
 code: |
-  public abstract class VideoEffectBase : YukkuriMovieMaker.Commons.Animatable, YukkuriMovieMaker.Plugin.Effects.IVideoEffect, System.ComponentModel.INotifyPropertyChanged, System.ComponentModel.INotifyDataErrorInfo, YukkuriMovieMaker.UndoRedo.IUndoRedoable, YukkuriMovieMaker.ItemEditor.IEditable, YukkuriMovieMaker.Commons.IAnimatable, YukkuriMovieMaker.Project.IFileItem, YukkuriMovieMaker.Project.IResourceItem
+  public abstract class VideoEffectBase : Animatable, IVideoEffect
+remarks: |
+  映像エフェクトプラグインを実装する場合はこのクラスを継承してください。
+  継承クラスには `[VideoEffect]` 属性を付与する必要があります。
+
+  コンストラクターは、`Animatable` が保有するアニメーション可能プロパティ（`Animation` 型）の `UndoRedoCommandCreated` イベントを自動的に購読します。
+  これにより、アニメーションの変更が `PropertyChanged` イベントの `Label` 通知として伝播します。
+
+  プロパティーの変更通知とUndo/Redo登録には `Set` メソッドを使用してください。
+  プロパティーに `IUndoRedoable` を実装したオブジェクト（`Animation` など）を設定する場合、
+  `Set` メソッドが自動的に古い値のイベント解除・新しい値のイベント購読を行います。
+examples: |
+  ```csharp
+  [VideoEffect("サンプルエフェクト", ["サンプル"], [])]
+  public class SampleVideoEffect : VideoEffectBase
+  {
+      public override string Label => "サンプルエフェクト";
+
+      [Display(Name = "強度")]
+      [AnimationSlider("F0", "%", 0, 100)]
+      public Animation Intensity { get; } = new Animation(50, 0, 100);
+
+      public override IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices)
+          => new SampleVideoEffectProcessor(devices, this);
+
+      public override IEnumerable<string> CreateExoVideoFilters(int keyFrameIndex, ExoOutputDescription exo)
+          => [];
+  }
+  ```

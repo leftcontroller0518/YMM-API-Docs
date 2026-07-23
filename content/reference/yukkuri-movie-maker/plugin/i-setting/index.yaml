@@ -1,0 +1,15 @@
+id: "T:YukkuriMovieMaker.Plugin.ISetting"
+type: interface
+name: "YukkuriMovieMaker.Plugin.ISetting"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "YMM4の設定クラスが実装するインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface ISetting : INotifyPropertyChanged
+remarks: |
+  直接実装せず `SettingsBase<T>` を継承することを推奨します。

@@ -1,0 +1,27 @@
+id: "T:YukkuriMovieMaker.Plugin.Brush.BrushParameterBase"
+type: class
+name: "YukkuriMovieMaker.Plugin.Brush.BrushParameterBase"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ブラシパラメータークラスの基底クラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Commons.Animatable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.Animatable
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Brush.IBrushParameter
+code: |
+  public abstract class BrushParameterBase : Animatable, IBrushParameter
+remarks: |
+  ブラシパラメーターを実装する場合はこのクラスを継承してください。
+  `CreateBrush` を実装して `IBrushSource` を返してください。

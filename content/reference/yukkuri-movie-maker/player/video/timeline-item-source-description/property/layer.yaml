@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription.Layer"
+type: property
+name: "Layer"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アイテムが配置されているレイヤー番号を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public Int32 Layer { get; init; }

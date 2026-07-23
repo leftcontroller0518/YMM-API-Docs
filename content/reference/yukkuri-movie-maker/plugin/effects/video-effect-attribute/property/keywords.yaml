@@ -3,8 +3,8 @@ type: property
 name: "Keywords"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトの検索キーワードを取得または設定します。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクト検索に使用するキーワードの配列を取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 propertyType:
@@ -15,4 +15,4 @@ propertyType:
         kind: named
         name: System.String
 code: |
-  public string[] Keywords { get; }
+  public string[] Keywords { get; set; }

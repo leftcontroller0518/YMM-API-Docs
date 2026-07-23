@@ -1,0 +1,15 @@
+id: "T:YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterOutputPath"
+type: enum
+name: "YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterOutputPath"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "動画出力プラグインの出力パス形式を表す列挙型です。"
+code: |
+  public enum VideoFileWriterOutputPath
+remarks: |
+  | 値 | 説明 |
+  | --- | --- |
+  | `None` | 出力先パスの指定なし |
+  | `Directory` | ディレクトリパスを指定 |
+  | `File` | ファイルパスを指定 |

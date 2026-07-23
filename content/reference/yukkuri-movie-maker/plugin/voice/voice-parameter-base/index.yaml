@@ -1,0 +1,28 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.VoiceParameterBase"
+type: class
+name: "YukkuriMovieMaker.Plugin.Voice.VoiceParameterBase"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声パラメータークラスの基底クラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Voice.IVoiceParameter
+code: |
+  public abstract class VoiceParameterBase : UndoRedoable, IVoiceParameter
+remarks: |
+  音声パラメーターを実装する場合はこのクラスを継承してください。
+  プロパティー変更の通知とUndo/Redo登録には `Set` メソッドを使用します。
+  クラスのパブリックプロパティーがJSONでシリアライズされます。

@@ -1,0 +1,30 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IImageFileSourcePlugin.CreateBitmap(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext,System.String)"
+type: method
+name: "CreateBitmap"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定パスの画像ファイルをDirect2Dビットマップとして読み込んで返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IImageFileSourcePlugin"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+  - name: filePath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: Vortice.Direct2D1.ID2D1Bitmap
+  nullable: true
+code: |
+  ID2D1Bitmap? CreateBitmap(IGraphicsDevicesAndContext devices, string filePath);
+remarks: |
+  対応していない形式の場合は `null` を返してください。
+  返したビットマップの所有権はYMM4に移ります。プラグイン側で `Dispose` しないでください。

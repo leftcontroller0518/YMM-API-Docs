@@ -1,0 +1,26 @@
+id: "M:YukkuriMovieMaker.Plugin.CacheProvider.Collect(System.String,System.IDisposable)"
+type: method
+name: "Collect"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定キーでオブジェクトをキャッシュに追加します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.CacheProvider"
+parameters:
+  - name: key
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: source
+    type:
+      type:
+        kind: named
+        name: System.IDisposable
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void Collect(string key, IDisposable source)

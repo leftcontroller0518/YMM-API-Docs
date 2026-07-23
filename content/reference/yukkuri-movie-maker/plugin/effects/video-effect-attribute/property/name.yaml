@@ -3,8 +3,8 @@ type: property
 name: "Name"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトの名前を取得または設定します。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの表示名を取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 propertyType:
@@ -13,3 +13,5 @@ propertyType:
     name: System.String
 code: |
   public string Name { get; set; }
+remarks: |
+  実際の表示文字列は `GetName()` を通して取得します。`ResourceType` が設定されている場合はリソースから解決されます。

@@ -1,0 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories.Effect"
+type: field
+name: "Effect"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトカテゴリーのキーです。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public const string Effect = "YMM4Key_AudioEffectCategoryName";

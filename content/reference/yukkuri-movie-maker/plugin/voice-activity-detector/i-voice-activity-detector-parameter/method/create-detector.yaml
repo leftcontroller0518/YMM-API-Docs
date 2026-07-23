@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorParameter.CreateDetector"
+type: method
+name: "CreateDetector"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このパラメーターに基づいてVAD検出器を生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorParameter"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector
+code: |
+  IVoiceActivityDetector CreateDetector();

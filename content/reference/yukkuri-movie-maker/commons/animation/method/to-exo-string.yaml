@@ -1,0 +1,60 @@
+id: "M:YukkuriMovieMaker.Commons.Animation.ToExoString(System.Int32,System.String,System.Int32,System.Func{System.Double,System.Double})"
+type: method
+name: "ToExoString"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集（.exo）用のパラメーター文字列を生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+parameters:
+  - name: keyFrameIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: format
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: fps
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: converter
+    type:
+      type:
+        kind: named
+        name: System.Func
+      nullable: true
+    genericArguments:
+      - type:
+          kind: named
+          name: System.Double
+      - type:
+          kind: named
+          name: System.Double
+returns:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string ToExoString(int keyFrameIndex, string format, int fps, Func<double, double>? converter = null)
+remarks: |
+  `CreateExoVideoFilters` の実装内で使用します。
+  `keyFrameIndex` には `CreateExoVideoFilters` の引数をそのまま渡してください。
+  `format` は数値フォーマット文字列（例: `"F2"`・`"F0"`）です。
+  `converter` で値の変換（スケール変換など）を指定できます。省略時は変換なし。
+examples: |
+  ```csharp
+  public override IEnumerable<string> CreateExoVideoFilters(int keyFrameIndex, ExoOutputDescription exo)
+  {
+      var fps = exo.VideoInfo.FPS;
+      yield return
+          $"_name=ぼかし\r\n" +
+          $"_disable={(IsEnabled ? 1 : 0)}\r\n" +
+          $"範囲={Intensity.ToExoString(keyFrameIndex, "F0", fps)}\r\n";
+  }
+  ```

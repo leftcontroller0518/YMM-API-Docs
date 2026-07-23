@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Plugin.ThemeManager"
+type: class
+name: "YukkuriMovieMaker.Plugin.ThemeManager"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "YMM4のテーマを管理するシングルトンクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class ThemeManager
+remarks: |
+  プラグインがWPFカスタムコントロールを提供する場合、テーマ変更に対応するために `ThemeChanged` イベントを購読してください。
+  `LoadTheme` は `Application.Current.Resources.MergedDictionaries[1]` を直接書き換えるため、WPFアプリケーションが起動中でないと使用できません。

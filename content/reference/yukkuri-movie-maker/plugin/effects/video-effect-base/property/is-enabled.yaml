@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.IsEnabled"
+type: property
+name: "IsEnabled"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが有効かどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public bool IsEnabled { get; set; }
+remarks: |
+  既定値は `true` です。
+  プロパティー変更は `Set` メソッド経由でUndo/Redoに登録されます。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.FrameTime.Time"
+type: property
+name: "Time"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームに対応するTimeSpanを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.FrameTime"
+propertyType:
+  type:
+    kind: named
+    name: System.TimeSpan
+code: |
+  public TimeSpan Time { get; }

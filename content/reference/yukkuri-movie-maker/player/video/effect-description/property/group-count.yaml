@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.EffectDescription.GroupCount"
+type: property
+name: "GroupCount"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトグループ内の総エフェクト数を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.EffectDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public Int32 GroupCount { get; init; }

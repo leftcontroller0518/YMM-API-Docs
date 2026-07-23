@@ -1,0 +1,29 @@
+id: "M:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriterPlugin.CreateVideoFileWriter(System.String,YukkuriMovieMaker.Commons.VideoInfo)"
+type: method
+name: "CreateVideoFileWriter"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "動画ファイルライターを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriterPlugin"
+parameters:
+  - name: path
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: videoInfo
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.VideoInfo
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter
+code: |
+  IVideoFileWriter CreateVideoFileWriter(string path, VideoInfo videoInfo);
+remarks: |
+  返す型は `IVideoFileWriter2` または `IVideoFileWriter3` でも構いません。
+  YMM4はインターフェースを順に確認してより新しい機能を使用します。

@@ -1,0 +1,15 @@
+id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "動画ファイルへの書き込みを行う基本インターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IVideoFileWriter : IDisposable
+remarks: |
+  このインターフェースを直接実装することは非推奨です。`IVideoFileWriter2` または `IVideoFileWriter3` を実装してください。

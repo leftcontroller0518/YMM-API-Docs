@@ -3,8 +3,8 @@ type: property
 name: "Remark"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトについて備考を取得または設定します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトに紐付けられたリマーク文字列を取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 propertyType:
@@ -12,4 +12,7 @@ propertyType:
     kind: named
     name: System.String
 code: |
-  public string Remark { get; set; }
+  string Remark { get; set; }
+remarks: |
+  リマーク文字列はタイムライン上のリソース参照のために内部的に使用されます。
+  エフェクトが参照するコンテンツIDや外部リソースの情報をここに格納します。

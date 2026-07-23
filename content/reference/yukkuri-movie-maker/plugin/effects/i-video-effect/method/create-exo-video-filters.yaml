@@ -3,63 +3,42 @@ type: method
 name: "CreateExoVideoFilters"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "AviUtlで使用可能な.exoファイルとして出力する際に必要なExoFilterを生成します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集（.exo）用のフィルター文字列を生成します。"
 declaringType:
-    id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 parameters:
-    - name: keyFrameIndex
-      type:
-          type:
-              kind: named
-              name: System.Int32
-    - name: exoOutputDescription
-      type:
-          type:
-              kind: named
-              name: YukkuriMovieMaker.Exo.ExoOutputDescription
-returns:
+  - name: keyFrameIndex
     type:
+      type:
         kind: named
-        name: System.Collections.Generic.IEnumerable
-    genericArguments:
-        - type:
-              kind: named
-              name: System.String
+        name: System.Int32
+  - name: exoOutputDescription
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Exo.ExoOutputDescription
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  IEnumerable<string> CreateExoVideoFilters(int keyFrameIndex, ExoOutputDescription exoOutputDescription);
 remarks: |
-    exoファイルはAviUtlで読み込まれるテキストファイルです。このファイルには動画の設定、タイムライン構成、各アイテムのパラメータなどのデータが含まれています。`_name`はAviUtl上のエフェクト名、`_disable`はエフェクトの有効状態を表します（有効は1、無効は0）。なお、このエフェクトがAviUtlで代替不能の場合、空のコレクションを返してください。
+  `IsAviUtlSupported` が `false` の場合、この戻り値は使用されません。
+  AviUtl出力に対応しない場合は空のシーケンスを返してください。
 examples: |
-    次のコード例では、ぼかしをかけるエフェクトを生成するクラスを定義します。
-    
-    ```csharp
-    [VideoEffect("ぼかし", ["加工"], [])]
-    internal class BlurEffect : VideoEffectBase
-    {
-        public override string Label => "ぼかし";
-      
-      [Display(Name = "ぼかし", Description = "ぼかしの強さ")]
-      [AnimationSlider("F0", "", 0, 100)]
-        public Animation Blur { get; } = new Animation(10, 0, 100);
-  
-        public override IEnumerable<string> CreateExoVideoFilters(int keyFrameIndex, ExoOutputDescription exoOutputDescription)
-      {
-        var fps = exoOutputDescription.VideoInfo.FPS;
-        return
-        [
-            $"_name=ぼかし\r\n" +
-              $"_disable={(IsEnabled ?1:0)}\r\n" +
-          $"範囲={Blur.ToExoString(keyFrameIndex, "F0", fps)}\r\n" +
-          $"縦横比=0.0\r\n" +
-          $"光の強さ=0\r\n" +
-          $"サイズ固定=0\r\n",
-        ];
-      }
-  
-        public override IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices)
-      {
-        return new SampleD2DVideoEffectProcessor(devices, this);
-      }
-  
-        protected override IEnumerable<IAnimatable> GetAnimatables() => [Blur];
-    }
-    ```
+  ```csharp
+  public override IEnumerable<string> CreateExoVideoFilters(int keyFrameIndex, ExoOutputDescription exoOutputDescription)
+  {
+      var fps = exoOutputDescription.VideoInfo.FPS;
+      yield return
+          $"_name=ぼかし\r\n" +
+          $"_disable={(IsEnabled ? 1 : 0)}\r\n" +
+          $"範囲={Blur.ToExoString(keyFrameIndex, "F0", fps)}\r\n";
+  }
+  ```

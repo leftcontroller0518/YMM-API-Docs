@@ -1,0 +1,24 @@
+id: "T:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription"
+type: class
+name: "YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムライン上のアイテムのフレーム情報を保持するレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.TimelineSourceDescription
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.TimelineSourceDescription
+code: |
+  public record TimelineItemSourceDescription : TimelineSourceDescription
+remarks: |
+  `TimelineSourceDescription` のプロパティー（`FPS`・`TimelinePosition`・`ScreenSize` など）に加えて、
+  アイテム自身の位置と長さをフレーム単位で保持します。
+  `EffectDescription` の基底型でもあります。

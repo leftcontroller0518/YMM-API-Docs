@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.GetFiles"
+type: method
+name: "GetFiles"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このエフェクトが参照するファイルパスの一覧を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  public virtual IEnumerable<string> GetFiles()
+remarks: |
+  既定の実装は空のシーケンスを返します。
+  エフェクトが特定のファイルを参照する場合はオーバーライドしてパスを列挙してください。
+  プロジェクトのエクスポートや移動に使用されます。

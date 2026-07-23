@@ -3,13 +3,19 @@ type: property
 name: "Categories"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトのカテゴリーを取得または設定します。コンパイル時に評価される必要があります。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが属するカテゴリー名の配列を取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
 propertyType:
   type:
-    kind: named
-    name: System.String
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
 code: |
-  public string Categories { get; set; }
+  public string[] Categories { get; set; }
+remarks: |
+  `VideoEffectCategories` の定数をカテゴリーキーとして使用できます。
+  ユーザープラグインの場合、実行時に「プラグイン」カテゴリーが先頭に自動追加されます。

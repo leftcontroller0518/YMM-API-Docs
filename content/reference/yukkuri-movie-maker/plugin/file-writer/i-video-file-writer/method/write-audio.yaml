@@ -1,0 +1,27 @@
+id: "M:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter.WriteAudio(System.Single[])"
+type: method
+name: "WriteAudio"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声サンプルデータを書き込みます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter"
+parameters:
+  - name: samples
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.Single
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void WriteAudio(float[] samples);
+remarks: |
+  `SupportedStreams` に `Audio` が含まれている場合のみ呼ばれます。
+  `samples` はインターリーブされたステレオPCMデータ（-1.0〜1.0）です。

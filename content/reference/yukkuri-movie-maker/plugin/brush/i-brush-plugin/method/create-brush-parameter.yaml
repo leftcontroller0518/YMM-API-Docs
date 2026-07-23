@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Brush.IBrushPlugin.CreateBrushParameter"
+type: method
+name: "CreateBrushParameter"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このブラシのデフォルトパラメーターを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Brush.IBrushPlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Brush.IBrushParameter
+code: |
+  IBrushParameter CreateBrushParameter();

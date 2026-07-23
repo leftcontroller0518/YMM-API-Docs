@@ -1,0 +1,28 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.CommonVoiceLicense"
+type: class
+name: "YukkuriMovieMaker.Plugin.Voice.CommonVoiceLicense"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ユーザーの明示的な同意を必要としない汎用ライセンスの実装です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Voice.IVoiceLicense
+code: |
+  public class CommonVoiceLicense : IVoiceLicense
+remarks: |
+  `IsTermsAgreed` は常に `true` を返します。
+  設定不要のボイスエンジンや、外部で規約確認が済んでいるケースで使用します。
+examples: |
+  ```csharp
+  public IVoiceLicense? License { get; } =
+      new CommonVoiceLicense(
+          summary: "利用規約: https://example.com/terms",
+          location: VoiceLicenseDisplayLocation.ItemEditor,
+          termsURL: "https://example.com/terms");
+  ```

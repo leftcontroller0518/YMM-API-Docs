@@ -3,8 +3,8 @@ type: field
 name: "Composition"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "合成カテゴリーのキーの名前を返します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "合成カテゴリーのキーです。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectCategories"
 fieldType:

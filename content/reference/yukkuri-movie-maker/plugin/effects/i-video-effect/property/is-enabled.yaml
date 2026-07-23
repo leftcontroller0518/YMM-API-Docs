@@ -3,8 +3,8 @@ type: property
 name: "IsEnabled"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "エフェクトの有効または無効を取得または設定します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが有効かどうかを取得または設定します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 propertyType:
@@ -12,4 +12,4 @@ propertyType:
     kind: named
     name: System.Boolean
 code: |
-  public bool IsEnabled { get; set; }
+  bool IsEnabled { get; set; }

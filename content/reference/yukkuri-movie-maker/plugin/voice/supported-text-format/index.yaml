@@ -1,0 +1,19 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.SupportedTextFormat"
+type: enum
+name: "YukkuriMovieMaker.Plugin.Voice.SupportedTextFormat"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声合成話者がサポートするテキストフォーマットを表す列挙型です。"
+code: |
+  public enum SupportedTextFormat
+remarks: |
+  `IVoiceSpeaker.Format` で使用します。
+
+  | 値 | 説明 |
+  | --- | --- |
+  | `Text` | 通常のテキスト |
+  | `English` | 英語テキスト |
+  | `Yukkuri` | ゆっくりボイス形式（AquesTalk記法） |
+  | `YukkuriLite` | ゆっくりボイスLite形式 |
+  | `Custom` | プラグイン独自のカスタムフォーマット |

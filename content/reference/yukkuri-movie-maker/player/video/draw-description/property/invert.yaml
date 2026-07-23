@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.DrawDescription.Invert"
+type: property
+name: "Invert"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "色反転フラグを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public Boolean Invert { get; init; }

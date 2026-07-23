@@ -1,0 +1,12 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceLicense"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Voice.IVoiceLicense"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ボイスエンジンのライセンス情報を提供するインターフェースです。"
+code: |
+  public interface IVoiceLicense
+remarks: |
+  `IVoiceSpeaker.License` で返すオブジェクトが実装します。
+  ライセンス同意が不要な場合は `CommonVoiceLicense` を使用してください。

@@ -1,2 +1,0 @@
-# IAudioEffect インターフェース
-

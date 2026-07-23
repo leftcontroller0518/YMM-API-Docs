@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.DrawDescription.CenterPoint"
+type: property
+name: "CenterPoint"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "回転・ズームの中心点（X・Y）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Numerics.Vector2
+code: |
+  public Vector2 CenterPoint { get; init; }

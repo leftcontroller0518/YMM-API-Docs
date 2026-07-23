@@ -1,0 +1,19 @@
+id: "T:YukkuriMovieMaker.Plugin.Effects.IAudioEffect"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Effects.IAudioEffect"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyDataErrorInfo
+code: |
+  public interface IAudioEffect : INotifyPropertyChanged, INotifyDataErrorInfo, IUndoRedoable, IEditable, IAnimatable, IFileItem, IResourceItem
+remarks: |
+  音声エフェクトプラグインが実装すべきインターフェースです。
+  通常は直接実装せず、`AudioEffectBase` を継承することで実装します。

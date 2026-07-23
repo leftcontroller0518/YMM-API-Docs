@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment.Text"
+type: property
+name: "Text"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "セグメントの文字起こしテキストを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public required String Text { get; set; }

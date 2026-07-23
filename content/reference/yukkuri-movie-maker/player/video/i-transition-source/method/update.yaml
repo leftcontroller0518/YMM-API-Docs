@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Player.Video.ITransitionSource.Update(YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription)"
+type: method
+name: "Update"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームごとにトランジションの進行状態を更新します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.ITransitionSource"
+parameters:
+  - name: desc
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Update(TimelineItemSourceDescription desc);
+remarks: |
+  `desc.ItemPosition.Frame` と `desc.ItemDuration.Frame` からトランジションの進行率（0〜1）を算出して描画に反映してください。
+  `Output` プロパティーが合成済みイメージを返すように実装してください。

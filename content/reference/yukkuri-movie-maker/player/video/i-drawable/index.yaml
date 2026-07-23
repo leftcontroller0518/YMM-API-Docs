@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Player.Video.IDrawable"
+type: interface
+name: "YukkuriMovieMaker.Player.Video.IDrawable"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dイメージを出力できるオブジェクトのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IDrawable : IDisposable

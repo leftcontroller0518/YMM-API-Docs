@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.Transition"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Transition"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "トランジションプラグインを作成するための型を提供します。"

@@ -1,0 +1,22 @@
+id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories"
+type: class
+name: "YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトカテゴリーの定義済みキーを提供します。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class AudioEffectCategories
+remarks: |
+  各定数は `"YMM4Key_"` プレフィックスを持つローカライズキーです。
+  `AudioEffectAttribute` の `categories` 引数に使用してください。
+
+  | 定数 | カテゴリー名 |
+  | --- | --- |
+  | `Basic` | 基本 |
+  | `Effect` | エフェクト |
+  | `Filter` | フィルター |

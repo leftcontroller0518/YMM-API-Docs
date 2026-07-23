@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.EffectDescription.DrawDescription"
+type: property
+name: "DrawDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在の描画状態を保持する DrawDescription です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.EffectDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.DrawDescription
+code: |
+  public DrawDescription DrawDescription { get; init; }

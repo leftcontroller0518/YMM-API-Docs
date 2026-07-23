@@ -3,8 +3,8 @@ type: method
 name: "CreateVideoEffect"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "入力画像に対し効果を適用し出力する機能を持つ映像エフェクトオブジェクトを生成します。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトプロセッサーを作成します。"
 declaringType:
   id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 parameters:
@@ -18,4 +18,8 @@ returns:
     kind: named
     name: YukkuriMovieMaker.Player.Video.IVideoEffectProcessor
 code: |
-  public abstract IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);
+  IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);
+remarks: |
+  フレームのレンダリング時に呼び出されます。
+  返したプロセッサーはDirect2Dリソースを保持できます。
+  プロセッサーの生成・破棄タイミングについては[リソース管理のガイド](/guide/d2d/resource-manage/)を参照してください。

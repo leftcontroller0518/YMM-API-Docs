@@ -1,0 +1,28 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.IsMatch(System.String,System.String)"
+type: method
+name: "IsMatch"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定したAPIとIDがこの話者に一致するかどうかを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+parameters:
+  - name: api
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: id
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool IsMatch(string api, string id);
+remarks: |
+  通常は `API == api && ID == id` を返します。後方互換のため別名のIDを受け付ける場合はそれも含めてください。

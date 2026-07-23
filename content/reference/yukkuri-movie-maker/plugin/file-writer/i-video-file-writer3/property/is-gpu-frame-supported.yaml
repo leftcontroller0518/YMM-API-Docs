@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter3.IsGpuFrameSupported"
+type: property
+name: "IsGpuFrameSupported"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "GPUメモリ上のフレームを直接受け取れるかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter3"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool IsGpuFrameSupported { get; }
+remarks: |
+  `true` を返した場合、`WriteVideo` に渡される `ID2D1Bitmap1` はGPUメモリ上に存在します。
+  CPUコピーが不要なためパフォーマンスが向上しますが、エンコーダーがGPUアクセスに対応している必要があります。

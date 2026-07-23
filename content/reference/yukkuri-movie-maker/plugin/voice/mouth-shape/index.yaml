@@ -1,0 +1,20 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.MouthShape"
+type: enum
+name: "YukkuriMovieMaker.Plugin.Voice.MouthShape"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リップシンクに使用する口の形を表す列挙型です。"
+code: |
+  public enum MouthShape
+remarks: |
+  `LipSyncFrame` で使用されます。
+
+  | 値 | 意味 |
+  | --- | --- |
+  | `Silent` | 閉口（無音） |
+  | `A` | 「ア」の口形 |
+  | `I` | 「イ」の口形 |
+  | `U` | 「ウ」の口形 |
+  | `E` | 「エ」の口形 |
+  | `O` | 「オ」の口形 |

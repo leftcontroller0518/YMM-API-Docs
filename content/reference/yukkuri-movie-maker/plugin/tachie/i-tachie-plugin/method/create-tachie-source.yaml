@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateTachieSource(YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext)"
+type: method
+name: "CreateTachieSource"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "立ち絵描画ソースを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Tachie.ITachieSource
+code: |
+  ITachieSource CreateTachieSource(IGraphicsDevicesAndContext devices);

@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin2"
+type: interface
+name: "YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin2"
+namespace: "YukkuriMovieMaker.Plugin.TextCompletion"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "画像入力対応のテキスト補完プラグインインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface ITextCompletionPlugin2 : ITextCompletionPlugin, IPlugin

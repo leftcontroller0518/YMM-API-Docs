@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.DrawDescription.Draw"
+type: property
+name: "Draw"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "描画位置（X・Y・Z）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Numerics.Vector3
+code: |
+  public Vector3 Draw { get; init; }

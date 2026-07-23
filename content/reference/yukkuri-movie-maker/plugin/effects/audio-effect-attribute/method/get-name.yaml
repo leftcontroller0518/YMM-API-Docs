@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute.GetName"
+type: method
+name: "GetName"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ローカライズ解決後のエフェクト表示名を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+returns:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string GetName()

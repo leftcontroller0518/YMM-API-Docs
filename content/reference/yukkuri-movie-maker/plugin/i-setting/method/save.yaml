@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.ISetting.Save"
+type: method
+name: "Save"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定をJSONファイルに保存します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ISetting"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Save();

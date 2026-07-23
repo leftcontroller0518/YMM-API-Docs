@@ -1,0 +1,20 @@
+id: "P:YukkuriMovieMaker.Plugin.ISetting.SettingView"
+type: property
+name: "SettingView"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定ダイアログに表示するWPFコントロールを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ISetting"
+propertyType:
+  type:
+    kind: named
+    name: System.Object
+  nullable: true
+code: |
+  [JsonIgnore]
+  object? SettingView { get; }
+remarks: |
+  `HasSettingView` が `false` の場合は `null` を返してください。
+  戻り値は WPF の `UIElement` を期待していますが、型は `object?` として宣言されています。

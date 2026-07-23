@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.ThemeManager.Instance"
+type: property
+name: "Instance"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ThemeManagerのシングルトンインスタンスを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ThemeManager"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.ThemeManager
+code: |
+  public static ThemeManager Instance { get; }

@@ -1,0 +1,31 @@
+id: "M:YukkuriMovieMaker.Player.Video.DrawDescription.SetCustomValue``1(``0,System.String)"
+type: method
+name: "SetCustomValue"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "DrawDescriptionにカスタム値を付加した新しいインスタンスを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+genericParameters:
+  - T
+parameters:
+  - name: value
+    type:
+      type:
+        kind: genericParameter
+        name: T
+  - name: name
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.DrawDescription
+code: |
+  public DrawDescription SetCustomValue<T>(T value, string name = "") where T : notnull
+remarks: |
+  レコード型なので元のインスタンスは変更されません。戻り値を使用してください。
+  複数のエフェクト間でカスタム値を受け渡すのに使います。`name` で同じ型の複数の値を区別できます。

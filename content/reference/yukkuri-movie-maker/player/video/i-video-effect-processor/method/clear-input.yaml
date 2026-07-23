@@ -1,0 +1,17 @@
+id: "M:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor.ClearInput"
+type: method
+name: "ClearInput"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "入力イメージをクリアします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void ClearInput();
+remarks: |
+  このエフェクトが適用されないフレームで呼ばれます。`SetInput(null)` と等価な実装で問題ありません。

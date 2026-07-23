@@ -1,0 +1,8 @@
+id: "N:YukkuriMovieMaker.Plugin.FileSource"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.FileSource"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "動画・音声・画像ファイルソースプラグインを作成するための型を提供します。"
+remarks: |
+  ファイルソースプラグインは対応するインターフェースを実装し、YMM4が各種メディアファイルを読み込む際に使用されます。
+  複数のプラグインが同じ形式に対応する場合、設定画面で優先順位を変更できます。

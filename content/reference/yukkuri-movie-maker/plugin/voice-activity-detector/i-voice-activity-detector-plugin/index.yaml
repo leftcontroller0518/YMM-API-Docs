@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorPlugin"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声区間検出プラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface IVoiceActivityDetectorPlugin : IPlugin

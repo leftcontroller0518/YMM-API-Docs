@@ -3,8 +3,8 @@ type: interface
 name: "YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
 namespace: "YukkuriMovieMaker.Plugin.Effects"
 accessibility: public
-summary: "映像エフェクトの表示名などを保持し、IVideoEffectProcessorなどを返すインターフェースです。"
 assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトのインターフェースです。"
 implements:
   - type:
       kind: named
@@ -14,3 +14,6 @@ implements:
       name: System.ComponentModel.INotifyDataErrorInfo
 code: |
   public interface IVideoEffect : INotifyPropertyChanged, INotifyDataErrorInfo, IUndoRedoable, IEditable, IAnimatable, IFileItem, IResourceItem
+remarks: |
+  映像エフェクトプラグインが実装すべきインターフェースです。
+  通常は直接実装せず、`VideoEffectBase` を継承することで実装します。

@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Player.Video.FrameTime"
+type: class
+name: "YukkuriMovieMaker.Player.Video.FrameTime"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレーム番号と対応するTimeSpanの両方を保持するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class FrameTime
