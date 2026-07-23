@@ -9,9 +9,10 @@ import {cn} from "@/lib/utils";
 
 interface ThemeToggleProps {
   className?: string
+  variant?: "ghost" | "secondary"
 }
 
-export function ThemeToggle({className}: ThemeToggleProps) {
+export function ThemeToggle({className, variant}: ThemeToggleProps) {
   const {theme, setTheme} = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -21,22 +22,22 @@ export function ThemeToggle({className}: ThemeToggleProps) {
   }, [])
 
   if (!mounted) {
-    return <Button variant="ghost" size="icon" className={cn(className, "w-9 h-9")}/>
+    return <Button variant={variant ?? "ghost"} size="icon" className={cn(className, "w-9 h-9")}/>
   }
 
   return (
     <DropdownMenu>
-        <Button variant="ghost" size="icon" className={cn(className, "w-9 h-9 lg:w-auto p-2")} onClick={() => 
+        <Button variant={variant ?? "ghost"} size="icon" className={cn(className, "w-9 h-9 xl:w-auto p-2")} onClick={() =>
         theme === "system" ? setTheme("light") : (
           theme === "light" ? setTheme("dark") : setTheme("system"))}>
-          <div className="flex items-center justify-center lg:justify-start">
+          <div className="flex items-center justify-center xl:justify-start">
             <Sun
               className={theme ==="light" ? "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100" : "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-90 scale-0"}/>
             <Moon
               className={theme ==="dark" ? "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100" : "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-90 scale-0"}/>
             <Laptop
               className={theme ==="system" ? "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-0 scale-100" : "absolute h-[1.2rem] w-[1.2rem] transition-all rotate-90 scale-0"}/>
-            <span className="hidden lg:flex ml-6">{theme?.toUpperCase()}</span>
+            <span className="hidden xl:flex ml-6">{theme?.toUpperCase()}</span>
           </div>
           <span className=" sr-only">Toggle theme</span>
         </Button>

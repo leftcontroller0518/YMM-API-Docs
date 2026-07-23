@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { ChevronRight, MoreHorizontal } from "lucide-react"
 import React, { useState, useRef, useEffect } from "react"
+import { cn } from "@/lib/utils"
+import { HeadEllipsis } from "@/components/HeadEllipsis"
 
 function isEllipsisCrumb(
     crumb: { label: string; href: string | null } | { label: string; href: string | null; isEllipsis: boolean }
@@ -114,7 +116,7 @@ export function DocsBreadcrumbs({ breadcrumbs }: { breadcrumbs: { label: string;
       <div ref={containerRef} className={"relative w-full mb-4 overflow-x-auto min-w-0"}>
         <nav
             ref={measureNavRef}
-            className="fixed -left-[9999px] top-0 z-[-1] flex items-center space-x-1 text-sm text-muted-foreground opacity-0 pointer-events-none"
+            className="fixed left-[-9999px] top-0 z-[-1] flex items-center space-x-1 text-sm text-muted-foreground opacity-0 pointer-events-none"
             style={{ paddingLeft: 8, paddingRight: 8 }}
             aria-hidden="true"
         >
@@ -143,7 +145,8 @@ export function DocsBreadcrumbs({ breadcrumbs }: { breadcrumbs: { label: string;
             Home
           </Link>
           {displayBreadcrumbs.map((crumb, index) => (
-              <div key={crumb.label + crumb.href + index} className="flex items-center relative">
+            <div key={crumb.label + crumb.href + index}
+                 className={cn("flex items-center relative", index === displayBreadcrumbs.length - 1 && "min-w-0 flex-1")}>
                 <ChevronRight className="h-4 w-4" />
                 {isEllipsisCrumb(crumb) ? (
                     <>
@@ -200,13 +203,32 @@ export function DocsBreadcrumbs({ breadcrumbs }: { breadcrumbs: { label: string;
                       </div>
                     </>
                 ) : (
-                    crumb.href == null ? (
-                        <span className="whitespace-nowrap">{crumb.label}</span>
+                  crumb.href == null ? (
+                    index === displayBreadcrumbs.length - 1 ? (
+                      <HeadEllipsis
+                        className="w-full whitespace-nowrap"
+                        text={crumb.label}
+                      />
                     ) : (
-                        <Link href={crumb.href} className="hover:text-foreground whitespace-nowrap">
-                          {crumb.label}
-                        </Link>
+                      <span className="whitespace-nowrap">{crumb.label}</span>
                     )
+                  ) : (
+                    index === displayBreadcrumbs.length - 1 ? (
+                      <div className="min-w-0 flex-1">
+                        <HeadEllipsis
+                          className="w-full whitespace-nowrap"
+                          text={crumb.label}
+                        />
+                      </div>
+                    ) : (
+                      <Link
+                        href={crumb.href}
+                        className="hover:text-foreground whitespace-nowrap"
+                      >
+                        {crumb.label}
+                      </Link>
+                    )
+                  )
                 )}
               </div>
           ))}

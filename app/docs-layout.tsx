@@ -27,6 +27,7 @@ import { useTocIndicatorStyle } from "@/hooks/useTocIndicatorStyle"
 import { SITE_TITLE } from "@/lib/siteSetting"
 import { cn } from "@/lib/utils"
 import { shouldExecuteSummary } from "@/lib/summary"
+import {HeadEllipsis} from "@/components/HeadEllipsis";
 
 interface DocTreeNode {
   name: string
@@ -105,7 +106,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
             </ScrollArea>
           </SheetContent>
         </Sheet>
-        <div className="flex-1 text-left font-medium">{title}</div>
+        <div className="flex-1 text-left min-w-0"><HeadEllipsis className="font-medium" text={title} /></div>
         {/* GitHub Edit Link */}
         {githubRepoEditUrl && (
           <Link href={githubRepoEditUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
@@ -175,12 +176,12 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 pl-64 pr-64">
+        <div className="flex-1 pl-64 w-full xl:pr-64">
           <div className="mx-auto max-w-3xl px-8 py-8">
             <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
             <div className="mb-8">
               <div className="flex items-center">
-                <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
+                <h1 className="min-w-0 flex-1 wrap-break-word text-3xl font-bold tracking-tight">{title}</h1>
                 {/* GitHub Edit Link */}
                 {githubRepoEditUrl && (
                   <Link href={githubRepoEditUrl} target="_blank" rel="noopener noreferrer" className="text-muted-foreground m-4 hover:text-foreground">
@@ -198,8 +199,39 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
           </div>
         </div>
 
-        {/* Right Sidebar: TOC */}
-        <div className="fixed top-0 right-0 h-dvh w-64 border-l bg-background">
+        {/* Floating TOC Button (lg ～ xl) */}
+        <div className="fixed right-4 bottom-16 z-40 hidden lg:block xl:hidden">
+          <ThemeToggle variant={"secondary"} />
+        </div>
+        <div className="fixed right-4 bottom-4 z-40 hidden lg:block xl:hidden">
+          <Sheet>
+            <SheetTitle className="hidden" />
+            <SheetTrigger asChild>
+              <Button size="icon" variant="secondary" className={"w-9 h-9"}>
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </SheetTrigger>
+
+            <SheetContent side="right" className="w-full max-w-md">
+              <div className="px-4 py-2 font-medium">On This Page</div>
+              <ScrollArea className="h-[calc(100dvh-8rem)]">
+                <div className="px-4 py-2">
+                  <TableOfContents
+                    toc={toc}
+                    tocContainerRef={tocContainerRef}
+                    tocItemRefs={tocItemRefs}
+                    isTocItemActive={isTocItemActive}
+                    setTocItemRef={setTocItemRef}
+                    indicatorStyle={indicatorStyle}
+                  />
+                </div>
+              </ScrollArea>
+            </SheetContent>
+          </Sheet>
+        </div>
+
+        {/* Right Sidebar: TOC (<=xl) */}
+        <div className="hidden xl:block fixed top-0 right-0 h-dvh w-64 border-l bg-background">
           <div className="h-14 px-4 py-4 font-medium">On This Page</div>
           <ScrollArea className="h-[calc(100dvh-6.5rem)]">
             <div className="px-4 py-4">
@@ -223,7 +255,7 @@ export function DocsLayout({ children, docTree, toc, title, lastUpdated, breadcr
           <DocsBreadcrumbs breadcrumbs={breadcrumbs} />
           <LastUpdated lastUpdated={lastUpdated} />
           {summaryText && shouldExecuteSummary(summaryText) && articleId && <AiSummary articleId={articleId} className="mt-4" />}
-          <div className="prose prose-slate dark:prose-invert max-w-none">{children}</div>
+          <div className="prose prose-slate dark:prose-invert max-w-none wrap-break-word">{children}</div>
           <CodeCopyButtons />
           <PrevNextNav prevNext={prevNext} />
         </div>
