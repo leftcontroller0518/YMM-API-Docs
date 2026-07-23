@@ -117,7 +117,7 @@ public SampleShapeSource(IGraphicsDevicesAndContext devices, SampleShapeParamete
 
 このようにしておくと、`Update` が呼ばれるたびにブラシを作成せずに済みます。
 
-## Updateで作るもの
+### Updateで作るもの
 
 `Update` では、現在のフレームやパラメーターに応じて変化するリソースを作成します。
 
@@ -142,7 +142,7 @@ if (commandList != null && this.size == size)
 
 YMM4はリアルタイムプレビューを行うため、毎フレーム不要なリソースを作成すると、プレビューが重くなります。
 
-## Disposeで破棄するもの
+### Disposeで破棄するもの
 
 Direct2DリソースはCOMオブジェクトであり、C#の通常のオブジェクトのように放置してよいものではありません。
 
@@ -170,7 +170,7 @@ public void Dispose()
 
 そのため、コンストラクタや `Update` 内で作成したDirect2Dリソースは、クラスの `Dispose` でまとめて破棄するようにします。
 
-## 作り直すときの破棄
+### 作り直すときの破棄
 
 `Dispose` はクラスの最後だけでなく、リソースを作り直す直前にも必要です。
 
@@ -195,7 +195,7 @@ geometry = devices.D2D.Factory.CreatePathGeometry();
 
 の2つを意識する必要があります。
 
-## DeviceContext.Targetの戻し忘れ
+### DeviceContext.Targetの戻し忘れ
 
 `CommandList` に描画する場合、DeviceContextの描画先を一時的に変更します。
 
@@ -227,7 +227,7 @@ commandList.Close();
 6. `DeviceContext.Target` を `null` に戻す。
 7. `CommandList.Close()` を呼ぶ。
 
-## DisposeCollectorを使う場合
+### DisposeCollectorを使う場合
 
 複数のDirect2Dリソースを扱う場合、`DisposeCollector` を使うと破棄漏れを減らせます。
 
