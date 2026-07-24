@@ -139,8 +139,7 @@ export function DocsLayout({
     setMobileShowResults(false)
   }, [])
 
-  const { results: searchResults, isLoading: searchIsLoading } =
-    useFullTextSearch(searchQuery)
+  const {results: searchResults, isIndexLoading, isSearching,} = useFullTextSearch(searchQuery)
 
   const filteredTree = useFilteredTree(docTree, "")
 
@@ -193,7 +192,8 @@ export function DocsLayout({
                   {mobileShowResults ? (
                     <SearchResults
                       results={searchResults}
-                      isLoading={searchIsLoading}
+                      isIndexLoading={isIndexLoading}
+                      isSearching={isSearching}
                       query={searchQuery}
                       onClose={handleCloseSearchPanel}
                       onBackToTree={() => setMobileShowResults(false)}
@@ -342,7 +342,8 @@ export function DocsLayout({
               >
                 <SearchResults
                   results={searchResults}
-                  isLoading={searchIsLoading}
+                  isIndexLoading={isIndexLoading}
+                  isSearching={isSearching}
                   query={searchQuery}
                   onClose={handleCloseSearchPanel}
                 />

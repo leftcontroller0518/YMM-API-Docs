@@ -47,44 +47,41 @@ function makeExcerpt(body: string, query: string): string {
 
 export function useFullTextSearch(query: string): {
   results: SearchResult[];
-  isLoading: boolean;
+  isIndexLoading: boolean;
+  isSearching: boolean;
 } {
   const [results, setResults] = useState<SearchResult[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isIndexLoading, setIsIndexLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
-  // FlexSearch インスタンスと関連データ
   const indexRef = useRef<Document<any, any> | null>(null);
   const bodyMapRef = useRef<Map<string, string>>(new Map());
   const indexedRef = useRef(false);
   const indexPromiseRef = useRef<Promise<void> | null>(null);
-  const abortControllerRef = useRef<AbortController | null>(null);
-
-  // デバウンス用タイマー
   const debounceTimerRef = useRef<number | null>(null);
 
-  // インデックス読み込み
   const ensureIndex = useCallback(async () => {
     if (indexedRef.current) return;
     if (indexPromiseRef.current) return indexPromiseRef.current;
-    if (abortControllerRef.current) {
-      abortControllerRef.current.abort();
-    }
-    const controller = new AbortController();
-    abortControllerRef.current = controller;
 
     indexPromiseRef.current = (async () => {
-      setIsLoading(true);
+      setIsIndexLoading(true);
+      setResults([]);
+
       try {
         const [FlexSearchModule, res] = await Promise.all([
           import("flexsearch"),
-          fetch("/search-index.json", { signal: controller.signal }),
+          fetch("/search-index.json"),
         ]);
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
 
         const entries: SearchIndexEntry[] = await res.json();
 
-        const FlexSearch = (FlexSearchModule as any).default ?? FlexSearchModule;
+        const FlexSearch =
+          (FlexSearchModule as any).default ?? FlexSearchModule;
 
         const index = new FlexSearch.Document({
           tokenize: "full",
@@ -108,21 +105,17 @@ export function useFullTextSearch(query: string): {
         indexRef.current = index;
         indexedRef.current = true;
       } catch (e) {
-        if ((e as Error).name === "AbortError") return;
-
-        console.error("Failed to load search index:", e);
         indexPromiseRef.current = null;
+        console.error("Failed to load search index:", e);
         throw e;
       } finally {
-        setIsLoading(false);
-        abortControllerRef.current = null;
+        setIsIndexLoading(false);
       }
     })();
 
     return indexPromiseRef.current;
   }, []);
 
-  // 検索処理
   const performSearch = useCallback(
     async (searchQuery: string) => {
       if (!searchQuery.trim()) {
@@ -133,9 +126,17 @@ export function useFullTextSearch(query: string): {
       try {
         await ensureIndex();
 
-        if (!indexRef.current) {
-          return;
-        }
+        if (!indexRef.current) return;
+
+        const terms = searchQuery
+          .toLowerCase()
+          .split(/\s+/)
+          .filter(Boolean);
+
+        const minimumMatches = Math.max(
+          1,
+          Math.ceil(terms.length / 2),
+        );
 
         const raw = indexRef.current.search(searchQuery, {
           limit: 100,
@@ -145,12 +146,22 @@ export function useFullTextSearch(query: string): {
           field: string;
           result: {
             id: number;
-            doc: { slug: string; title: string; section: string };
+            doc: {
+              slug: string;
+              title: string;
+              section: string;
+            };
           }[];
         }[];
 
         const seen = new Set<string>();
-        const merged: SearchResult[] = [];
+
+        const merged: (SearchResult & {
+          score: number;
+          order: number;
+        })[] = [];
+
+        let order = 0;
 
         const append = (field: "title" | "body") => {
           const result = raw.find((x) => x.field === field);
@@ -160,14 +171,19 @@ export function useFullTextSearch(query: string): {
             if (seen.has(doc.slug)) continue;
             seen.add(doc.slug);
 
+            const body = bodyMapRef.current.get(doc.slug) ?? "";
+            const text = `${doc.title}\n${body}`.toLowerCase();
+            const matched = terms.filter((t) => text.includes(t)).length;
+
+            if (matched < minimumMatches) continue;
+
             merged.push({
               slug: doc.slug,
               title: doc.title,
               section: doc.section,
-              excerpt: makeExcerpt(
-                bodyMapRef.current.get(doc.slug) ?? "",
-                searchQuery,
-              ),
+              excerpt: makeExcerpt(body, searchQuery),
+              score: matched,
+              order: order++,
             });
           }
         };
@@ -175,7 +191,17 @@ export function useFullTextSearch(query: string): {
         append("title");
         append("body");
 
-        setResults(merged);
+        merged.sort((a, b) => {
+          if (b.score !== a.score) {
+            return b.score - a.score;
+          }
+
+          return a.order - b.order;
+        });
+
+        setResults(
+          merged.map(({ score, order, ...result }) => result),
+        );
       } catch (e) {
         console.error("Search error:", e);
       }
@@ -183,7 +209,6 @@ export function useFullTextSearch(query: string): {
     [ensureIndex],
   );
 
-  // クエリ変更時のデバウンス処理
   useEffect(() => {
     if (debounceTimerRef.current) {
       clearTimeout(debounceTimerRef.current);
@@ -191,13 +216,21 @@ export function useFullTextSearch(query: string): {
     }
 
     const trimmed = query.trim();
+
     if (!trimmed) {
       setResults([]);
+      setIsSearching(false);
       return;
     }
 
-    debounceTimerRef.current = window.setTimeout(() => {
-      performSearch(trimmed);
+    setIsSearching(true);
+
+    debounceTimerRef.current = window.setTimeout(async () => {
+      try {
+        await performSearch(trimmed);
+      } finally {
+        setIsSearching(false);
+      }
     }, DEBOUNCE_DELAY);
 
     return () => {
@@ -205,15 +238,12 @@ export function useFullTextSearch(query: string): {
         clearTimeout(debounceTimerRef.current);
         debounceTimerRef.current = null;
       }
-      if (abortControllerRef.current) {
-        abortControllerRef.current.abort();
-        abortControllerRef.current = null;
-      }
     };
   }, [query, performSearch]);
 
   return {
     results,
-    isLoading,
+    isIndexLoading,
+    isSearching,
   };
 }
