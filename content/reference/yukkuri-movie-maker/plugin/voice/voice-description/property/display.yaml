@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.VoiceDescription.Display"
+type: property
+name: "Display"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "UI表示用の文字列（エンジン名 / 話者名）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.VoiceDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  [JsonIgnore]
+  public string Display { get; }
+remarks: |
+  `Speaker` が非 `null` の場合は `"{EngineName} / {SpeakerName}"` 形式を返します。
+  `Speaker` が `null`（話者が見つからない）の場合は空文字列を返します。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineSourceDescription.ScreenSize"
+type: property
+name: "ScreenSize"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "レンダリング解像度をピクセル単位で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Drawing.Size
+code: |
+  public Size ScreenSize { get; init; }

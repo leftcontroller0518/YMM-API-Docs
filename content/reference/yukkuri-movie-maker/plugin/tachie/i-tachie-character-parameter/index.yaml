@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieCharacterParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachieCharacterParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "立ち絵のキャラクター設定パラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+code: |
+  public interface ITachieCharacterParameter : IUndoRedoable
+remarks: |
+  キャラクターエディターで編集されるパラメーターです。
+  キャラクターファイルのパスや立ち絵システム固有の設定を保持します。
+  JSONシリアライズ可能にしてください。

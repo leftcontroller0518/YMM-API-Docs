@@ -1,0 +1,22 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoicePronounce.LipSyncFrames"
+type: property
+name: "LipSyncFrames"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リップシンク用の口形フレーム配列を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoicePronounce"
+propertyType:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.LipSyncFrame
+  nullable: true
+code: |
+  LipSyncFrame[]? LipSyncFrames => null;
+remarks: |
+  既定の実装は `null` を返します（リップシンク無効）。
+  リップシンクに対応する場合は `LipSyncFrame.FromLabFile` 等で生成した配列を返してください。

@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoicePronounce.Clone"
+type: method
+name: "Clone"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このオブジェクトのディープコピーを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoicePronounce"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Voice.IVoicePronounce
+code: |
+  IVoicePronounce Clone()
+    => Json.GetClone(this) ?? throw new NullReferenceException();
+remarks: |
+  既定の実装はJSONシリアライズ経由でディープコピーを行います。
+  JSONシリアライズ不可能なフィールドを持つ場合はオーバーライドしてください。

@@ -1,0 +1,29 @@
+id: "M:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector.DownloadResourcesAsync(YukkuriMovieMaker.Commons.ProgressMessage,System.Threading.CancellationToken)"
+type: method
+name: "DownloadResourcesAsync"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "必要なリソースを非同期にダウンロードします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector"
+parameters:
+  - name: progress
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.ProgressMessage
+  - name: token
+    type:
+      type:
+        kind: named
+        name: System.Threading.CancellationToken
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+code: |
+  Task DownloadResourcesAsync(ProgressMessage progress, CancellationToken token);
+remarks: |
+  リソースが既にダウンロード済みの場合は即座に完了してください。
+  `progress.Report(rate, message)` で進捗を報告してください。

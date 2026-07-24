@@ -1,0 +1,29 @@
+id: "P:YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext.DeviceContext"
+type: property
+name: "DeviceContext"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dデバイスコンテキスト（ID2D1DeviceContext6）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext"
+propertyType:
+  type:
+    kind: named
+    name: Vortice.Direct2D1.ID2D1DeviceContext6
+code: |
+  ID2D1DeviceContext6 DeviceContext { get; }
+remarks: |
+  エフェクト生成（`CreateEffect`）・ビットマップ生成・描画命令の発行に使用します。
+  コンテキストはYMM4が管理するため、`Dispose` しないでください。
+examples: |
+  ```csharp
+  // エフェクトの生成
+  var effect = devices.DeviceContext.CreateEffect(EffectGuids.GaussianBlur);
+
+  // ビットマップの生成
+  var bitmap = devices.DeviceContext.CreateBitmap(
+      new SizeI(width, height),
+      new BitmapProperties1(new PixelFormat(Format.B8G8R8A8_UNorm, AlphaMode.Premultiplied),
+                             96, 96, BitmapOptions.Target));
+  ```

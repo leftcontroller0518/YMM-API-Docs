@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceResource"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Voice.IVoiceResource"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ダウンロード可能な音声リソース（モデルファイルなど）を表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface IVoiceResource : INotifyPropertyChanged
+remarks: |
+  `IVoiceSpeaker` がダウンロード可能なリソース（音声モデル等）を持つ場合に実装します。
+  YMM4のリソース管理UIでダウンロード状態の表示・操作に使われます。

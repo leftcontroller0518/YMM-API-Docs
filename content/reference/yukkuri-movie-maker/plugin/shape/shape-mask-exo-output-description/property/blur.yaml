@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription.Blur"
+type: property
+name: "Blur"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "マスクのぼかしアニメーションを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.Animation
+code: |
+  public Animation Blur { get; }

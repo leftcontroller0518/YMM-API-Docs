@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TachieSourceDescription.VoiceVolume"
+type: property
+name: "VoiceVolume"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在フレームの音声ボリューム（0.0〜1.0）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TachieSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  public Double VoiceVolume { get; init; }

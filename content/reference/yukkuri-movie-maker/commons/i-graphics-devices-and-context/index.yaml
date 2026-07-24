@@ -1,0 +1,20 @@
+id: "T:YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext"
+type: interface
+name: "YukkuriMovieMaker.Commons.IGraphicsDevicesAndContext"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dデバイスとデバイスコンテキストの両方を提供するインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Commons.IGraphicsDevices
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IGraphicsDevicesAndContext : IGraphicsDevices, IDisposable
+remarks: |
+  `VideoEffectBase.CreateVideoEffect`・`IBrushParameter.CreateBrush`・`IShapeParameter.CreateShapeSource`・`ITachiePlugin.CreateTachieSource` 等の引数として渡されます。
+  `DeviceContext` からDirect2Dの描画命令を発行してください。
+  `IGraphicsDevices` プロパティー（`D2DDevice`・`D3DDevice` 等）は `IGraphicsDevices` 経由で参照してください。

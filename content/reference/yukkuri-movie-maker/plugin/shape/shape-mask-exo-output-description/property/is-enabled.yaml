@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription.IsEnabled"
+type: property
+name: "IsEnabled"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "マスクが有効かどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public Boolean IsEnabled { get; }

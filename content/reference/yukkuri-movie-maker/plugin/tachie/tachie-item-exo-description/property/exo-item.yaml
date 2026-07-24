@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription.ExoItem"
+type: property
+name: "ExoItem"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このアイテムのExoItem情報を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.ExoItem
+code: |
+  public ExoItem ExoItem { get; init; }

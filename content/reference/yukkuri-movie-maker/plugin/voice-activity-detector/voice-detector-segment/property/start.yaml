@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment.Start"
+type: property
+name: "Start"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声区間の開始サンプル番号を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public int Start { get; init; }

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineSourceDescription.Usage"
+type: property
+name: "Usage"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在の使用コンテキスト（再生中・停止中・エクスポート中）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.TimelineSourceUsage
+code: |
+  public TimelineSourceUsage Usage { get; init; }

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.Name"
+type: property
+name: "Name"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声の表示名を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public String Name { get; set; }

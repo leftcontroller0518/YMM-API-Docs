@@ -1,0 +1,29 @@
+id: "M:YukkuriMovieMaker.Commons.ProgressMessage.Report(System.Double,System.String)"
+type: method
+name: "Report"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "進捗率とメッセージを報告します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ProgressMessage"
+parameters:
+  - name: rate
+    type:
+      type:
+        kind: named
+        name: System.Double
+  - name: message
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void Report(double rate, string message)
+remarks: |
+  `rate` は 0.0〜1.0 の進捗率です。-1.0 を渡すと「不定」（プログレスバー不確定）になります。
+  親の `ProgressMessage` が存在する場合、`rateFrom`〜`rateTo` 範囲に線形マッピングされて伝播します。

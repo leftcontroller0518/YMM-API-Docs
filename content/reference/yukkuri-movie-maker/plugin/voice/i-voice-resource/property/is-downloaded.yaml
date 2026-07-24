@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoiceResource.IsDownloaded"
+type: property
+name: "IsDownloaded"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リソースがダウンロード済みかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceResource"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+  nullable: false
+code: |
+  Boolean IsDownloaded { get; }

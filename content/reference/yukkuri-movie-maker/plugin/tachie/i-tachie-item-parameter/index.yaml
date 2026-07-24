@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieItemParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachieItemParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムラインアイテム単位の立ち絵パラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+code: |
+  public interface ITachieItemParameter : IUndoRedoable, IAnimatable, IEditable
+remarks: |
+  タイムラインのアイテムエディターで編集されるパラメーターです。
+  アニメーション可能なプロパティー（表情の切り替えタイミングなど）を保持します。
+  JSONシリアライズ可能にしてください。

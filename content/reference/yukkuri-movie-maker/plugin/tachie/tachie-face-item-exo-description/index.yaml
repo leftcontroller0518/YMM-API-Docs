@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieFaceItemExoDescription"
+type: class
+name: "YukkuriMovieMaker.Plugin.Tachie.TachieFaceItemExoDescription"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl出力時に表情アイテム1件分の情報を渡すレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record TachieFaceItemExoDescription(int KeyFrameIndex, ExoItem ExoItem, ITachieFaceParameter FaceParameter, IEnumerable<string> FaceFilters)

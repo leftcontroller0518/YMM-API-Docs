@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Plugin.Shape.IShapeParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Shape.IShapeParameter"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "形状パラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface IShapeParameter : IUndoRedoable, IEditable, INotifyPropertyChanged, INotifyPropertyChanging, IAnimatable, ISharedParameter
+remarks: |
+  直接実装せず `ShapeParameterBase` を継承することを推奨します。

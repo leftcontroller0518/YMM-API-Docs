@@ -1,0 +1,29 @@
+id: "T:YukkuriMovieMaker.Commons.LipSyncFrame"
+type: class
+name: "YukkuriMovieMaker.Commons.LipSyncFrame"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リップシンクの1フレームを表すクラスです。時刻と口形のペアを保持します。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class LipSyncFrame(TimeSpan time, MouthShape shape)
+remarks: |
+  `IVoicePronounce.LipSyncFrames` が返す配列の要素型です。
+  音声合成時に `.lab` ファイルを生成できる場合は `FromLabFile` / `FromLabFrames` を使って変換できます。
+examples: |
+  ```csharp
+  // .lab ファイルから変換する
+  LipSyncFrame[]? frames = LipSyncFrame.FromLabFile(labFilePath);
+
+  // 手動で作成する
+  var frames = new LipSyncFrame[]
+  {
+      new(TimeSpan.Zero,                   MouthShape.A),
+      new(TimeSpan.FromMilliseconds(200),  MouthShape.I),
+      new(TimeSpan.FromMilliseconds(400),  MouthShape.Silent),
+  };
+  ```

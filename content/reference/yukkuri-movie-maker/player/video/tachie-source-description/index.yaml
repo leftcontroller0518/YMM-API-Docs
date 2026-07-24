@@ -1,0 +1,26 @@
+id: "T:YukkuriMovieMaker.Player.Video.TachieSourceDescription"
+type: class
+name: "YukkuriMovieMaker.Player.Video.TachieSourceDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ITachieSource2.Update に渡される立ち絵フレームのコンテキスト情報です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.TimelineSourceDescription
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription
+code: |
+  public record TachieSourceDescription : TimelineItemSourceDescription
+remarks: |
+  `TimelineItemSourceDescription` のプロパティーに加えて、立ち絵固有の情報を持ちます。
+  `ITachieSource2` を実装する場合の `Update` 引数として受け取ります。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineSourceDescription.TimelinePosition"
+type: property
+name: "TimelinePosition"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムライン上の現在再生位置をフレーム時間で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.FrameTime
+code: |
+  public FrameTime TimelinePosition { get; init; }

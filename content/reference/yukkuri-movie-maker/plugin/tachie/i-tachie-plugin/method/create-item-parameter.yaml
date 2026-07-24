@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateItemParameter"
+type: method
+name: "CreateItemParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムラインアイテム単位のパラメーターを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Tachie.ITachieItemParameter
+code: |
+  ITachieItemParameter CreateItemParameter();

@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+type: interface
+name: "YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトパイプラインを流れる音声ストリームのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IAudioStream : IDisposable
+remarks: |
+  `IAudioEffectProcessor` の基底インターフェースです。
+  `Hz` は44100固定など、エンジン側のサンプリングレートに依存します。
+  `Position` と `Duration` はサンプル数単位（チャンネル数は考慮しない）です。

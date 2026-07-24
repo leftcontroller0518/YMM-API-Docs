@@ -1,0 +1,38 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+type: class
+name: "YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声ファイル（.ymm4refvoice）の読み書きを行うクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public class RefVoiceFile : IDisposable
+remarks: |
+  VoiceDesign機能で正規に作成された参照音声ファイルを扱います。
+  内部はAES-CBC暗号化されたZIPアーカイブです。
+
+  **倫理的注意事項**
+
+  このクラスは発話者の権利者保護の観点から暗号化されています。
+  任意の音声ファイルから参照音声を作成する機能のプラグイン実装は、
+  YMM4開発者の意図に反するため控えてください（クラス内の `EthicalNotice` フィールドに詳細が記載されています）。
+
+  **一般的な使い方**
+
+  ```csharp
+  // 読み込み（音声データも展開する）
+  using var ref_ = RefVoiceFile.Load(path);
+  string wavPath = ref_.RefFilePath!; // 一時ファイルパス
+
+  // メタデータのみ読み込む（高速）
+  using var ref_ = RefVoiceFile.FastLoad(path);
+  string name = ref_.Name;
+  ```

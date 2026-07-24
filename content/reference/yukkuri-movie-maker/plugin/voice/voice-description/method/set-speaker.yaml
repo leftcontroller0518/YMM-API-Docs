@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.VoiceDescription.SetSpeaker(YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker)"
+type: method
+name: "SetSpeaker"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "話者を設定して API・Arg を更新します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.VoiceDescription"
+parameters:
+  - name: speaker
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void SetSpeaker(IVoiceSpeaker speaker)

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream.Duration"
+type: property
+name: "Duration"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ストリーム全体の長さをサンプル数で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+propertyType:
+  type:
+    kind: named
+    name: System.Int64
+code: |
+  Int64 Duration { get; }

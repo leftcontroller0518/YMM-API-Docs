@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+type: class
+name: "YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムライン全体のフレーム情報を保持する基底レコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record TimelineSourceDescription(Size ScreenSize, FrameTime TimelinePosition, FrameTime TimelineDuration, int FPS, TimelineSourceUsage Usage, Guid SceneId, IEnumerable<ISceneInfo> Scenes)
+remarks: |
+  `TimelineItemSourceDescription` と `EffectDescription` の基底型です。
+  プラグインが直接インスタンス化することは通常ありません。`EffectDescription` 経由で参照してください。

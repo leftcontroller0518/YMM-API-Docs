@@ -1,0 +1,37 @@
+id: "M:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector.ProcessAsync(System.ReadOnlyMemory{System.Single},System.Threading.CancellationToken)"
+type: method
+name: "ProcessAsync"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声サンプルを解析して音声区間を非同期ストリームで返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector"
+parameters:
+  - name: samples
+    type:
+      type:
+        kind: named
+        name: System.ReadOnlyMemory
+      genericArguments:
+        - type:
+            kind: named
+            name: System.Single
+  - name: token
+    type:
+      type:
+        kind: named
+        name: System.Threading.CancellationToken
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IAsyncEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment
+code: |
+  IAsyncEnumerable<VoiceDetectorSegment> ProcessAsync(ReadOnlyMemory<float> samples, CancellationToken token);
+remarks: |
+  `samples` はモノラルPCMデータ（-1.0〜1.0）です。サンプリングレートは `IVoiceActivityDetectorParameter` 側で指定します。
+  `VoiceDetectorSegment.Start` / `End` はサンプル番号（フレームインデックス）で返してください。

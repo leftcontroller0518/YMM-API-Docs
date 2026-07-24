@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.SetAudioFromFile(System.String)"
+type: method
+name: "SetAudioFromFile"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定した音声ファイルの内容を参照音声データとして設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+parameters:
+  - name: audioFilePath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void SetAudioFromFile(string audioFilePath)
+remarks: |
+  新規作成時に呼び出します。`Save` 前に必ず呼び出してください。

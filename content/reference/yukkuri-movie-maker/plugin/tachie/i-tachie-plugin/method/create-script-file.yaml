@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateScriptFile(System.String)"
+type: method
+name: "CreateScriptFile"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl用スクリプトファイルを生成して指定ディレクトリに保存します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+parameters:
+  - name: scriptDirectoryPath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void CreateScriptFile(string scriptDirectoryPath);
+remarks: |
+  `HasScriptFile` が `true` の場合のみ呼ばれます。
+  AviUtl出力先ディレクトリのパスが渡されます。

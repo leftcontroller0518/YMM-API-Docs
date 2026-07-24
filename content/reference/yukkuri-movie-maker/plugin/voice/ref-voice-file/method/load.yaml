@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.Load(System.String)"
+type: method
+name: "Load"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声ファイルを読み込んで音声データを一時ファイルに展開します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+parameters:
+  - name: path
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Voice.RefVoiceFile
+code: |
+  public static RefVoiceFile Load(string path)

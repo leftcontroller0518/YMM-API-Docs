@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.Save(System.String)"
+type: method
+name: "Save"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声ファイルを指定パスに保存します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+parameters:
+  - name: path
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void Save(string path)
+remarks: |
+  `SetAudioFromFile` が未呼び出しで `RefFilePath` も `null` の場合は `InvalidOperationException` をスローします。
+  保存先ディレクトリが存在しない場合は自動作成します。

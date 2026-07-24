@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceUsage"
+type: enum
+name: "YukkuriMovieMaker.Player.Video.TimelineSourceUsage"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムラインの現在の使用コンテキストを表す列挙型です。"
+code: |
+  public enum TimelineSourceUsage
+remarks: |
+  `TimelineSourceDescription.Usage` で参照できます。
+  エクスポート中にのみ適用したい処理の分岐に使用します。
+
+  | 値 | 説明 |
+  | --- | --- |
+  | `Playing` | 再生中 |
+  | `Paused` | 停止・シーク中 |
+  | `Exporting` | 動画エクスポート中 |

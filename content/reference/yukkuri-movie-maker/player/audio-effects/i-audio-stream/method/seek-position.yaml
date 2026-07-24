@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream.Seek(System.Int64)"
+type: method
+name: "Seek"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定したサンプル位置に読み取り位置をシークします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+parameters:
+  - name: position
+    type:
+      type:
+        kind: named
+        name: System.Int64
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Seek(long position);

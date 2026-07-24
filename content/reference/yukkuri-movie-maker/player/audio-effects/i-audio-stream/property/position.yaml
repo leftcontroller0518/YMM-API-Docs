@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream.Position"
+type: property
+name: "Position"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在の読み取り位置をサンプル数で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+propertyType:
+  type:
+    kind: named
+    name: System.Int64
+code: |
+  Int64 Position { get; }
