@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Commons.ExoItem.GetExoItemString(System.Int32)"
+type: method
+name: "GetExoItemString"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "exoファイル形式のアイテム文字列を生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ExoItem"
+parameters:
+  - name: index
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string GetExoItemString(int index)
+remarks: |
+  `[index]` ヘッダーと `[index.n]` フィルターブロックを含む文字列を返します。
+  `LayerOffset` が設定されている場合は `Layer + LayerOffset + SubLayer` が実際のレイヤー番号になります。

@@ -1,0 +1,23 @@
+id: "T:YukkuriMovieMaker.Commons.ExoItem"
+type: class
+name: "YukkuriMovieMaker.Commons.ExoItem"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集（.exo）の1アイテム分のデータを保持するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class ExoItem
+remarks: |
+  `ITachiePlugin.CreateExoItems` の戻り値として使用します。
+  `GetExoItemString(index)` でexoファイルへの書き込み文字列を生成します。
+  `Filters` リストにエフェクトフィルター文字列を追加して使用してください。
+examples: |
+  ```csharp
+  var item = new ExoItem(start: 0, end: 100, layer: 1, group: 1,
+      filters: ["_name=テキスト\r\ntext=Hello\r\n"]);
+  string exoStr = item.GetExoItemString(index: 0);
+  ```

@@ -1,0 +1,57 @@
+id: "M:YukkuriMovieMaker.Commons.ExoItem.CreateExoItems(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32[],System.Boolean)"
+type: method
+name: "CreateExoItems"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "キーフレームに分割されたExoItemのシーケンスを生成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ExoItem"
+parameters:
+  - name: start
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: end
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: layer
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: group
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: keyFrames
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.Int32
+  - name: isClipping
+    type:
+      type:
+        kind: named
+        name: System.Boolean
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.ExoItem
+code: |
+  public static IEnumerable<ExoItem> CreateExoItems(int start, int end, int layer, int group, int[] keyFrames, bool isClipping)
+remarks: |
+  `keyFrames` はアイテム先頭からのフレームオフセット配列です。
+  キーフレーム間ごとに1つの `ExoItem` を生成し、2個目以降は `IsChained = true` になります。
+  `CreateExoVideoFilters` の `keyFrameIndex` に対応するアイテムに各フィルターを追加してください。

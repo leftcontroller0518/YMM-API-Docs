@@ -1,4 +1,4 @@
-const MIN_SUMMARY_TEXT_LENGTH = 1000
+const MIN_SUMMARY_TEXT_LENGTH = 2000
 const MIN_SUMMARY_HEADING_COUNT = 6
 
 export function shouldExecuteSummary(summaryText: string): boolean {

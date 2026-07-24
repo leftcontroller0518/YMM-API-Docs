@@ -72,5 +72,10 @@ export function renderNamespacePage(
   md += typeTable("列挙型", model.enums, symbolIndex, externalLinks)
   md += typeTable("デリゲート", model.delegates, symbolIndex, externalLinks)
 
+  if(doc.remarks) {
+    md += `## 注釈\n\n`
+    md += `${doc.remarks}\n\n`
+  }
+
   return md.trim()
 }

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Commons.ExoItem.Group"
+type: property
+name: "Group"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "グループ番号を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ExoItem"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public Int32 Group { get; set; }

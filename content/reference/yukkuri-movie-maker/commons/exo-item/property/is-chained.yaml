@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Commons.ExoItem.IsChained"
+type: property
+name: "IsChained"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "チェーン（連続）アイテムかどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ExoItem"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public Boolean IsChained { get; set; }

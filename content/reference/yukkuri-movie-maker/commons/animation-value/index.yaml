@@ -1,0 +1,24 @@
+id: "T:YukkuriMovieMaker.Commons.AnimationValue"
+type: class
+name: "YukkuriMovieMaker.Commons.AnimationValue"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アニメーションの単一キーフレーム値を保持するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+code: |
+  public class AnimationValue : UndoRedoable
+remarks: |
+  `Animation` クラスが内部に複数保持するキーフレームの値です。
+  プラグインから直接インスタンス化することは通常ありません。
+  `Animation` のUIや `GetValue` が使用します。
