@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieSource2"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachieSource2"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "拡張された立ち絵描画インターフェースです。TachieSourceDescription による更新をサポートします。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Tachie.ITachieSource
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface ITachieSource2 : ITachieSource, IDisposable
+remarks: |
+  新規実装ではこちらを使用してください。`ITachieSource.Update` の代わりに `Update(TachieSourceDescription)` が呼ばれます。

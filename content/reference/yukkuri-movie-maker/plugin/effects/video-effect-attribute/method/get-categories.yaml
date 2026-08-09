@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.GetCategories"
+type: method
+name: "GetCategories"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ローカライズ解決後のカテゴリー名の配列を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
+code: |
+  public string[] GetCategories()
+remarks: |
+  `ResourceType` が `null` の場合は `Categories` をそのまま返します。
+  `ResourceType` が設定されている場合は各要素をリソースプロパティーから解決します。

@@ -1,0 +1,30 @@
+id: "T:YukkuriMovieMaker.Plugin.SettingsCategory"
+type: enum
+name: "YukkuriMovieMaker.Plugin.SettingsCategory"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定クラスが属するカテゴリーを表す列挙型です。"
+code: |
+  public enum SettingsCategory
+remarks: |
+  `SettingsBase<T>` の `Category` プロパティーで使用します。
+  YMM4の設定ダイアログにおけるタブ分類に対応します。
+
+  | 値 | 対応するカテゴリー |
+  | --- | --- |
+  | `None` | なし（非表示） |
+  | `Voice` | ボイス |
+  | `VideoEffect` | 映像エフェクト |
+  | `AudioEffect` | 音声エフェクト |
+  | `VideoFileWriter` | 動画出力 |
+  | `VideoFileSource` | 動画ソース |
+  | `AudioFileSource` | 音声ソース |
+  | `ImageFileSource` | 画像ソース |
+  | `Transition` | トランジション |
+  | `Shape` | 形状 |
+  | `Tachie` | 立ち絵 |
+  | `Tool` | ツール |
+  | `TextCompletion` | テキスト補完 |
+  | `Brush` | ブラシ |
+  | `Other` | その他 |

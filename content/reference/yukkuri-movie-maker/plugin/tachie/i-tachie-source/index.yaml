@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieSource"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachieSource"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "立ち絵のフレーム単位描画処理を担うインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface ITachieSource : IDisposable
+remarks: |
+  新規実装では `ITachieSource2` を実装してください。
+  `ITachieSource2` を実装した場合、`ITachieSource.Update` は呼ばれません。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.IAudioEffect.Remark"
+type: property
+name: "Remark"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトに紐付けられたリマーク文字列を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IAudioEffect"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  string Remark { get; set; }

@@ -1,0 +1,36 @@
+id: "M:YukkuriMovieMaker.Commons.ProgressMessage.GetChildProgress(System.Double,System.Double)"
+type: method
+name: "GetChildProgress"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定した範囲に対応する子 ProgressMessage を生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ProgressMessage"
+parameters:
+  - name: rateFrom
+    type:
+      type:
+        kind: named
+        name: System.Double
+  - name: rateTo
+    type:
+      type:
+        kind: named
+        name: System.Double
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.ProgressMessage
+code: |
+  public ProgressMessage GetChildProgress(double rateFrom, double rateTo)
+remarks: |
+  子の `Report(1.0, ...)` が親の `Report(rateTo, ...)` に対応します。
+  複数の非同期ステップを段階的に進捗報告したい場合に使用してください。
+examples: |
+  ```csharp
+  var step1 = progress.GetChildProgress(0.0, 0.5);
+  var step2 = progress.GetChildProgress(0.5, 1.0);
+  await DownloadStep1Async(step1);
+  await DownloadStep2Async(step2);
+  ```

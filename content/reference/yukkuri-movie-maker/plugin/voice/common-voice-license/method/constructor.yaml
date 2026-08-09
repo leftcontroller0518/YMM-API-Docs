@@ -1,0 +1,32 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.CommonVoiceLicense.#ctor(System.String,YukkuriMovieMaker.Plugin.Voice.VoiceLicenseDisplayLocation,System.String)"
+type: method
+name: "#ctor"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "CommonVoiceLicenseクラスの新しいインスタンスを初期化します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.CommonVoiceLicense"
+parameters:
+  - name: summary
+    type:
+      type:
+        kind: named
+        name: System.String
+      nullable: true
+  - name: location
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.VoiceLicenseDisplayLocation
+  - name: termsURL
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public CommonVoiceLicense(string? summary, VoiceLicenseDisplayLocation location, string termsURL)

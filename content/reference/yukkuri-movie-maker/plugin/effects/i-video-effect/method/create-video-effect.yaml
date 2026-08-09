@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.IVideoEffect.CreateVideoEffect(YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext)"
+type: method
+name: "CreateVideoEffect"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトプロセッサーを作成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IVideoEffect"
+parameters:
+  - name: devices
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.IGraphicsDevicesAndContext
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.IVideoEffectProcessor
+code: |
+  IVideoEffectProcessor CreateVideoEffect(IGraphicsDevicesAndContext devices);
+remarks: |
+  フレームのレンダリング時に呼び出されます。
+  返したプロセッサーはDirect2Dリソースを保持できます。
+  プロセッサーの生成・破棄タイミングについては[リソース管理のガイド](/guide/d2d/resource-manage/)を参照してください。

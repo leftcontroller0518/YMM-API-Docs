@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription.Rotation"
+type: property
+name: "Rotation"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "マスクの回転アニメーションを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.Animation
+code: |
+  public Animation Rotation { get; }

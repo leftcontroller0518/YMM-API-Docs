@@ -1,0 +1,12 @@
+id: "T:YukkuriMovieMaker.Plugin.IEffectInfo"
+type: interface
+name: "YukkuriMovieMaker.Plugin.IEffectInfo"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの情報を提供するインターフェースです。"
+code: |
+  public interface IEffectInfo
+remarks: |
+  `VideoEffectFactory` および `AudioEffectFactory` が実装しています。
+  `EffectFactories` クラス経由でエフェクト一覧を列挙する際に使用します。

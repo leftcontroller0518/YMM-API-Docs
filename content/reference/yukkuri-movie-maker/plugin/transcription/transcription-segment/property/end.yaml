@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment.End"
+type: property
+name: "End"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "セグメントの終了時刻を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSegment"
+propertyType:
+  type:
+    kind: named
+    name: System.TimeSpan
+code: |
+  public required TimeSpan End { get; set; }

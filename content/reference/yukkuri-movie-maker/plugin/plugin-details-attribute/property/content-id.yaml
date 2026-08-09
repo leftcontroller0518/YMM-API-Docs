@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Plugin.PluginDetailsAttribute.ContentId"
+type: property
+name: "ContentId"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "プラグインのコンテンツIDを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.PluginDetailsAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+  nullable: true
+code: |
+  public string? ContentId { get; set; }

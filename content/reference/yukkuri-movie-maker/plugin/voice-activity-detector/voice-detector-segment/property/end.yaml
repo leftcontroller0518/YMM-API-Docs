@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment.End"
+type: property
+name: "End"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声区間の終了サンプル番号を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public int End { get; init; }

@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Brush.IBrushSource"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Brush.IBrushSource"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dブラシを保持するソースのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IBrushSource : IDisposable

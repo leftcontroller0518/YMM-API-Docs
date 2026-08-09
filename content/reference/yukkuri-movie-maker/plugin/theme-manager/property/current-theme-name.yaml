@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.ThemeManager.CurrentThemeName"
+type: property
+name: "CurrentThemeName"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在のテーマ名（拡張子なしのファイル名部分）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ThemeManager"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string CurrentThemeName { get; }
+remarks: |
+  例えば `CurrentTheme` が `"pack://application:,,,/.../NormalColor.xaml"` の場合、`"NormalColor"` を返します。
+  `CurrentTheme` が `null` の場合は `"NormalColor"` を返します。

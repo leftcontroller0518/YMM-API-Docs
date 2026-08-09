@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.EngineName"
+type: property
+name: "EngineName"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声合成エンジンの名前を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  String EngineName { get; }

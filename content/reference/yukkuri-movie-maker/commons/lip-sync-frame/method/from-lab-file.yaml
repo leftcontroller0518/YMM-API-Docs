@@ -1,0 +1,28 @@
+id: "M:YukkuriMovieMaker.Commons.LipSyncFrame.FromLabFile(System.String)"
+type: method
+name: "FromLabFile"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Julius形式の .lab ファイルを読み込んで LipSyncFrame 配列を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.LipSyncFrame"
+parameters:
+  - name: labFilePath
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.LipSyncFrame
+  nullable: true
+code: |
+  public static LipSyncFrame[]? FromLabFile(string labFilePath)
+remarks: |
+  ファイルが存在しない・パースできない場合は `null` を返します。
+  母音（a/i/u/e/o）を `MouthShape` に変換し、無音区間は `MouthShape.Silent` になります。

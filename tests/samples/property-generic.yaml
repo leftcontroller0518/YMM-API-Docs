@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Plugin.VideoNode.Tags"
+type: property
+name: Tags
+namespace: YukkuriMovieMaker.Plugin
+summary: ノードに付与されたタグの一覧。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+propertyType:
+  type:
+    kind: named
+    name: System.Collections.Generic.IReadOnlyList`1
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String

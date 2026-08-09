@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.GetResources"
+type: method
+name: "GetResources"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このエフェクトが参照するタイムラインリソースの一覧を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Project.TimelineResource
+code: |
+  public virtual IEnumerable<TimelineResource> GetResources()
+remarks: |
+  既定の実装は `Remark` プロパティーからコンテンツIDを解析してリソースを生成します。
+  また、このエフェクト自体がタイムラインリソースとして登録可能な場合、内部処理によりリソースが追加されます。
+  外部ファイルや特殊なリソースを参照する場合はこのメソッドをオーバーライドしてください。

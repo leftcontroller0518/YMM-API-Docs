@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.RefVoicesDirectory"
+type: property
+name: "RefVoicesDirectory"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声ファイルの保存ディレクトリパスを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public static string RefVoicesDirectory { get; }
+remarks: |
+  `{YMM4ユーザーディレクトリ}/refvoices` を返します。

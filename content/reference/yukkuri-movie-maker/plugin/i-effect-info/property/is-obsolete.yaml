@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.IEffectInfo.IsObsolete"
+type: property
+name: "IsObsolete"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このエフェクトが非推奨かどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IEffectInfo"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  Boolean IsObsolete { get; }

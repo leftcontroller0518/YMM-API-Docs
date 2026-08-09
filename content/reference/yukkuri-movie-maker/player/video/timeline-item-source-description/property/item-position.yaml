@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription.ItemPosition"
+type: property
+name: "ItemPosition"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムライン上のアイテム開始位置をフレーム時間で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineItemSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.FrameTime
+code: |
+  public FrameTime ItemPosition { get; init; }

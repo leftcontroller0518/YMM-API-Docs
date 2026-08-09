@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Shape.IShapePlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Shape.IShapePlugin"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "形状プラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface IShapePlugin : IPlugin

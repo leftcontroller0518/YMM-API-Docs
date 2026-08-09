@@ -1,0 +1,16 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.GetOptionalFrames"
+type: method
+name: GetOptionalFrames
+namespace: YukkuriMovieMaker.Plugin
+summary: null を含む可能性があるフレームバッファ配列を返す。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+      nullable: true

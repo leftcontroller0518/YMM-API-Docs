@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Transcription.TranscriptionSupportedAudioFormat"
+type: class
+name: "YukkuriMovieMaker.Plugin.Transcription.TranscriptionSupportedAudioFormat"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "文字起こしプラグインが要求する音声フォーマットを表すレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record TranscriptionSupportedAudioFormat

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter.SupportedStreams"
+type: property
+name: "SupportedStreams"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このライターがサポートするストリームを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FileWriter.VideoFileWriterSupportedStreams
+code: |
+  VideoFileWriterSupportedStreams SupportedStreams { get; }

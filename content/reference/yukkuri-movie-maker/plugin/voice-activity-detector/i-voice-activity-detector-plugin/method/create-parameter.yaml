@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorPlugin.CreateParameter"
+type: method
+name: "CreateParameter"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "VADパラメーターのデフォルトインスタンスを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorPlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetectorParameter
+code: |
+  IVoiceActivityDetectorParameter CreateParameter();

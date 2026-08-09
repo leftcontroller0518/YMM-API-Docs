@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.Apply(YukkuriMovieMaker.Plugin.FrameSize@)"
+type: method
+name: Apply
+namespace: YukkuriMovieMaker.Plugin
+summary: 指定サイズでフレームを適用する。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+parameters:
+  - name: size
+    modifier: in
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameSize
+returns:
+  type:
+    kind: named
+    name: System.Void

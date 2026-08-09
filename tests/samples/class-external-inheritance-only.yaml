@@ -1,0 +1,10 @@
+id: "T:YukkuriMovieMaker.Plugin.EffectBase"
+type: class
+name: YukkuriMovieMaker.Plugin.EffectBase
+namespace: YukkuriMovieMaker.Plugin
+summary: 全エフェクトの基底クラス。
+accessibility: public
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object

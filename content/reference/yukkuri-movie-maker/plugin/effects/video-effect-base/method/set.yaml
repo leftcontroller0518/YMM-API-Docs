@@ -1,0 +1,42 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.Set``1(``0@,``0,System.String,System.String[])"
+type: method
+name: "Set"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: protected
+summary: "参照、または式で与えられるプロパティーに値を設定し、変更があった場合YMMはそれを検知します。"
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+genericParameters:
+  - T
+parameters:
+  - name: storage
+    modifier: ref
+    type:
+      type:
+        kind: genericParameter
+        name: T
+  - name: value
+    type:
+      type:
+        kind: genericParameter
+        name: T
+  - name: name
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: etcChangedPropertyNames
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  protected override bool Set<T>(ref T storage, T value, [CallerMemberName] string name = "", params string[] etcChangedPropertyNames);

@@ -1,0 +1,12 @@
+id: "P:YukkuriMovieMaker.Plugin.VideoNode.FrameCount"
+type: property
+name: FrameCount
+namespace: YukkuriMovieMaker.Plugin
+summary: ノードが保持するフレーム数。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32

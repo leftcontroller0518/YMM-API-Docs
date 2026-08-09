@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.IPlugin.Name"
+type: property
+name: "Name"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "プラグインの表示名を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IPlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  string Name { get; }

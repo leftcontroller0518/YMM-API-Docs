@@ -1,0 +1,16 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.GetFrames"
+type: method
+name: GetFrames
+namespace: YukkuriMovieMaker.Plugin
+summary: 全フレームバッファの配列を返す。配列自体が null になりうる。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+  nullable: true

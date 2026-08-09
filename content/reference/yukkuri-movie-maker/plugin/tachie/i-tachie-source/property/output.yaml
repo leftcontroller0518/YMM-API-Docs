@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.ITachieSource.Output"
+type: property
+name: "Output"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "レンダリング結果のDirect2Dイメージを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieSource"
+propertyType:
+  type:
+    kind: named
+    name: Vortice.Direct2D1.ID2D1Image
+code: |
+  ID2D1Image Output { get; }

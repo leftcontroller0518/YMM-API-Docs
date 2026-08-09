@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceResource.HasUpdateAsync"
+type: method
+name: "HasUpdateAsync"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リソースのアップデートが利用可能かどうかを非同期に確認します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceResource"
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+  genericArguments:
+    - type:
+        kind: named
+        name: System.Boolean
+code: |
+  Task<bool> HasUpdateAsync();

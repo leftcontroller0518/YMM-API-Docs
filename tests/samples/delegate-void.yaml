@@ -1,0 +1,16 @@
+id: "D:YukkuriMovieMaker.Plugin.FrameCallback"
+type: delegate
+name: YukkuriMovieMaker.Plugin.FrameCallback
+namespace: YukkuriMovieMaker.Plugin
+summary: フレーム処理完了時に呼び出されるコールバックデリゲート。
+accessibility: public
+parameters:
+  - name: frameIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: System.Void

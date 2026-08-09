@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Commons.Animation.CopyFrom(YukkuriMovieMaker.Commons.Animation)"
+type: method
+name: "CopyFrom"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "別のAnimationインスタンスの値を自身にコピーします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+parameters:
+  - name: animation
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.Animation
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void CopyFrom(Animation animation)
+remarks: |
+  `AnimationType`・`Values`・`Span`・`Bezier` がコピーされます。
+  `DefaultValue`・`MinValue`・`MaxValue` はコピーされません（コンストラクターで固定）。

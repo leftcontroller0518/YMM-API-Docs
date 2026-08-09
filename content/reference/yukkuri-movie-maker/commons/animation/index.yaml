@@ -1,0 +1,44 @@
+id: "T:YukkuriMovieMaker.Commons.Animation"
+type: class
+name: "YukkuriMovieMaker.Commons.Animation"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アニメーション可能な数値パラメーターを表すクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+code: |
+  public class Animation : UndoRedoable, IUndoRedoable, IEditable, IAnimatable
+remarks: |
+  エフェクトクラスのパラメーターとして使用します。値はJSONでシリアライズされます。
+  `GetValue(frame, totalFrame, fps)` で指定フレームの補間値を取得します。
+  `ToExoString(keyFrameIndex, format, fps)` でAviUtl拡張編集用の文字列を生成します。
+
+  コンストラクターには `defaultValue`・`minValue`・`maxValue` を渡してください。
+  アニメーション種別（`AnimationType`）とイージングはUIで変更されます。
+examples: |
+  ```csharp
+  // プロパティー定義
+  [Display(Name = "強度")]
+  [AnimationSlider("F0", "%", 0, 100)]
+  public Animation Intensity { get; } = new Animation(50, 0, 100);
+
+  // Update内での値取得
+  var value = Intensity.GetValue(
+      frame:      effectDescription.ItemPosition.Frame,
+      totalFrame: effectDescription.ItemDuration.Frame,
+      fps:        effectDescription.FPS);
+  ```

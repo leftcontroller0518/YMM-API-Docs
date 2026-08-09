@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Shape.IShapePlugin.IsExoMaskSupported"
+type: property
+name: "IsExoMaskSupported"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集のマスク出力をサポートするかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.IShapePlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool IsExoMaskSupported { get; }

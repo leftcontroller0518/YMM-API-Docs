@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream.Hz"
+type: property
+name: "Hz"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "サンプリングレート（Hz）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  Int32 Hz { get; }

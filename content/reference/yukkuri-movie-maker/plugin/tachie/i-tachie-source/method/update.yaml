@@ -1,0 +1,60 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachieSource.Update(System.TimeSpan,System.TimeSpan,System.TimeSpan,System.TimeSpan,YukkuriMovieMaker.Plugin.Tachie.ITachieCharacterParameter,YukkuriMovieMaker.Plugin.Tachie.ITachieItemParameter,YukkuriMovieMaker.Plugin.Tachie.ITachieFaceParameter,System.Double)"
+type: method
+name: "Update"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームごとに立ち絵の描画状態を更新します。（非推奨）"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieSource"
+parameters:
+  - name: tachieTime
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+  - name: tachieLength
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+  - name: faceTime
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+  - name: faceLength
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+  - name: characterParameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Tachie.ITachieCharacterParameter
+  - name: itemParameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Tachie.ITachieItemParameter
+  - name: faceParameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Tachie.ITachieFaceParameter
+  - name: kuchipaku
+    type:
+      type:
+        kind: named
+        name: System.Double
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Update(TimeSpan tachieTime, TimeSpan tachieLength, TimeSpan faceTime, TimeSpan faceLength, ITachieCharacterParameter characterParameter, ITachieItemParameter itemParameter, ITachieFaceParameter faceParameter, double kuchipaku)
+remarks: |
+  既定の実装は `NotImplementedException` をスローします。
+  `ITachieSource2` を実装した場合、このメソッドは呼ばれません。
+  新規実装では `ITachieSource2.Update(TachieSourceDescription)` を使用してください。

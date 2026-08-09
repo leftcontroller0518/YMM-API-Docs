@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieVoiceItemExoDescription"
+type: class
+name: "YukkuriMovieMaker.Plugin.Tachie.TachieVoiceItemExoDescription"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl出力時にボイスアイテム1件分の情報を渡すレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record TachieVoiceItemExoDescription(ExoItem ExoItem, string VoiceFilePath)

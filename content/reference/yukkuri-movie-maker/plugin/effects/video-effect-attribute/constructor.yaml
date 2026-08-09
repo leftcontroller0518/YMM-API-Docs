@@ -1,0 +1,47 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.#ctor(System.String,System.String[],System.String[],System.Boolean,System.Boolean)"
+type: method
+name: "#ctor"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+summary: "VideoEffect 属性を初期化します。"
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+parameters:
+  - name: name
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: categories
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.String
+  - name: keywords
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.String
+  - name: isEffectItemSupported
+    type:
+      type:
+        kind: named
+        name: System.Boolean
+  - name: isAviUtlSupported
+    type:
+      type:
+        kind: named
+        name: System.Boolean
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  VideoEffectAttribute(string name, string[] categories, string[] keywords, bool isEffectItemSupported = true, bool isAviUtlSupported = true)

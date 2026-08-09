@@ -1,0 +1,26 @@
+id: "M:YukkuriMovieMaker.Player.Video.DrawDescription.GetCustomValue``1(System.String)"
+type: method
+name: "GetCustomValue"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "DrawDescriptionに格納されたカスタム値を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+genericParameters:
+  - T
+parameters:
+  - name: name
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: genericParameter
+    name: T
+  nullable: true
+code: |
+  public T? GetCustomValue<T>(string name = "")
+remarks: |
+  値が存在しない場合は `default(T)` を返します。存在確認には `TryGetCustomValue` を使用してください。

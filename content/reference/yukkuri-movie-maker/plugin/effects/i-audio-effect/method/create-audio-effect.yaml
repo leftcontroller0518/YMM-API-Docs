@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.IAudioEffect.CreateAudioEffect(System.TimeSpan)"
+type: method
+name: "CreateAudioEffect"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトプロセッサーを作成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.IAudioEffect"
+parameters:
+  - name: duration
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Audio.Effects.IAudioEffectProcessor
+code: |
+  IAudioEffectProcessor CreateAudioEffect(TimeSpan duration);
+remarks: |
+  音声レンダリング時に呼び出されます。
+  `duration` にはエフェクトが適用されるクリップの総再生時間が渡されます。

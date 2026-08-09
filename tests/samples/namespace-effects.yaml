@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.Effects"
+type: namespace
+name: YukkuriMovieMaker.Plugin.Effects
+namespace: YukkuriMovieMaker.Plugin
+summary: エフェクト関連の名前空間。

@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.Caption"
+type: property
+name: "Caption"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "参照音声のキャプション（説明文）を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public String Caption { get; set; }

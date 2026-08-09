@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+type: class
+name: "YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "マスク出力時にYMM4から渡される共通パラメーターを保持するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class ShapeMaskExoOutputDescription(bool isEnabled, Animation x, Animation y, Animation rotation, Animation blur, bool isInverted)
+remarks: |
+  `IShapeParameter.CreateMaskExoFilter` の引数として渡されます。
+  YMM4側が管理するマスクの共通設定（X・Y・回転・ぼかし・反転）を持ちます。
+  これらの値をAviUtl拡張編集のマスクフィルター文字列に組み込んでください。

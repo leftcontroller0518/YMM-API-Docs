@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "音声区間検出（VAD）プラグインを作成するための型を提供します。"

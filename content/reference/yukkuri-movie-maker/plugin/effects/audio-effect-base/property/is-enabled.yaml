@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase.IsEnabled"
+type: property
+name: "IsEnabled"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが有効かどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public bool IsEnabled { get; set; }
+remarks: |
+  既定値は `true` です。

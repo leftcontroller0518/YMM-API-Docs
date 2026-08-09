@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector.InitializeAsync(System.Threading.CancellationToken)"
+type: method
+name: "InitializeAsync"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "検出器を非同期に初期化します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.IVoiceActivityDetector"
+parameters:
+  - name: token
+    type:
+      type:
+        kind: named
+        name: System.Threading.CancellationToken
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+code: |
+  Task InitializeAsync(CancellationToken token);
+remarks: |
+  モデルのロードなど重い初期化処理をここで行います。`DownloadResourcesAsync` の後に呼ばれます。

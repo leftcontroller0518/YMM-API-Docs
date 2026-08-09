@@ -1,0 +1,30 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSourcePlugin.CreateAudioFileSource(System.String,System.Int32)"
+type: method
+name: "CreateAudioFileSource"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定パスの音声ファイルソースを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSourcePlugin"
+parameters:
+  - name: filePath
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: audioTrackIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource
+  nullable: true
+code: |
+  IAudioFileSource? CreateAudioFileSource(string filePath, int audioTrackIndex);
+remarks: |
+  対応していないファイルの場合は `null` を返してください。
+  `audioTrackIndex` は動画内の複数音声トラックを区別するためのインデックスです。

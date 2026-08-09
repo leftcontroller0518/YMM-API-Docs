@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachieSource2.Update(YukkuriMovieMaker.Player.Video.TachieSourceDescription)"
+type: method
+name: "Update"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームごとに立ち絵の描画状態を更新します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieSource2"
+parameters:
+  - name: desc
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.TachieSourceDescription
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Update(TachieSourceDescription desc);
+remarks: |
+  `desc` からキャラクターパラメーター・アイテムパラメーター・表情パラメーター・口形・音量などを取得できます。
+  `Output` プロパティーが合成済みイメージを返すように実装してください。

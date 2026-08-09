@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.FastLoad(System.String)"
+type: method
+name: "FastLoad"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "メタデータのみを高速に読み込みます。音声データは展開しません。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+parameters:
+  - name: path
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Voice.RefVoiceFile
+code: |
+  public static RefVoiceFile FastLoad(string path)

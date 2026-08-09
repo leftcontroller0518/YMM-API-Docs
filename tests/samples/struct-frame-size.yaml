@@ -1,0 +1,14 @@
+id: "T:YukkuriMovieMaker.Plugin.FrameSize"
+type: struct
+name: YukkuriMovieMaker.Plugin.FrameSize
+namespace: YukkuriMovieMaker.Plugin
+summary: フレームの幅と高さを表す構造体。
+accessibility: public
+implements:
+  - type:
+      kind: named
+      name: System.IEquatable`1
+    genericArguments:
+      - type:
+          kind: named
+          name: YukkuriMovieMaker.Plugin.FrameSize

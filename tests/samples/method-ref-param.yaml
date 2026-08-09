@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.Accumulate(YukkuriMovieMaker.Plugin.FrameBuffer@)"
+type: method
+name: Accumulate
+namespace: YukkuriMovieMaker.Plugin
+summary: バッファにフレームデータを累積する。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+parameters:
+  - name: buffer
+    modifier: ref
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.FrameBuffer
+returns:
+  type:
+    kind: named
+    name: System.Void

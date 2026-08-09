@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription.X"
+type: property
+name: "X"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "マスクのX位置アニメーションを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.Animation
+code: |
+  public Animation X { get; }

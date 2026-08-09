@@ -1,0 +1,9 @@
+id: "N:YukkuriMovieMaker.Plugin"
+type: namespace
+name: "YukkuriMovieMaker.Plugin"
+namespace: "YukkuriMovieMaker"
+summary: "各プラグインを作成するための型と基本の仕組みを提供します。"
+remarks: |
+  このnamespaceにはプラグインのライフサイクル管理・設定管理・テーマ管理などの基盤型が含まれます。
+  プラグインは `IPlugin` インターフェースを実装するクラスとして定義します。
+  設定クラスは `SettingsBase<T>` を継承することで自動的にJSON保存・読み込みが有効になります。

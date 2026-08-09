@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Commons.LipSyncFrame.Time"
+type: property
+name: "Time"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "この口形が開始する時刻を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.LipSyncFrame"
+propertyType:
+  type:
+    kind: named
+    name: System.TimeSpan
+code: |
+  public TimeSpan Time { get; init; }
+remarks: |
+  音声クリップの先頭からの相対時刻です。
+  YMM4はこの時刻以降かつ次のフレームの `Time` 未満の間、`Shape` の口形を適用します。

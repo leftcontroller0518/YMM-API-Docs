@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateFaceParameter"
+type: method
+name: "CreateFaceParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "表情パラメーターを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Tachie.ITachieFaceParameter
+code: |
+  ITachieFaceParameter CreateFaceParameter();

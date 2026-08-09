@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Transcription.ITranscriptionPlugin"
+namespace: "YukkuriMovieMaker.Plugin.Transcription"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声文字起こしプラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface ITranscriptionPlugin : IPlugin

@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachieFaceParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Tachie.ITachieFaceParameter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "表情パラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+code: |
+  public interface ITachieFaceParameter : IUndoRedoable, IAnimatable, IEditable
+remarks: |
+  表情エディターで編集されるパラメーターです。
+  表情パーツのブレンド率などアニメーション可能な値を保持します。
+  JSONシリアライズ可能にしてください。

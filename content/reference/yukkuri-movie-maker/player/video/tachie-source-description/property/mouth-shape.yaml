@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TachieSourceDescription.MouthShape"
+type: property
+name: "MouthShape"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在フレームの口形を取得します。リップシンクに使用します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TachieSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Voice.MouthShape
+code: |
+  public MouthShape MouthShape { get; init; }

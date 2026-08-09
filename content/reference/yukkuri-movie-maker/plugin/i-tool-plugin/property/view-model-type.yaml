@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.IToolPlugin.ViewModelType"
+type: property
+name: "ViewModelType"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ツールのViewModelの型を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.IToolPlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Type
+code: |
+  Type ViewModelType { get; }
+remarks: |
+  `IToolViewModel` を実装した型を返してください。
+  YMM4はこの型をDIコンテナから解決して `ViewType` に渡します。

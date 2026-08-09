@@ -1,0 +1,18 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute.GetCategories"
+type: method
+name: "GetCategories"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ローカライズ解決後のカテゴリー名の配列を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
+code: |
+  public string[] GetCategories()

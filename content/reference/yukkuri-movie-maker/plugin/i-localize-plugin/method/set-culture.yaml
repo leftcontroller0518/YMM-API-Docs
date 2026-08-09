@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.ILocalizePlugin.SetCulture(System.Globalization.CultureInfo)"
+type: method
+name: "SetCulture"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "指定したカルチャーでプラグインの言語設定を切り替えます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ILocalizePlugin"
+parameters:
+  - name: cultureInfo
+    type:
+      type:
+        kind: named
+        name: System.Globalization.CultureInfo
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void SetCulture(CultureInfo cultureInfo);

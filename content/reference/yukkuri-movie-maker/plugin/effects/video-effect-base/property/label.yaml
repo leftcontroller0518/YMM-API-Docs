@@ -1,0 +1,20 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.Label"
+type: property
+name: "Label"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの表示名を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  [JsonIgnore]
+  public abstract string Label { get; }
+remarks: |
+  `[JsonIgnore]` が付与されているため、プロジェクトファイルへの保存対象外です。
+  アニメーションパラメーターの値を含む文字列を返すように実装することで、
+  アニメーション変更時にタイムライン上の表示が自動更新されます。

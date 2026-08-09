@@ -1,0 +1,19 @@
+id: "M:YukkuriMovieMaker.Plugin.SettingsBase`1.Save"
+type: method
+name: "Save"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在の設定値をJSONファイルに保存します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.SettingsBase`1"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public virtual void Save()
+remarks: |
+  保存前に既存ファイルを `.bak` としてバックアップします。
+  保存に失敗した場合は例外をスローせずログに記録します。
+  古いバージョンのディレクトリは10世代を超えると削除されます。

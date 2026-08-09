@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.GetMetadata"
+type: method
+name: GetMetadata
+namespace: YukkuriMovieMaker.Plugin
+summary: ノードのメタデータをタプルで返す。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: tuple
+    elements:
+      - name: width
+        type:
+          kind: named
+          name: System.Int32
+      - name: height
+        type:
+          kind: named
+          name: System.Int32
+      - name: label
+        type:
+          kind: named
+          name: System.String
+        nullable: true

@@ -1,0 +1,9 @@
+id: "N:YukkuriMovieMaker.Player.Video"
+type: namespace
+name: "YukkuriMovieMaker.Player.Video"
+namespace: "YukkuriMovieMaker.Player"
+summary: "映像レンダリングに関するインターフェースと記述クラスを提供します。"
+remarks: |
+  プラグイン開発者が主に参照するのは `IVideoEffectProcessor` / `IDrawable` / `EffectDescription` / `DrawDescription` です。
+  `DrawDescription` はフレームごとの描画状態（座標・ズーム・回転・不透明度など）を保持します。
+  `EffectDescription` はアイテムやエフェクトの文脈情報を追加した拡張です。

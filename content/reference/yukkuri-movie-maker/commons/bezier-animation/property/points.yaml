@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Commons.BezierAnimation.Points"
+type: property
+name: "Points"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ベジェ曲線の制御点リストを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.BezierAnimation"
+propertyType:
+  type:
+    kind: named
+    name: System.Collections.Immutable.ImmutableList
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.BezierAnimationPoint
+code: |
+  public ImmutableList<BezierAnimationPoint> Points { get; set; }

@@ -1,0 +1,16 @@
+id: "P:YukkuriMovieMaker.Commons.Animation.MaxValue"
+type: property
+name: "MaxValue"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "パラメーターの最大値を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  [JsonIgnore]
+  public double MaxValue { get; }

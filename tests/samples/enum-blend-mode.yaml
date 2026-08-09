@@ -1,0 +1,6 @@
+id: "T:YukkuriMovieMaker.Plugin.BlendMode"
+type: enum
+name: YukkuriMovieMaker.Plugin.BlendMode
+namespace: YukkuriMovieMaker.Plugin
+summary: レイヤーのブレンドモードを表す列挙型。
+accessibility: public

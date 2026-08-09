@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Commons.AnimationValue.GetClone"
+type: method
+name: "GetClone"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このオブジェクトのコピーを返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.AnimationValue"
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.AnimationValue
+code: |
+  public AnimationValue GetClone()

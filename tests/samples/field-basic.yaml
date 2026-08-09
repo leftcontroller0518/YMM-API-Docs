@@ -1,0 +1,12 @@
+id: "F:YukkuriMovieMaker.Plugin.VideoNode.DefaultFrameRate"
+type: field
+name: DefaultFrameRate
+namespace: YukkuriMovieMaker.Plugin
+summary: デフォルトのフレームレート定数。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+fieldType:
+  type:
+    kind: named
+    name: System.Int32

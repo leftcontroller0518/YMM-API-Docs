@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Commons.Animation.AnimationType"
+type: property
+name: "AnimationType"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "アニメーションの補間種別を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.Animation"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.AnimationType
+code: |
+  public AnimationType AnimationType { get; set; }
+remarks: |
+  UIから変更される値です。通常プラグインコードから直接セットする必要はありません。

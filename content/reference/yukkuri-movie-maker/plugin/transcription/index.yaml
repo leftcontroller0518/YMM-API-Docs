@@ -1,0 +1,5 @@
+id: "N:YukkuriMovieMaker.Plugin.Transcription"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Transcription"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "音声文字起こし（トランスクリプション）プラグインを作成するための型を提供します。"

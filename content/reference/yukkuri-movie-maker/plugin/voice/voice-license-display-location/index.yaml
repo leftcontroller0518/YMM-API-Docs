@@ -1,0 +1,18 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.VoiceLicenseDisplayLocation"
+type: enum
+name: "YukkuriMovieMaker.Plugin.Voice.VoiceLicenseDisplayLocation"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ライセンス概要の表示場所を表すフラグ列挙型です。"
+code: |
+  [Flags]
+  public enum VoiceLicenseDisplayLocation
+remarks: |
+  `IVoiceLicense.SummaryLocation` で使用します。フラグ列挙型のためビット和が使えます。
+
+  | 値 | 説明 |
+  | --- | --- |
+  | `None` | 表示しない |
+  | `ItemEditor` | アイテムエディターに表示 |
+  | `CharacterEditor` | キャラクターエディターに表示 |

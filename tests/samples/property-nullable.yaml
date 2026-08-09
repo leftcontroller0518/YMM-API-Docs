@@ -1,0 +1,13 @@
+id: "P:YukkuriMovieMaker.Plugin.VideoNode.Label"
+type: property
+name: Label
+namespace: YukkuriMovieMaker.Plugin
+summary: ノードの表示ラベル。未設定の場合は null。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+  nullable: true

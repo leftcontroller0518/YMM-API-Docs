@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource.Output"
+type: property
+name: "Output"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "現在フレームのDirect2Dイメージを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IVideoFileSource"
+propertyType:
+  type:
+    kind: named
+    name: Vortice.Direct2D1.ID2D1Image
+code: |
+  ID2D1Image Output { get; }

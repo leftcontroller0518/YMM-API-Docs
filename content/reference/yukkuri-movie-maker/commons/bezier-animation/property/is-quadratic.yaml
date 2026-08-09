@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Commons.BezierAnimation.IsQuadratic"
+type: property
+name: "IsQuadratic"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "2次ベジェモード（通過点指定）を使用するかどうかを取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.BezierAnimation"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  public bool IsQuadratic { get; set; }

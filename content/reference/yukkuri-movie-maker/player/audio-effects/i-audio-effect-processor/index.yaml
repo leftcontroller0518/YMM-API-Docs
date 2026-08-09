@@ -1,0 +1,20 @@
+id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioEffectProcessor"
+type: interface
+name: "YukkuriMovieMaker.Player.Audio.Effects.IAudioEffectProcessor"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトのストリーム処理を担うインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Audio.Effects.IAudioStream
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IAudioEffectProcessor : IAudioStream, IDisposable
+remarks: |
+  `AudioEffectBase.CreateAudioEffect` の戻り値として実装します。
+  `IAudioStream` を実装することで、YMM4の音声パイプラインに組み込まれます。
+  `Input` プロパティーに前段の音声ストリームが設定されます。

@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Player.Video.ITransitionSource"
+type: interface
+name: "YukkuriMovieMaker.Player.Video.ITransitionSource"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "トランジションのフレーム単位処理を担うインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.IDrawable
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface ITransitionSource : IDrawable, IDisposable

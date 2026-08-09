@@ -1,0 +1,29 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.ReplaceFile(System.String,System.String)"
+type: method
+name: "ReplaceFile"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが参照するファイルパスを置き換えます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+parameters:
+  - name: from
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: to
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public virtual void ReplaceFile(string from, string to)
+remarks: |
+  既定の実装は何もしません。
+  `GetFiles` でパスを返す場合は、このメソッドもオーバーライドして対応するプロパティーを更新してください。

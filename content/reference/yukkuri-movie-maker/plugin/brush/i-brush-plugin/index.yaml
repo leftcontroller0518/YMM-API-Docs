@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Brush.IBrushPlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Brush.IBrushPlugin"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ブラシプラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface IBrushPlugin : IPlugin

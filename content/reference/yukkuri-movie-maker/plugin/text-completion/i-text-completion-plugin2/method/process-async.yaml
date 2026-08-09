@@ -1,0 +1,40 @@
+id: "M:YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin2.ProcessAsync(System.String,System.String,System.Drawing.Bitmap)"
+type: method
+name: "ProcessAsync"
+namespace: "YukkuriMovieMaker.Plugin.TextCompletion"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "テキスト補完を非同期に実行して結果文字列を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.TextCompletion.ITextCompletionPlugin2"
+parameters:
+  - name: systemPrompt
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: text
+    type:
+      type:
+        kind: named
+        name: System.String
+  - name: image
+    type:
+      type:
+        kind: named
+        name: System.Drawing.Bitmap
+      nullable: true
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  Task<string> ProcessAsync(string systemPrompt, string text, Bitmap? image);
+remarks: |
+  `systemPrompt` はYMM4が生成するシステムプロンプトです。`text` はユーザーが入力したテキストです。
+  `image` は現在のプレビューフレームのスクリーンショットで、画像対応モデルを使う場合に利用できます。
+  補完結果のテキストを返してください。エラー時は例外をスローしてください。

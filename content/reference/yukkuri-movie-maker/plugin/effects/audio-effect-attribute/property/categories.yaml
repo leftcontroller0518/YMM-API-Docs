@@ -1,0 +1,20 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute.Categories"
+type: property
+name: "Categories"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトが属するカテゴリー名の配列を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+propertyType:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: System.String
+code: |
+  public string[] Categories { get; set; }
+remarks: |
+  `AudioEffectCategories` の定数をカテゴリーキーとして使用できます。

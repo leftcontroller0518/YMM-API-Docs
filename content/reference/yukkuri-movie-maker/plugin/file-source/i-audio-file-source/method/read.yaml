@@ -1,0 +1,38 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource.Read(System.Single[],System.Int32,System.Int32)"
+type: method
+name: "Read"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "PCMサンプルを読み取って destBuffer に書き込みます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource"
+parameters:
+  - name: destBuffer
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.Single
+  - name: offset
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: count
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  int Read(float[] destBuffer, int offset, int count);
+remarks: |
+  戻り値は実際に読み取ったサンプル数です。ファイル終端では `count` より少ない値を返すことがあります。
+  サンプルはインターリーブされたステレオPCM（-1.0〜1.0）として書き込んでください。
+  `Hz` が示すサンプリングレートのデータを返す必要があります。

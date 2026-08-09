@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment"
+type: class
+name: "YukkuriMovieMaker.Plugin.VoiceActivityDetector.VoiceDetectorSegment"
+namespace: "YukkuriMovieMaker.Plugin.VoiceActivityDetector"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声区間検出の結果1件を表すレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record VoiceDetectorSegment(int Start, int End)

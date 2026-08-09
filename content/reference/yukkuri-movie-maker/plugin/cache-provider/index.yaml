@@ -1,0 +1,35 @@
+id: "T:YukkuriMovieMaker.Plugin.CacheProvider"
+type: class
+name: "YukkuriMovieMaker.Plugin.CacheProvider"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "IDisposableオブジェクトのキーベースキャッシュを提供するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+implements:
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public class CacheProvider : IDisposable
+remarks: |
+  映像・音声のレンダリング時に生成したリソース（デコーダーなど）を一時的にプールするために使用します。
+  `TryGetValue` でキャッシュから取り出した後はキャッシュから削除されるため、使用後は呼び出し側で `Dispose` してください。
+  スレッドセーフです（内部で `Lock` を使用）。
+
+  `InvalidateIfSourceSettingsChanged` はプラグインの優先順位設定が変わったときにキャッシュを自動クリアします。
+  `InvalidateIfKeyChanged` は任意のキー文字列が変化したときにクリアします。
+examples: |
+  ```csharp
+  // キャッシュに追加
+  cacheProvider.Collect(filePath, myDecoder);
+
+  // キャッシュから取得（存在すればキャッシュから削除して返す）
+  if (cacheProvider.TryGetValue<MyDecoder>(filePath, out var decoder))
+  {
+      // decoder を使用
+  }
+  ```

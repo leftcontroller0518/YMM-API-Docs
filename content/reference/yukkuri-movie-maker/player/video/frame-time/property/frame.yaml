@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Player.Video.FrameTime.Frame"
+type: property
+name: "Frame"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレーム番号を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.FrameTime"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public int Frame { get; }
+remarks: |
+  `Animation.GetValue` の `frame` 引数に渡すことで、そのフレームのアニメーション値を取得できます。

@@ -1,0 +1,16 @@
+id: "T:YukkuriMovieMaker.Plugin.ILocalizePlugin"
+type: interface
+name: "YukkuriMovieMaker.Plugin.ILocalizePlugin"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ローカライズ機能を提供するプラグインのインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.IPlugin
+code: |
+  public interface ILocalizePlugin : IPlugin
+remarks: |
+  YMM4の言語切り替え時に `SetCulture` が呼ばれます。
+  プラグイン固有のリソース文字列を切り替える処理をここに実装してください。

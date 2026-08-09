@@ -1,0 +1,21 @@
+id: "P:YukkuriMovieMaker.Commons.ExoItem.Filters"
+type: property
+name: "Filters"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フィルター文字列のリストを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.ExoItem"
+propertyType:
+  type:
+    kind: named
+    name: System.Collections.Generic.List
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  public List<string> Filters { get; }
+remarks: |
+  各要素が `[index.n]` ブロックとして出力されます。エフェクトフィルター文字列（`_name=...` 形式）を追加してください。

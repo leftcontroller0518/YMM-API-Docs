@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.DrawDescription.Zoom"
+type: property
+name: "Zoom"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ズーム率（X・Y）を取得します。1.0が等倍です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Numerics.Vector2
+code: |
+  public Vector2 Zoom { get; init; }

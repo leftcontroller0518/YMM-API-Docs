@@ -1,0 +1,35 @@
+id: "M:YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase.CreateMaskExoFilter(System.Int32,YukkuriMovieMaker.Exo.ExoOutputDescription,YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription)"
+type: method
+name: "CreateMaskExoFilter"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集用のマスクフィルター文字列を生成します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.ShapeParameterBase"
+parameters:
+  - name: keyFrameIndex
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: desc
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Exo.ExoOutputDescription
+  - name: shapeMaskParameters
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Shape.ShapeMaskExoOutputDescription
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+code: |
+  public abstract IEnumerable<string> CreateMaskExoFilter(int keyFrameIndex, ExoOutputDescription desc, ShapeMaskExoOutputDescription shapeMaskParameters);

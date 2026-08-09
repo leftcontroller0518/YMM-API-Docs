@@ -1,0 +1,29 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.IVoicePronounce"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Voice.IVoicePronounce"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声合成結果の読み情報・リップシンク情報を保持するインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.IUndoRedoable
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface IVoicePronounce : IUndoRedoable, INotifyPropertyChanged, IEditable
+remarks: |
+  `IVoiceSpeaker.CreateVoiceAsync` の戻り値です。
+  次回の同一テキスト生成時に前回の `IVoicePronounce` が引数として渡されます。
+  内部にリップシンクフレーム（`LipSyncFrames`）と読み調整情報を持ちます。
+  JSONシリアライズ可能にしてください。YMM4がプロジェクトファイルに保存します。
+examples: |
+  ```csharp
+  public class MyVoicePronounce : IVoicePronounce
+  {
+      public LipSyncFrame[]? LipSyncFrames { get; set; }
+      // 読み仮名など追加情報...
+  }
+  ```

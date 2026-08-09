@@ -1,0 +1,15 @@
+id: "F:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories.Basic"
+type: field
+name: "Basic"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "基本カテゴリーのキーです。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectCategories"
+fieldType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public const string Basic = "YMM4Key_AudioEffectCategoryBasicName";

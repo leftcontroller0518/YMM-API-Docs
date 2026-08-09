@@ -1,0 +1,37 @@
+id: "M:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream.Read(System.Single[],System.Int32,System.Int32)"
+type: method
+name: "Read"
+namespace: "YukkuriMovieMaker.Player.Audio.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "PCMサンプルを読み取って destBuffer に書き込みます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Audio.Effects.IAudioStream"
+parameters:
+  - name: destBuffer
+    type:
+      type:
+        kind: array
+        elementType:
+          type:
+            kind: named
+            name: System.Single
+  - name: offset
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: count
+    type:
+      type:
+        kind: named
+        name: System.Int32
+returns:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  int Read(float[] destBuffer, int offset, int count);
+remarks: |
+  戻り値は実際に書き込んだサンプル数です。ストリーム終端では `count` より少ない値を返します。
+  `IAudioEffectProcessor` を実装する場合、`Input?.Read(destBuffer, offset, count)` で前段から読み取り、処理を加えて返してください。

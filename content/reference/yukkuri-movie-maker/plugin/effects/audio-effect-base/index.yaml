@@ -1,0 +1,44 @@
+id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectBase"
+type: class
+name: "YukkuriMovieMaker.Plugin.Effects.AudioEffectBase"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトの基底クラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Commons.Animatable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.Animatable
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Plugin.Effects.IAudioEffect
+code: |
+  public abstract class AudioEffectBase : Animatable, IAudioEffect
+remarks: |
+  音声エフェクトプラグインを実装する場合はこのクラスを継承してください。
+  継承クラスには `[AudioEffect]` 属性を付与する必要があります。
+
+  `VideoEffectBase` と同様に、コンストラクターがアニメーション可能プロパティのイベントを購読し、
+  プロパティーの変更通知とUndo/Redo登録には `Set` メソッドを使用します。
+examples: |
+  ```csharp
+  [AudioEffect("サンプル音声エフェクト", ["基本"], [])]
+  public class SampleAudioEffect : AudioEffectBase
+  {
+      public override string Label => "サンプル音声エフェクト";
+
+      public override IAudioEffectProcessor CreateAudioEffect(TimeSpan duration)
+          => new SampleAudioEffectProcessor(this);
+
+      public override IEnumerable<string> CreateExoAudioFilters(int keyFrameIndex, ExoOutputDescription exo)
+          => [];
+  }
+  ```

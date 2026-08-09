@@ -1,0 +1,7 @@
+id: "N:YukkuriMovieMaker.Plugin.Tachie"
+type: namespace
+name: "YukkuriMovieMaker.Plugin.Tachie"
+namespace: "YukkuriMovieMaker.Plugin"
+summary: "立ち絵プラグインを作成するための型を提供します。"
+remarks: |
+  立ち絵プラグインは `ITachiePlugin` を実装し、キャラクター・アイテム・表情の各パラメーターと描画ソースを提供します。

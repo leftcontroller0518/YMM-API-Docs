@@ -1,0 +1,22 @@
+id: "M:YukkuriMovieMaker.Plugin.Shape.IShapePlugin.CreateShapeParameter(YukkuriMovieMaker.Project.SharedDataStore)"
+type: method
+name: "CreateShapeParameter"
+namespace: "YukkuriMovieMaker.Plugin.Shape"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "形状パラメーターのデフォルトインスタンスを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Shape.IShapePlugin"
+parameters:
+  - name: sharedData
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Project.SharedDataStore
+      nullable: true
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Shape.IShapeParameter
+code: |
+  IShapeParameter CreateShapeParameter(SharedDataStore? sharedData);

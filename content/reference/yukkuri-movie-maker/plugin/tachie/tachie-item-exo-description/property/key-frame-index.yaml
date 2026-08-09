@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription.KeyFrameIndex"
+type: property
+name: "KeyFrameIndex"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "キーフレームインデックスを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Int32
+code: |
+  public Int32 KeyFrameIndex { get; init; }

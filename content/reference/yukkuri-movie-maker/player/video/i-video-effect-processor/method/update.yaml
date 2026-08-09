@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor.Update(YukkuriMovieMaker.Player.Video.EffectDescription)"
+type: method
+name: "Update"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームの描画状態を更新し、適用後の DrawDescription を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor"
+parameters:
+  - name: effectDescription
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Player.Video.EffectDescription
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.DrawDescription
+code: |
+  DrawDescription Update(EffectDescription effectDescription);
+remarks: |
+  `effectDescription.DrawDescription` に入っている座標・ズーム・不透明度などを変更して返すことで、後続のエフェクトや描画位置に影響を与えられます。
+  変更しない場合は `effectDescription.DrawDescription` をそのまま返してください。
+  このメソッド内でDirect2Dパラメーター（エフェクト値など）を更新してください。

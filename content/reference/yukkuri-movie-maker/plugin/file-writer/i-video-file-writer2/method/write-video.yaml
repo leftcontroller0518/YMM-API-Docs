@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter2.WriteVideo(Vortice.Direct2D1.ID2D1Bitmap1)"
+type: method
+name: "WriteVideo"
+namespace: "YukkuriMovieMaker.Plugin.FileWriter"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "Direct2Dビットマップとして映像フレームを書き込みます。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileWriter.IVideoFileWriter2"
+parameters:
+  - name: frame
+    type:
+      type:
+        kind: named
+        name: Vortice.Direct2D1.ID2D1Bitmap1
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void WriteVideo(ID2D1Bitmap1 frame);

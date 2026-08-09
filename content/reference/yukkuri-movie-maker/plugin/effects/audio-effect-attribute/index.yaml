@@ -1,0 +1,30 @@
+id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+type: class
+name: "YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "音声エフェクトクラスに付与する属性です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: System.Attribute
+base:
+  type:
+    kind: named
+    name: System.Attribute
+code: |
+  [AttributeUsage(AttributeTargets.Class)]
+  public class AudioEffectAttribute(string name, string[] categories, string[] keywords, bool isAviUtlSupported = true) : Attribute()
+remarks: |
+  `AudioEffectBase` を継承したクラスに必ず付与してください。
+  `VideoEffectAttribute` と同様の名前解決の仕組みを持ちます。
+  `IsEffectItemSupported` に相当するプロパティーはありません。
+examples: |
+  ```csharp
+  [AudioEffect("サンプル音声エフェクト", [AudioEffectCategories.Basic], [])]
+  public class SampleAudioEffect : AudioEffectBase { ... }
+  ```

@@ -1,0 +1,39 @@
+id: "T:YukkuriMovieMaker.Commons.ProgressMessage"
+type: class
+name: "YukkuriMovieMaker.Commons.ProgressMessage"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "進捗報告を受け取り上位の ProgressMessage へ集約するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Commons.ProgressBase
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Commons.ProgressBase
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public class ProgressMessage : ProgressBase
+remarks: |
+  `IVoiceResource.DownloadAsync`・`IVoiceActivityDetector.DownloadResourcesAsync` の引数として渡されます。
+  `Report(rate, message)` を呼ぶと `Rate`・`Message` プロパティーが更新され、`PropertyChanged` が発火します。
+  子プログレス（部分進捗）は `GetChildProgress(rateFrom, rateTo)` で生成できます。
+examples: |
+  ```csharp
+  public async Task DownloadAsync(ProgressMessage progress)
+  {
+      progress.Report(0.0, "ダウンロード開始...");
+      // ダウンロード処理
+      progress.Report(0.5, "展開中...");
+      // 展開処理
+      progress.Report(1.0, "完了");
+  }
+  ```

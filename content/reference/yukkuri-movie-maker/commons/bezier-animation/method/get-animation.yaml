@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Commons.BezierAnimation.GetAnimation(System.Double)"
+type: method
+name: "GetAnimation"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "0.0〜1.0 の進行率をベジェ曲線で変換した値を返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.BezierAnimation"
+parameters:
+  - name: rate
+    type:
+      type:
+        kind: named
+        name: System.Double
+returns:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  public double GetAnimation(double rate)
+remarks: |
+  入力 `rate` は 0.0〜1.0 の補間進行率です。ニュートン法でベジェ曲線のt値を解いてY値を返します。
+  `Animation.GetValue` が内部で呼び出します。プラグインから直接呼ぶ機会は少ないです。

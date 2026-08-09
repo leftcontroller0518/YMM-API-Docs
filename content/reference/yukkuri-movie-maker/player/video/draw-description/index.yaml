@@ -1,0 +1,27 @@
+id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+type: class
+name: "YukkuriMovieMaker.Player.Video.DrawDescription"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "フレームの描画状態（位置・ズーム・回転・不透明度など）を保持するレコードです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public record DrawDescription(Vector3 Draw, Vector2 CenterPoint, Vector2 Zoom, Vector3 Rotation, Matrix4x4 Camera, InterpolationMode ZoomInterpolationMode, double Opacity, bool Invert, ImmutableList<VideoEffectController> Controllers)
+remarks: |
+  `IVideoEffectProcessor.Update` の戻り値として使います。`with` 式で必要なプロパティーだけ変更してください。
+
+  ```csharp
+  public DrawDescription Update(EffectDescription effectDescription)
+  {
+      return effectDescription.DrawDescription with
+      {
+          Opacity = effectDescription.DrawDescription.Opacity * 0.5
+      };
+  }
+  ```
+
+  `GetCustomValue<T>` / `SetCustomValue<T>` で任意の型の追加情報をエフェクト間で引き渡せます。

@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Player.Video.IDrawable.Output"
+type: property
+name: "Output"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "レンダリング結果のDirect2Dイメージを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.IDrawable"
+propertyType:
+  type:
+    kind: named
+    name: Vortice.Direct2D1.ID2D1Image
+code: |
+  ID2D1Image Output { get; }
+remarks: |
+  このプロパティーはフレームのレンダリング前に設定されていなければなりません。
+  `IVideoEffectProcessor` を実装する場合、コンストラクターや `Update` の中でDirect2Dエフェクト等を設定してください。

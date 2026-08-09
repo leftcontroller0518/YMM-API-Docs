@@ -1,0 +1,17 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.HasScriptFile"
+type: property
+name: "HasScriptFile"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl出力用スクリプトファイルを生成するかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  bool HasScriptFile { get; }
+remarks: |
+  true の場合、AviUtl出力時に CreateScriptFile が呼ばれます。

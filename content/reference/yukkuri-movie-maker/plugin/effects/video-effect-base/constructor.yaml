@@ -1,0 +1,15 @@
+id: "M:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase.#ctor"
+type: method
+name: "#ctor"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+summary: "VideoEffectBase クラスの新しいインスタンスを初期化します。"
+assembly: "YukkuriMovieMaker.Plugin.dll"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectBase"
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public VideoEffectBase()

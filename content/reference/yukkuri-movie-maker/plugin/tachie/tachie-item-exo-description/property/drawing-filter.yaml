@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription.DrawingFilter"
+type: property
+name: "DrawingFilter"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "描画フィルター文字列を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public String DrawingFilter { get; init; }

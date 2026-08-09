@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile.RefFilePath"
+type: property
+name: "RefFilePath"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "展開された音声の一時ファイルパスを取得します。FastLoad の場合は null です。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.RefVoiceFile"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+  nullable: true
+code: |
+  public string? RefFilePath { get; private set; }
+remarks: |
+  `Load` で読み込んだ場合は一時ディレクトリにWAVが展開され、そのパスを返します。
+  `Dispose` 時に一時ファイルは自動削除されます。

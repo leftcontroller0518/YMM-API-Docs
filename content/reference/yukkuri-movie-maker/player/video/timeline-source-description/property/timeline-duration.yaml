@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.TimelineSourceDescription.TimelineDuration"
+type: property
+name: "TimelineDuration"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "タイムライン全体の長さをフレーム時間で取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.TimelineSourceDescription"
+propertyType:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Player.Video.FrameTime
+code: |
+  public FrameTime TimelineDuration { get; init; }

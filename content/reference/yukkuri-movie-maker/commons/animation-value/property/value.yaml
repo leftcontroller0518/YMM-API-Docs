@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Commons.AnimationValue.Value"
+type: property
+name: "Value"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "このキーフレームの数値を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.AnimationValue"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  public double Value { get; set; }

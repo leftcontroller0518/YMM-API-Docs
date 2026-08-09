@@ -1,0 +1,55 @@
+id: "M:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin.CreateExoItems(System.Int32,System.Collections.Generic.IEnumerable{YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription},System.Collections.Generic.IEnumerable{YukkuriMovieMaker.Plugin.Tachie.TachieFaceItemExoDescription},System.Collections.Generic.IEnumerable{YukkuriMovieMaker.Plugin.Tachie.TachieVoiceItemExoDescription})"
+type: method
+name: "CreateExoItems"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "AviUtl拡張編集用のExoItemシーケンスを生成して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.ITachiePlugin"
+parameters:
+  - name: FPS
+    type:
+      type:
+        kind: named
+        name: System.Int32
+  - name: tachieItemDescriptions
+    type:
+      type:
+        kind: named
+        name: System.Collections.Generic.IEnumerable
+      genericArguments:
+        - type:
+            kind: named
+            name: YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription
+  - name: faceItemDescriptions
+    type:
+      type:
+        kind: named
+        name: System.Collections.Generic.IEnumerable
+      genericArguments:
+        - type:
+            kind: named
+            name: YukkuriMovieMaker.Plugin.Tachie.TachieFaceItemExoDescription
+  - name: voiceDescriptions
+    type:
+      type:
+        kind: named
+        name: System.Collections.Generic.IEnumerable
+      genericArguments:
+        - type:
+            kind: named
+            name: YukkuriMovieMaker.Plugin.Tachie.TachieVoiceItemExoDescription
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.IEnumerable
+  genericArguments:
+    - type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.ExoItem
+code: |
+  IEnumerable<ExoItem> CreateExoItems(int FPS, IEnumerable<TachieItemExoDescription> tachieItemDescriptions, IEnumerable<TachieFaceItemExoDescription> faceItemDescriptions, IEnumerable<TachieVoiceItemExoDescription> voiceDescriptions);
+remarks: |
+  AviUtl出力時に呼ばれます。立ち絵アイテム・表情アイテム・ボイスアイテムの各記述を受け取り、
+  拡張編集ファイルに書き込む `ExoItem` のシーケンスを返してください。

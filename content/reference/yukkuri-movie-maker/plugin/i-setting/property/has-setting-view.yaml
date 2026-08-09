@@ -1,0 +1,18 @@
+id: "P:YukkuriMovieMaker.Plugin.ISetting.HasSettingView"
+type: property
+name: "HasSettingView"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "設定UIビューを持つかどうかを取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.ISetting"
+propertyType:
+  type:
+    kind: named
+    name: System.Boolean
+code: |
+  [JsonIgnore]
+  bool HasSettingView { get; }
+remarks: |
+  `true` の場合、`SettingView` が設定ダイアログに表示されます。

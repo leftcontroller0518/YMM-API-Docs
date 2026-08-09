@@ -1,0 +1,38 @@
+import type React from "react"
+import "../styles/globals.css"
+import { Inter } from "next/font/google"
+import { ThemeProvider } from "@/components/theme-provider"
+import { SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/siteSetting"
+import {Metadata} from "next";
+import NextTopLoader from "nextjs-toploader";
+
+const inter = Inter({ subsets: ["latin"] })
+
+export const metadata : Metadata = {
+  metadataBase: new URL(SITE_URL),
+  title: {
+    template: `%s | ${SITE_TITLE}`,
+    default: SITE_TITLE,
+  },
+  description: SITE_DESCRIPTION,
+  verification: {
+    google: "NU1F_MTEtDd_A12q0jSn2wKfLiYI7w8Gev8LATqw8f8",
+  },
+}
+
+export default function RootLayout({
+                                     children,
+                                   }: {
+  children: React.ReactNode
+}) {
+  return (
+    <html lang="en" className={"overflow-y-scroll"} suppressHydrationWarning>
+    <body className={inter.className}>
+    <NextTopLoader color="#4d54e3" />
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+      <main>{children}</main>
+    </ThemeProvider>
+    </body>
+    </html>
+  )
+}

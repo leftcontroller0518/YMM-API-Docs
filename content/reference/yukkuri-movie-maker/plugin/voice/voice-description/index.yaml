@@ -1,0 +1,17 @@
+id: "T:YukkuriMovieMaker.Plugin.Voice.VoiceDescription"
+type: class
+name: "YukkuriMovieMaker.Plugin.Voice.VoiceDescription"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "話者の識別情報と参照を保持するクラスです。JSONシリアライズ可能です。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+code: |
+  public class VoiceDescription
+remarks: |
+  YMM4はキャラクター設定に話者を保存する際にこのクラスを使用します。
+  プロジェクトファイルには `API` と `Arg`（話者ID）のみが保存され、
+  起動時に対応する `IVoiceSpeaker` が `Speaker` プロパティーにセットされます。

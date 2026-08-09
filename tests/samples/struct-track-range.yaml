@@ -1,0 +1,6 @@
+id: "T:YukkuriMovieMaker.Plugin.TrackRange"
+type: struct
+name: YukkuriMovieMaker.Plugin.TrackRange
+namespace: YukkuriMovieMaker.Plugin
+summary: トラックの開始・終了フレームを表す構造体。
+accessibility: public

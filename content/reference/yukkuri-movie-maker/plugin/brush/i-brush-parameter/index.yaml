@@ -1,0 +1,13 @@
+id: "T:YukkuriMovieMaker.Plugin.Brush.IBrushParameter"
+type: interface
+name: "YukkuriMovieMaker.Plugin.Brush.IBrushParameter"
+namespace: "YukkuriMovieMaker.Plugin.Brush"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ブラシのパラメーターを表すインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: System.ComponentModel.INotifyPropertyChanged
+code: |
+  public interface IBrushParameter : INotifyPropertyChanged, INotifyPropertyChanging, IAnimatable, IUndoRedoable, IEditable

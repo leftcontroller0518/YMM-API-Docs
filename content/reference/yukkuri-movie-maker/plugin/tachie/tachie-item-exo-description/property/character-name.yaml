@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription.CharacterName"
+type: property
+name: "CharacterName"
+namespace: "YukkuriMovieMaker.Plugin.Tachie"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "キャラクター名を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Tachie.TachieItemExoDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public String CharacterName { get; init; }

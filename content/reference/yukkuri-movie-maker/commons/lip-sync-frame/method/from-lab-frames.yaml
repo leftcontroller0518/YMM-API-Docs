@@ -1,0 +1,31 @@
+id: "M:YukkuriMovieMaker.Commons.LipSyncFrame.FromLabFrames(System.Collections.Generic.IEnumerable{YukkuriMovieMaker.Commons.LabFrame})"
+type: method
+name: "FromLabFrames"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "LabFrame シーケンスを LipSyncFrame 配列に変換して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Commons.LipSyncFrame"
+parameters:
+  - name: labFrames
+    type:
+      type:
+        kind: named
+        name: System.Collections.Generic.IEnumerable
+      genericArguments:
+        - type:
+            kind: named
+            name: YukkuriMovieMaker.Commons.LabFrame
+returns:
+  type:
+    kind: array
+    elementType:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.LipSyncFrame
+code: |
+  public static LipSyncFrame[] FromLabFrames(IEnumerable<LabFrame> labFrames)
+remarks: |
+  音声合成エンジンが `LabFrame` を直接返せる場合に使用します。
+  最後の口形が `Silent` でない場合、末尾に `Silent` フレームが自動追加されます。

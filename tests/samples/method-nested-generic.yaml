@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Repository`1.GetGrouped"
+type: method
+name: GetGrouped
+namespace: YukkuriMovieMaker.Plugin
+summary: エンティティをキーでグループ化した辞書を返す。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Repository`1"
+returns:
+  type:
+    kind: named
+    name: System.Collections.Generic.Dictionary`2
+  genericArguments:
+    - type:
+        kind: named
+        name: System.String
+    - type:
+        kind: named
+        name: System.Collections.Generic.List`1
+      genericArguments:
+        - type:
+            kind: genericParameter
+            name: T
+          nullable: true

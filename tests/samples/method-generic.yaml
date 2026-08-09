@@ -1,0 +1,20 @@
+id: "M:YukkuriMovieMaker.Plugin.Repository`1.Convert``1(``0)"
+type: method
+name: Convert
+namespace: YukkuriMovieMaker.Plugin
+summary: 値を指定型へ変換する。
+accessibility: public
+genericParameters:
+  - U
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Repository`1"
+parameters:
+  - name: value
+    type:
+      type:
+        kind: genericParameter
+        name: T
+returns:
+  type:
+    kind: genericParameter
+    name: U

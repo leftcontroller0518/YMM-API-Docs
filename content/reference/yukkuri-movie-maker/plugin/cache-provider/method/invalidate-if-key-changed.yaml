@@ -1,0 +1,23 @@
+id: "M:YukkuriMovieMaker.Plugin.CacheProvider.InvalidateIfKeyChanged(System.String)"
+type: method
+name: "InvalidateIfKeyChanged"
+namespace: "YukkuriMovieMaker.Plugin"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "渡したキーが前回と異なる場合にキャッシュ全体をクリアします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.CacheProvider"
+parameters:
+  - name: key
+    type:
+      type:
+        kind: named
+        name: System.String
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  public void InvalidateIfKeyChanged(string key)
+remarks: |
+  レンダリング前に設定のハッシュや結合文字列を渡すことで、設定変更時に古いキャッシュが使われるのを防ぎます。

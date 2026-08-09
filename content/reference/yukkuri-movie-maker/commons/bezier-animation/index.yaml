@@ -1,0 +1,25 @@
+id: "T:YukkuriMovieMaker.Commons.BezierAnimation"
+type: class
+name: "YukkuriMovieMaker.Commons.BezierAnimation"
+namespace: "YukkuriMovieMaker.Commons"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "ベジェ曲線によるカスタムイージングを定義するクラスです。"
+externalInheritance:
+  - type:
+      kind: named
+      name: System.Object
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+base:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.UndoRedo.UndoRedoable
+code: |
+  public class BezierAnimation : UndoRedoable
+remarks: |
+  `Animation` が `AnimationType` として `Linear_Bezier` / `Interpolation_Bezier` を選択したときに使用されます。
+  `GetAnimation(rate)` で 0.0〜1.0 の入力に対するイージング適用後の値（同じく 0.0〜1.0）を返します。
+  `Points` プロパティーを変更すると `Changed` イベントが発火します。
+  プラグインから直接触る必要は通常ありません。UIが管理します。

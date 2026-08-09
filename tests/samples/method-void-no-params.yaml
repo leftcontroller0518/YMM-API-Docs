@@ -1,0 +1,12 @@
+id: "M:YukkuriMovieMaker.Plugin.VideoNode.Initialize"
+type: method
+name: Initialize
+namespace: YukkuriMovieMaker.Plugin
+summary: ノードを初期化する。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+returns:
+  type:
+    kind: named
+    name: System.Void

@@ -1,0 +1,12 @@
+id: "E:YukkuriMovieMaker.Plugin.VideoNode.FrameProcessed"
+type: event
+name: FrameProcessed
+namespace: YukkuriMovieMaker.Plugin
+summary: フレーム処理が完了したときに発生するイベント。
+accessibility: public
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.VideoNode"
+eventType:
+  type:
+    kind: named
+    name: System.EventHandler

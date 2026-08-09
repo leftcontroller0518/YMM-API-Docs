@@ -1,0 +1,19 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute.ResourceType"
+type: property
+name: "ResourceType"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "名前解決に使用するリソースクラスの型を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.VideoEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.Type
+  nullable: true
+code: |
+  public Type? ResourceType { get; set; }
+remarks: |
+  `null`（既定）の場合、`Name` および `Categories` の各文字列は `"YMM4Key_"` プレフィックスを持つキーかどうかのみチェックされます。
+  多言語対応のリソースクラスを指定した場合、そのクラスの静的プロパティーから文字列を解決します。

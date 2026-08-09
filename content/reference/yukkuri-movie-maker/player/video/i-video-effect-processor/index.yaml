@@ -1,0 +1,59 @@
+id: "T:YukkuriMovieMaker.Player.Video.IVideoEffectProcessor"
+type: interface
+name: "YukkuriMovieMaker.Player.Video.IVideoEffectProcessor"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "映像エフェクトのフレーム単位処理を担うインターフェースです。"
+implements:
+  - type:
+      kind: named
+      name: YukkuriMovieMaker.Player.Video.IDrawable
+  - type:
+      kind: named
+      name: System.IDisposable
+code: |
+  public interface IVideoEffectProcessor : IDrawable, IDisposable
+remarks: |
+  `VideoEffectBase.CreateVideoEffect` の戻り値として実装します。
+  YMM4のレンダリングループは次の順序でメソッドを呼び出します。
+
+  1. `SetInput(input)` — 前段の映像フレームを渡す。エフェクトが入力不要な場合は `null` が渡されることがある。
+  2. `Update(effectDescription)` — アニメーション値とコンテキスト情報を渡す。戻り値で `DrawDescription` を更新できる。
+  3. `Output` — レンダリング結果のイメージを取得する。
+
+  `SetInput` と `ClearInput` の使い分け：エフェクトが使われなくなったフレームでは `ClearInput` が呼ばれます。
+examples: |
+  ```csharp
+  public class SampleVideoEffectProcessor : IVideoEffectProcessor
+  {
+      private readonly IGraphicsDevicesAndContext devices;
+      private readonly SampleVideoEffect parameter;
+      private ID2D1Effect? d2dEffect;
+
+      public ID2D1Image Output => d2dEffect!.Output;
+
+      public SampleVideoEffectProcessor(IGraphicsDevicesAndContext devices, SampleVideoEffect parameter)
+      {
+          this.devices = devices;
+          this.parameter = parameter;
+          d2dEffect = devices.DeviceContext.CreateEffect(/* ... */);
+      }
+
+      public DrawDescription Update(EffectDescription effectDescription)
+      {
+          // アニメーション値を取得して d2dEffect に設定
+          var frame  = effectDescription.ItemPosition.Frame;
+          var length = effectDescription.ItemDuration.Frame;
+          var fps    = effectDescription.FPS;
+          float value = (float)parameter.Intensity.GetValue(frame, length, fps);
+          d2dEffect!.SetValue(/* ... */, value);
+          return effectDescription.DrawDescription;
+      }
+
+      public void SetInput(ID2D1Image? input) => d2dEffect!.SetInput(0, input);
+      public void ClearInput() => d2dEffect!.SetInput(0, null);
+
+      public void Dispose() { d2dEffect?.Dispose(); d2dEffect = null; }
+  }
+  ```

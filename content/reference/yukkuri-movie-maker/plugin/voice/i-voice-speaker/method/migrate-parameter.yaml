@@ -1,0 +1,25 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker.MigrateParameter(YukkuriMovieMaker.Plugin.Voice.IVoiceParameter)"
+type: method
+name: "MigrateParameter"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "古いパラメーターを現在のバージョンに移行して返します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceSpeaker"
+parameters:
+  - name: currentParameter
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Plugin.Voice.IVoiceParameter
+returns:
+  type:
+    kind: named
+    name: YukkuriMovieMaker.Plugin.Voice.IVoiceParameter
+code: |
+  IVoiceParameter MigrateParameter(IVoiceParameter currentParameter);
+remarks: |
+  プロジェクトを開いたときに古いパラメーター型が渡される場合があります。
+  型が一致する場合はそのまま返し、異なる場合は変換して返してください。
+  移行できない場合は `CreateVoiceParameter()` の結果を返してください。

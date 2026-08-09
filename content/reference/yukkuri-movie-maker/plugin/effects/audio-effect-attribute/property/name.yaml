@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute.Name"
+type: property
+name: "Name"
+namespace: "YukkuriMovieMaker.Plugin.Effects"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "エフェクトの表示名を取得または設定します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Effects.AudioEffectAttribute"
+propertyType:
+  type:
+    kind: named
+    name: System.String
+code: |
+  public string Name { get; set; }

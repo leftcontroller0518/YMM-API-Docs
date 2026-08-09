@@ -1,0 +1,21 @@
+id: "M:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource.Seek(System.TimeSpan)"
+type: method
+name: "Seek"
+namespace: "YukkuriMovieMaker.Plugin.FileSource"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "読み取り位置を指定した時刻にシークします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.FileSource.IAudioFileSource"
+parameters:
+  - name: time
+    type:
+      type:
+        kind: named
+        name: System.TimeSpan
+returns:
+  type:
+    kind: named
+    name: System.Void
+code: |
+  void Seek(TimeSpan time);

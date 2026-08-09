@@ -1,0 +1,15 @@
+id: "P:YukkuriMovieMaker.Player.Video.DrawDescription.Opacity"
+type: property
+name: "Opacity"
+namespace: "YukkuriMovieMaker.Player.Video"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "不透明度（0.0〜1.0）を取得します。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Player.Video.DrawDescription"
+propertyType:
+  type:
+    kind: named
+    name: System.Double
+code: |
+  public Double Opacity { get; init; }

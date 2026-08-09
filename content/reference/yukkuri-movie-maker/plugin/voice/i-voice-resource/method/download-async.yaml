@@ -1,0 +1,24 @@
+id: "M:YukkuriMovieMaker.Plugin.Voice.IVoiceResource.DownloadAsync(YukkuriMovieMaker.Commons.ProgressMessage)"
+type: method
+name: "DownloadAsync"
+namespace: "YukkuriMovieMaker.Plugin.Voice"
+accessibility: public
+assembly: "YukkuriMovieMaker.Plugin.dll"
+summary: "リソースを非同期にダウンロードします。"
+declaringType:
+  id: "T:YukkuriMovieMaker.Plugin.Voice.IVoiceResource"
+parameters:
+  - name: progress
+    type:
+      type:
+        kind: named
+        name: YukkuriMovieMaker.Commons.ProgressMessage
+returns:
+  type:
+    kind: named
+    name: System.Threading.Tasks.Task
+code: |
+  Task DownloadAsync(ProgressMessage progress);
+remarks: |
+  `progress.Report(rate, message)` で進捗を報告してください。`rate` は 0.0〜1.0 です。
+  ダウンロード開始前に `DownloadStarted` イベントを発火してください。
