@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { AiSearch } from "@/components/AiSearch"
+// import { AiSearch } from "@/components/AiSearch"
 
 interface SearchBoxProps {
   searchQuery: string
@@ -41,7 +41,7 @@ export function SearchBox({
             <span className="sr-only">Clear search</span>
           </Button>
         )}
-        <AiSearch />
+        {/*<AiSearch/>*/}
       </div>
     </div>
   )
